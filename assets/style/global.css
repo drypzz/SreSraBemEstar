@@ -15,7 +15,7 @@
     --color-b: #ebd7c5;
     --color-t: #fff;
     --color-2: #e89154;
-    --color-blue: rgba(47, 85, 164, .9);
+    --color-blue: rgb(47, 85, 164);
     --color-green: #32CD74;
 }
 
@@ -247,7 +247,7 @@ body span{
     }
 
     .navbar-menu.active{
-        background-color: rgba(47, 85, 164, .9);
+        background-color: var(--color-blue);
         top: 100%;
         opacity: 1;
         transition: all 0.5s ease;
