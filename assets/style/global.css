@@ -29,7 +29,7 @@ body{
     height: 100%;
     display: block;
     overflow-x: hidden;
-    color: #808080;
+    color: #fff;
     background-color: var(--color-b);
 }
 
@@ -42,11 +42,11 @@ body{
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-2);
+    background-color: var(--color-blue);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--color-2);
+    background-color: #101010;
 }
 
 /* nav */
@@ -161,9 +161,63 @@ body{
     color: var(--color-2);
 }
 
+/* main-1 */
+
+.main-1{
+    padding: 5rem 0;
+    background: url(../gfx/cell.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100%;
+    background-position: center;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.main-1 .container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.main-1 .container .title{
+    font-size: 2.25rem;
+    line-height: 1.333;
+    color: var(--color-t);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 /* res */
 
 @media screen and (max-width: 960px){
+    /* 1 */
+    .main-1{
+        height: 100%;
+        padding: 3rem;
+        background: url(../gfx/cell.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-size: 100%;
+        background-position: center;
+    }
+
+    .main-1 .container .title{
+        font-size: 35px;
+        margin: 0;
+    }
+
+    /* nav */
     .navbar-container{
         display: flex;
         justify-content: space-between;
