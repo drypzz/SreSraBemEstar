@@ -36,13 +36,13 @@
                 </div>
                 <ul class='navbar-menu'>
                     <li class='navbar-item'>
-                        <a href='#' class='navbar-links active'>Inicio</a>
+                        <a href='index.html' class='navbar-links active'>Inicio</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='#about' class='navbar-links'>Sobre</a>
+                        <a href='about.html' class='navbar-links'>Sobre</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='#contact' class='navbar-links'>Contato</a>
+                        <a href='contact.html' class='navbar-links'>Contato</a>
                     </li>
                     <li class='navbar-item icons'>
                         <a target='_blank' href='https://www.facebook.com'><i class='fa-brands fa-facebook'></i></a>
@@ -54,9 +54,10 @@
             </div>
         </nav>
 
+        <!-- main -->
         <div class='main-1'>
             <div class='container'>
-                <h1 class="title">
+                <h1 class='title'>
                     Seja bem vindo(a) ao <span>Sr. & Sra. Bem Estar</span>
                 </h1>
             </div>
@@ -75,7 +76,7 @@
 
                     <div class='form-group'>
                         <label for=''>Número do idoso: <span>*</span></label>
-                        <input type='text' required id='nmridoso' name='nmridoso'>
+                        <input type='number' required id='nmridoso' name='nmridoso'> 
                     </div>
 
                     <div class='form-group'>
@@ -85,12 +86,12 @@
 
                     <div class='form-group'>
                         <label for=''>Idade do idoso: <span>*</span></label>
-                        <input type='text' required id='ididoso' name='ididoso'>
+                        <input type='number' required id='ididoso' name='ididoso'>
                     </div>
 
                     <div class='form-group'>
                         <label for=''>Idade do responsável: <span>*</span></label>
-                        <input type='text' required id='idr' name='idr'>
+                        <input type='number' required id='idr' name='idr'>
                     </div>
 
                     <div class='form-group'>
@@ -114,7 +115,47 @@
             </div>
         </div>
 
-
+        <!-- footer -->
+        <footer class='footer'>
+            <div class='footer-container'>
+                <div class='f-1'>
+                    <div class='footer-content'>
+                        <img src='assets/gfx/logo.png' alt=''>
+                    </div>
+                    <div class='footer-content'>
+                        <a href='#'>
+                            <i class='fa-brands fa-instagram'></i>
+                        </a>
+                        <a href='#'>
+                            <i class='fa-brands fa-youtube'></i>
+                        </a>
+                        <a href='#'>
+                            <i class='fa-brands fa-facebook'></i>
+                        </a>
+                        <a href='#'>
+                            <i class='fa-brands fa-twitter'></i>
+                        </a>
+                        <div class='footer-i'>
+                            <div>
+                                <p>Team - @elseif (Gustavo) | @function (Lincoln)</p>
+                            </div>
+                            <div>
+                                <p>Team - @# (Ash) | @isadoralb (Maria)</p>
+                            </div>
+                        </div>
+                        <div class='footer-i'>
+                            <div>
+                                <p>Website developed by - <a target='_blank' href='https://github.com/drypzz'>@elseif</a> | <a target='_blank' href='https://github.com/function404'>@function</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class='f-1'>
+                    <p>Copyright © 2022 - <span style='color: #fff;' id='date'></span>. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
 
         <!-- javascript -->
         <script src='assets/javascript/global.js'></script>

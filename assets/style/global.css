@@ -1,3 +1,7 @@
+/* font's */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 /* global */
 
 *{
@@ -12,6 +16,8 @@
 /* vars */
 
 :root{
+    --black: #000;
+    
     --color-b: #ebd7c5;
     --color-t: #fff;
     --color-2: #e89154;
@@ -46,11 +52,11 @@ body span{
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-blue);
+    background-color: var(--color-2);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #101010;
+    background-color: var(--color-blue);
 }
 
 /* nav */
@@ -61,7 +67,7 @@ body span{
 
 .navbar{
     background-color: var(--color-blue);
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--color-2);
     display: flex;
     height: 70px;
     align-items: center;
@@ -209,6 +215,7 @@ body span{
 
 .main-form h2{
     color: var(--color-2);
+    text-shadow: 1px 1px 2px black;
     font-size: 42px;
     margin-bottom: 10px;
 }
@@ -251,7 +258,7 @@ body span{
     margin-bottom: 5px;
 }
 
-.main-form .form-container .form .form-group input[type = 'text'], .main-form .form-container .form .form-group input[type = 'password']{
+.main-form .form-container .form .form-group input[type = 'text'], .main-form .form-container .form .form-group input[type = 'password'], .main-form .form-container .form .form-group input[type = 'number']{
     padding: 10px;
     outline: none;
     border: none;
@@ -284,9 +291,161 @@ body span{
     color: var(--color-t);
 }
 
+/* contact */
+.main-form .form-container .form h4{
+    color: var(--color-2);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main-form .form-container .form .form-group label[type = 'infoctt']{
+    padding-bottom: 10px;
+}
+
+.main-form .form-container .form .form-group input[type = 'textarea']{
+    padding: 20px;
+}
+
+
+/* about */
+
+.row-column{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-column .column-sobre{
+    position: relative;
+}
+
+.row-column .column-sobre .sub-column-sobre{
+    flex-direction: column;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.row-column .column-sobre .sub-column-sobre img.casal{
+    width: 100%;
+}
+
+.text-sobre{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-blue);
+    color: var(--color-t);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+}
+
+/* footer */
+
+.footer{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-blue);
+}
+
+.footer .footer-container{
+    padding: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .footer-container hr{
+    width: 50%;
+}
+
+.footer .footer-container .f-1{
+    height: 100%;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .footer-container .f-1 .footer-content{
+    margin: 0 100px;
+}
+
+.footer .footer-container .f-1 .footer-content img{
+    width: 150px;
+    border: 3px solid var(--color-2);
+}
+
+.footer .footer-container .f-1 .footer-content a i{
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: var(--color-t);
+    background-color: var(--color-green);
+    transition: all .5s ease;
+}
+
+.footer .footer-container .f-1 .footer-content a i:hover{
+    color: var(--color-green);
+    background-color: var(--color-t);
+}
+
+.footer .footer-container .f-1 .footer-content .footer-i{
+    margin: 15px 0;
+}
+
+.footer .footer-container .f-1 .footer-content .footer-i p a{
+    color: var(--color-2);
+    transition: all .5s ease;
+}
+
+.footer .footer-container .f-1 .footer-content .footer-i p a:hover{
+    color: var(--color-t);
+}
+
 /* res */
 
 @media screen and (max-width: 960px){
+    /* about */
+    
+    .row-column{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row-column .text-sobre{
+        width: 100%;
+        height: 100%;
+        text-align: justify;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* footer */
+
+    .footer .footer-container .f-1{
+        margin: 20px;
+        flex-direction: column;
+    }
+
+    .footer .footer-container hr{
+        width: 100%;
+    }
+
+    .footer .footer-container{
+        text-align: center;
+    }
+
+    .footer .footer-container .f-1 .footer-content{
+        margin: 10px 0;
+    }
 
     /* form */
 

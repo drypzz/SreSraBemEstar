@@ -16,3 +16,13 @@ document.querySelector('#mobile-menu').addEventListener('click',
         document.querySelector('.navbar-menu').classList.toggle('active')
     }
 );
+
+// date
+
+date = function(){
+    return document.querySelector('#date').innerHTML = new Date().getFullYear();
+};
+
+// callback
+
+date();
