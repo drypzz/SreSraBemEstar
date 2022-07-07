@@ -278,7 +278,7 @@ body span{
     margin-bottom: 5px;
 }
 
-.main-form .form-container .form .form-group input[type = 'text'], .main-form .form-container .form .form-group input[type = 'password'], .main-form .form-container .form .form-group input[type = 'number'], .main-form .form-container .form .form-group input[type = 'textarea']{
+.main-form .form-container .form .form-group input[type = 'text'], .main-form .form-container .form .form-group input[type = 'password'], .main-form .form-container .form .form-group input[type = 'number'], .main-form .form-container .form .form-group input[type = 'textarea'], .main-form .form-container .form .form-group input[type = 'email']{
     padding: 10px;
     outline: none;
     border: none;
