@@ -11,6 +11,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    letter-spacing: 0!important;
 }
 
 /* vars */
@@ -369,6 +370,51 @@ body span{
     font-weight: 100;
 }
 
+/* principal */
+/* .imgBx .concord{
+    bottom: 0;
+}
+
+.imgBx .concord .intro{
+    transform: none;
+    height: 100%;
+     object-fit: cover;
+    width: 100%;
+}
+
+.concord-img {
+    background: rgba(0,0,0,.2);
+    background-image: linear-gradient(0deg,rgba(0,0,0,.4) 0,transparent 60%,rgba(0,0,0,.4));
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.txt-princ{
+    margin: 0;
+    max-width: 950px;
+    padding: 70px 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+    font-size: 1.625rem;
+    font-weight: 400;
+}
+
+.txt-princ .txt-title{
+    margin: auto 0;
+    max-width: 640px;
+}
+
+.center-pixel{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+} */
+
 /* footer */
 
 .footer{
@@ -438,8 +484,27 @@ body span{
 /* res */
 
 @media screen and (max-width: 960px){
-    /* about */
+    /* principal 
+    .imgBx .concord{
+        height: 741px;
+        left: 0;
+        position: relative;
+        right: 0;
+        top: 0;
+    }
 
+    .imgBx .concord .intro{
+        transform: none;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .imgBx .concord .intro img{
+        border: 0;
+        max-width: 100%;
+    } */
+
+    /* about */
     .row-column{
         padding: 20px;
     }

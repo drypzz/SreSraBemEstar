@@ -66,32 +66,34 @@
 
         <!-- formulario -->
         <div class='main-form'>
-            <h2>Cadastre-se aqui!</h2>
+            <h2>Cadastre o idoso aqui!</h2>
             <div class='form-container'>
-                <form class='form' action='assets/php/cadUsuario.php' method='POST'>
+                <form class='form' action='#' method='POST'>
                     <div class='form-group' class='form-group'>
-                        <label for=''>Nome do completo do responsável: <span>*</span></label>
-                        <input type='text' required id='nomer' name='nomer'>
+                        <label for=''>Nome do completo do idoso: <span>*</span></label>
+                        <input type='text' required id='nmidoso' name='nmidoso'>
                     </div>
 
                     <div class='form-group'>
-                        <label for=''>Número de telefone do responsável: <span>*</span></label>
-                        <input type='text' maxlength='11' required id='foner' name='foner'> 
+                        <label for=''>Número de telefone do idoso: <span>*</span></label>
+                        <input type='text' maxlength='11' required id='idnome' name='idnome'> 
                     </div>
 
                     <div class='form-group'>
-                        <label for=''>Data de nascimento do responsável: <span>*</span></label>
-                        <input type='text' max='105' maxlength='10' required id='datar' name='datar'>
+                        <label for=''>Idade do idoso: <span>*</span></label>
+                        <input type='number' max='105' min='60' required id='ididoso' name='ididoso'>
                     </div>
 
+                    
                     <div class='form-group'>
-                        <label for=''>Email do responsável: <span>*</span></label>
-                        <input type='email' required id='emailr' name='emailr'>
+                        <label for=''>Email do idoso: <span>*</span></label>
+                        <input type='email' required id='idemail' name='idemail'>
                     </div>
 
+
                     <div class='form-group'>
-                        <label for=''>Senha: <span>*</span></label>
-                        <input type='password' required id='senhar' name='senhar'>
+                        <label for=''>Confirme a senha: <span>*</span></label>
+                        <input type='password' required id='senha' name='senha'>
                     </div>
 
                     <div class='form-group'>
