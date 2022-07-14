@@ -68,7 +68,7 @@
         <div class='main-form'>
             <h2>Cadastre-se aqui!</h2>
             <div class='form-container'>
-                <form class='form' action='assets/php/cadUsuario.php' method='POST'>
+                <form class='form' id='cadusuario' action='../assets/php/cadUsuario.php' method='POST'>
                     <div class='form-group' class='form-group'>
                         <label for=''>Nome do completo do responsável: <span>*</span></label>
                         <input type='text' required id='nomer' name='nomer'>
@@ -81,7 +81,7 @@
 
                     <div class='form-group'>
                         <label for=''>Data de nascimento do responsável: <span>*</span></label>
-                        <input type='text' max='105' maxlength='10' required id='datar' name='datar'>
+                        <input type='text' max='105' maxlength='10' required id='datanascr' name='datanascr'>
                     </div>
 
                     <div class='form-group'>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class='form-group'>
-                        <input type='submit' required value='Cadastre-se'>
+                        <input type='submit' required value='Cadastre-se' name='cadusuario'>
                     </div>
 
                     <div class='form-group'>
