@@ -360,20 +360,120 @@ body span.info-span{
 
 /* contact.html */
 
-.main .container .contact-main-content{
-    text-align: center;
-    padding: 20px;
-    margin-top: 200px;
+.contact{
+    width: 100%;
+    height: 100%;
+    margin-top: -170px;
 }
 
-.main .container .contact-main-content span.info{
+.main.contact .container .contact-main-content{
+    margin-top: 400px;
+    text-align: center;
+}
+
+.main.contact .container .contact-main-content span{
     font-size: 50px;
 }
 
-.main .container .contact-main-content p{
-    margin: 50px 0;
+.main.contact .container .contact-main-content p{
+    margin-top: 20px;
+    max-width: 800px;
+    color: white;
+}
+
+.contact .contact-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.contact .contact-container .contact-content{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.contact .contact-container .contact-content a{
+    width: 100%;
+    height: 100%;
+    margin: 0 10px;
+}
+
+.contact .contact-container .contact-content a i{
+    background: none;
+    border: 1px solid var(--primary);
+    padding: 20px;
+    color: var(--primary);
+    border-radius: 50%;
+    transition: all 600ms ease-in-out;
+}
+
+.contact .contact-container .contact-content a i:hover{
     color: #fff;
+    background-color: var(--primary);
+}
+
+.contact .contact-container .contact-content p{
+    margin: 50px 0;
+    color: var(--primary);
     user-select: none;
+    max-width: 800px;
+}
+
+.contact .contact-container .contact-content form{
+    width: 100%;
+    height: 100%;
+}
+
+.contact .contact-container .contact-content form .form-container{
+    background-color: var(--scroll);
+    padding: 50px;
+    width: 50vw;
+}
+
+.contact .contact-container .contact-content form .form-container .form-content{
+    margin: 50px 0;
+}
+
+.contact .contact-container .contact-content form .form-container .form-content label{
+    display: block;
+    color: var(--primary);
+    text-align: left;
+}
+
+.contact .contact-container .contact-content form .form-container .form-content input[type = 'text'], .contact .contact-container .contact-content form .form-container .form-content input[type = 'email'], .contact .contact-container .contact-content form .form-container .form-content textarea{
+    width: 100%;
+    resize: none;
+    outline: none;
+    padding: 10px;
+    color: var(--primary);
+    border: none;
+    background: none;
+    border-bottom: 1px solid var(--primary);
+    transition: all 600ms ease-in-out;
+}
+
+.contact .contact-container .contact-content form .form-container .form-content input[type = 'text']:focus, .contact .contact-container .contact-content form .form-container .form-content input[type = 'email']:focus, .contact .contact-container .contact-content form .form-container .form-content textarea:focus{
+    border: 1px solid var(--primary);
+    color: #fff;
+}
+
+.contact .contact-container .contact-content form .form-container .form-content input[type = 'submit']{
+    border: 1px solid var(--primary);
+    background: none;
+    padding: 10px;
+    width: 50%;
+    color: var(--primary);
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 600ms ease-in-out;
+}
+
+.contact .contact-container .contact-content form .form-container .form-content input[type = 'submit']:hover{
+    background-color: var(--primary);
+    color: #fff;
 }
 
 /* footer */
@@ -405,25 +505,23 @@ footer .footer-container .footer-content{
         padding: 3px;
     }
 
-    /* skills */
-
-    .skill-bars{
-        width: 90vw;
-        margin: 0 auto;
-    }
-
     /* contact.html */
 
     .contact{
-        margin-top: -50px;
+        margin-top: -20px;
     }
 
-    .progress-line span::after{
-        right: -37px;
+    .contact .contact-container .contact-content form .form-container{
+        width: 90vw;
     }
 
-    .progress-line span::before{
-        right: -7px;
+    .main.contact .container .contact-main-content{
+        margin-top: 200px;
+        margin-bottom: 50px;
+    }
+
+    .contact .contact-container .contact-content p{
+        width: 100%;
     }
 
     /* about */
