@@ -9,8 +9,8 @@
     /* colors */
     --primary: #32cd74;
     
-    --secondary: #32cd749a;
-    --tertiary: #32cd7586;
+    --secondary: #5555557a;
+    --tertiary: #1d3d2bc7;
 
     --quarto: #32cd7496;
 
@@ -37,7 +37,7 @@ html{
 body{
     height: 100%;
     overflow-x: hidden!important;
-    background-color: var(--body);
+    background-color: #f4f4f4;
 }
 
 img, svg{
@@ -277,7 +277,7 @@ body span.info-span{
 
 .main .container .main-content img{
     width: 200px;
-    background-color: var(--body);
+    /* background-color: var(--body); */
     padding: 5px;
 }
 
@@ -333,6 +333,7 @@ body span.info-span{
 
 .about .about-container .about-content p{
     max-width: 1000px;
+    color: #000;
 }
 
 .about .about-container .about-content .about-imgs{
@@ -402,21 +403,22 @@ body span.info-span{
 
 .contact .contact-container .contact-content a i{
     background: none;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--scroll);
     padding: 20px;
-    color: var(--primary);
+    color: var(--scroll);
     border-radius: 50%;
     transition: all 600ms ease-in-out;
 }
 
 .contact .contact-container .contact-content a i:hover{
     color: #fff;
+    border-color: var(--primary);
     background-color: var(--primary);
 }
 
 .contact .contact-container .contact-content p{
     margin: 50px 0;
-    color: var(--primary);
+    color: var(--scroll);
     user-select: none;
     max-width: 800px;
 }
@@ -427,7 +429,8 @@ body span.info-span{
 }
 
 .contact .contact-container .contact-content form .form-container{
-    background-color: var(--scroll);
+    background-color: rgba(13, 14, 15, 0.103);
+    border-radius: 5px;
     padding: 50px;
     width: 50vw;
 }
@@ -438,7 +441,7 @@ body span.info-span{
 
 .contact .contact-container .contact-content form .form-container .form-content label{
     display: block;
-    color: var(--primary);
+    color: var(--scroll);
     text-align: left;
 }
 
@@ -447,24 +450,24 @@ body span.info-span{
     resize: none;
     outline: none;
     padding: 10px;
-    color: var(--primary);
+    color: var(--scroll);
     border: none;
     background: none;
-    border-bottom: 1px solid var(--primary);
+    border-bottom: 1px solid var(--scroll);
     transition: all 600ms ease-in-out;
 }
 
 .contact .contact-container .contact-content form .form-container .form-content input[type = 'text']:focus, .contact .contact-container .contact-content form .form-container .form-content input[type = 'email']:focus, .contact .contact-container .contact-content form .form-container .form-content textarea:focus{
-    border: 1px solid var(--primary);
-    color: #fff;
+    border: 1px solid var(--scroll);
+    color: var(--primary);
 }
 
 .contact .contact-container .contact-content form .form-container .form-content input[type = 'submit']{
-    border: 1px solid var(--primary);
+    border: 1px solid var(--scroll);
     background: none;
     padding: 10px;
     width: 50%;
-    color: var(--primary);
+    color: var(--scroll);
     outline: none;
     cursor: pointer;
     border-radius: 5px;
@@ -472,6 +475,7 @@ body span.info-span{
 }
 
 .contact .contact-container .contact-content form .form-container .form-content input[type = 'submit']:hover{
+    border-color: var(--primary);
     background-color: var(--primary);
     color: #fff;
 }
