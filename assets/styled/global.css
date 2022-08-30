@@ -9,8 +9,8 @@
     /* colors */
     --primary: #32cd74;
     
-    --secondary: #5555557a;
-    --tertiary: #1d3d2bc7;
+    --secondary: #0000007a;
+    --tertiary: #ffffff7a;
 
     --quarto: #32cd7496;
 
@@ -67,7 +67,7 @@ body span.info-span-content{
     font-size: 0.875rem;
     line-height: 1.5;
     display: block;
-    color: #adacac;
+    color: #757575;
     text-transform: uppercase;
     letter-spacing: .3125rem;
     text-align: center;
@@ -78,7 +78,7 @@ body span.info{
     background: var(--body);
     font-weight: 900;
     font-size: 35px;
-    color: var(--quarto);
+    color: #fff;
     padding: 0px 25px 0px 25px;
     border-radius: 5px;
     user-select: none;
@@ -86,7 +86,7 @@ body span.info{
 }
 
 body span.info-span{
-    color: var(--primary);
+    color: #fff;
     background-color: var(--body);
     border-radius: 5px;
     padding: 5px;
@@ -123,7 +123,7 @@ body span.info-span{
 }
 
 /* scroll */
-
+/* 
 ::-webkit-scrollbar {
     width: 0.7em;
     height: 0.5em;
@@ -136,7 +136,7 @@ body span.info-span{
 
 ::-webkit-scrollbar-track {
     background-color: var(--scroll);
-}
+} */
 
 /* nav */
 
@@ -216,16 +216,16 @@ body span.info-span{
 }
 
 .navbar-links.active{
-    color: var(--primary);
+    color: var(--body);
     transition: all .5s ease;
-    background-color: var(--body);
+    background-color: #fff;
     border-radius: 5px;
 }
 
 .navbar-links:hover{
-    background-color: var(--body);
+    background-color: #fff;
     border-radius: 5px;
-    color: var(--primary);
+    color: var(--body);
     transition: all .5s ease-out;
 }
 
@@ -233,7 +233,7 @@ body span.info-span{
 
 .main{
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 40%),url(../gfx/cell.png);
+    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 90%),url(../gfx/cell.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -242,7 +242,7 @@ body span.info-span{
 }
 
 .main.contact{
-    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 40%),url(../gfx/veios.webp);
+    background-image: linear-gradient(112deg,var(--secondary) 1%,var(--tertiary) 90%),url(../gfx/swat.jpg);
 }
 
 .main .container{
@@ -262,7 +262,7 @@ body span.info-span{
 }
 
 .main .container .main-content h1{
-    color: var(--body);
+    color: #fff;
     user-select: none;
     font-weight: 900;
     font-size: 50px;
@@ -294,15 +294,15 @@ body span.info-span{
 }
 
 .main .container .main-content .main-btn .btn a{
-    border: 1px solid var(--body);
-    color: var(--body);
+    border: 1px solid #fff;
+    color: #fff;
     border-radius: 5px;
     padding: 10px 15px;
     transition: all .5s ease-in-out;
 }
 
 .main .container .main-content .main-btn .btn a:hover{
-    background-color: var(--body);
+    background-color: #fff;
     color: var(--primary);
 }
 
@@ -327,13 +327,14 @@ body span.info-span{
 }
 
 .about .about-container .about-content{
-    color: var(--primary);
+    color: var(--body);
     margin: 20px 0;
 }
 
 .about .about-container .about-content p{
     max-width: 1000px;
-    color: #000;
+    font-size: 20px;
+    text-align: justify;
 }
 
 .about .about-container .about-content .about-imgs{
@@ -351,9 +352,9 @@ body span.info-span{
 
 .about .about-container .about-content .about-imgs .about-imgs-content img{
     background: var(--body);
-    box-shadow: #32cd7496;
     display: block;
     width: 150px;
+    margin-bottom: 10px;
     border: 3px solid var(--primary);
     border-radius: 50%;
     box-shadow: 0 0 30px rgb(0 0 0 / 50%);
@@ -480,12 +481,22 @@ body span.info-span{
     color: #fff;
 }
 
+/* register.html */
+.contact .contact-container .contact-content .form-content .register-links{
+    color: var(--body);
+    transition: all 600ms ease-in-out;
+}
+
+.contact .contact-container .contact-content .form-content .register-links:hover{
+    color: var(--primary);
+}
+
 /* footer */
 
 footer{
     width: 100%;
     height: 100%;
-    background: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 40%);
+    background-color: var(--body);
 }
 
 footer .footer-container{
@@ -507,6 +518,10 @@ footer .footer-container .footer-content{
 
     body span.info{
         padding: 3px;
+    }
+
+    .main, .main.contact{
+        background-size: cover;
     }
 
     /* contact.html */
@@ -536,6 +551,7 @@ footer .footer-container .footer-content{
     
     .about .about-container .about-content p{
         max-width: 100%;
+        text-align: left;
         margin: 0 auto;
     }
 
@@ -614,6 +630,7 @@ footer .footer-container .footer-content{
         padding: 10px;
         border-radius: 5px;
         background-color: var(--scroll);
+        cursor: pointer;
     }
 
     .navbar-toggle .bar{
