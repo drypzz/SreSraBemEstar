@@ -398,7 +398,7 @@ body span.info-span{
 
 .register-main .register-container .register-content-buttons{
     width: 100%;
-    margin: 50px 0;
+    margin: 20px 0;
     height: 100%;
     display: flex;
     align-items: center;
@@ -422,6 +422,78 @@ body span.info-span{
 .register-main .register-container .register-content-buttons .btn a:hover{
     background-color: var(--primary);
     color: #fff;
+}
+
+.register-main .register-container .register-content-buttons .btn a.active-btn{
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.register-main .register-container .register-container-items{
+    margin: 20px 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.register-main .register-container .register-container-items .item-cards{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 600ms ease-in-out;
+}
+
+.register-main .register-container .register-container-items .item-cards.focus{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.register-main .register-container .register-container-items .item-cards form{
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.register-main .register-container .register-container-items .item-cards form p{
+    margin-bottom: 5px;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container{
+    padding: 50px;
+    margin: 0 auto;
+    width: 50%;
+    background-color: #e6e6e6d3;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group{
+    margin: 20px 0;
+    text-align: left;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group label{
+    display: block;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input{
+    width: 100%;
+    border: none;
+    padding: 10px;
+    background-color: #ffffffb6;
+    outline: none;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input[type = 'submit']{
+    background: none;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    cursor: pointer;
+    box-shadow: 5px 5px 20px rgb(0 0 0 / 20%);
+    transition: all 600ms ease-in-out;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input[type = 'submit']:hover{
+    color: #fff;
+    text-shadow: 2px 2px rgb(0 0 0 / 30%);
+    background-color: var(--primary);
 }
 
 /* footer */
@@ -453,27 +525,8 @@ footer .footer-container .footer-content{
         padding: 3px;
     }
 
-    .main, .main.contact{
+    .main{
         background-size: cover;
-    }
-
-    /* contact.html */
-
-    .contact{
-        margin-top: -20px;
-    }
-
-    .contact .contact-container .contact-content form .form-container{
-        width: 90vw;
-    }
-
-    .main.contact .container .contact-main-content{
-        margin-top: 200px;
-        margin-bottom: 50px;
-    }
-
-    .contact .contact-container .contact-content p{
-        width: 100%;
     }
 
     /* about */
