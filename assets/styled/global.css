@@ -532,8 +532,11 @@ footer .footer-container .footer-content{
         padding: 3px;
     }
 
-    .main{
+    .main, .main.register{
         background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
 
     /* register.html */
