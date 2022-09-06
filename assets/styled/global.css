@@ -407,24 +407,25 @@ body span.info-span{
 }
 
 .register-main .register-container .register-content-buttons .btn{
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
-.register-main .register-container .register-content-buttons .btn a{
+.register-main .register-container .register-content-buttons .btn button{
     border: 1px solid var(--primary);
     border-radius: 5px;
+    cursor: pointer;
     background: none;
     color: var(--primary);
-    padding: 20px;
+    padding: 20px 50px;
     transition: all 600ms ease-in-out;
 }
 
-.register-main .register-container .register-content-buttons .btn a:hover{
+.register-main .register-container .register-content-buttons .btn button:hover{
     background-color: var(--primary);
     color: #fff;
 }
 
-.register-main .register-container .register-content-buttons .btn a.active-btn{
+.register-main .register-container .register-content-buttons .btn button.active-btn{
     background-color: var(--primary);
     color: #fff;
 }
@@ -437,13 +438,12 @@ body span.info-span{
 }
 
 .register-main .register-container .register-container-items .item-cards{
-    opacity: 0;
     pointer-events: none;
-    transition: opacity 600ms ease-in-out;
+    display: none;
 }
 
 .register-main .register-container .register-container-items .item-cards.focus{
-    opacity: 1;
+    display: block;
     pointer-events: auto;
 }
 
