@@ -4,7 +4,7 @@
         <meta charset='UTF-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
-        <title>Cadastro - Sr. & Sra. Bem Estar</title>
+        <title>Início - Sr. & Sra. Bem Estar</title>
 
         <link rel='stylesheet' href='../styled/global.css'>
 
@@ -36,75 +36,60 @@
                         <a href='../../index.html' class='navbar-links'>Pagina Inicial</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='contact.html' class='navbar-links'>Contato</a>
+                        <a href='#' class='navbar-links'>Contato</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='#' class='navbar-links active'>Cadastre-se</a>
+                        <a href='../pages/register.html' class='navbar-links active'>Cadastre-se</a>
                     </li>
                 </ul>
             </div> <!-- container -->
         </nav> <!-- navbar -->
-        
+
         <!-- main -->
-        <div class='main contact'>
+        <div class='main register'>
             <div class='container'>
-                <div class='contact-main-content'>
-                    <span class='info'>CADASTRO !</span>
-                    <p>Faça seu cadastro por aqui.</p>
+                <div class='main-content register'>
+                    <h1>CADASTRO !</h1>
+                    <p>Escolha um tipo de cadastro.</p>
                 </div>
             </div> <!-- container -->
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' id='wave'><path fill='#F4F4F4' fill-opacity='1' d='M0,96L80,90.7C160,85,320,75,480,96C640,117,800,171,960,165.3C1120,160,1280,96,1360,64L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'></path></svg>
+            
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' id='wave'><path fill='#f4f4f4' fill-opacity='1' d='M0,96L80,90.7C160,85,320,75,480,96C640,117,800,171,960,165.3C1120,160,1280,96,1360,64L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'></path></svg>
         </div> <!-- main -->
 
-        <!-- form -->
-        <div class='contact'>
-            <div class='contact-container'>
-                <span class='info-span-content'>CADASTRE-SE</span>
-                <div class='contact-content'>
-                    <p>Faça o cadastro do reponsável por aqui.</p>
+
+        <div class='register-main'>
+            <div class='register-container'>
+                <span class='info-span-content'>TIPOS DE CADASTRO</span>
+                <div class='register-content-buttons'>
+                    <div class='btn'>
+                        <a href='#'>Paciente</a>
+                    </div>
+                    <div class='btn'>
+                        <a href='#'>Responsavel</a>
+                    </div>
                 </div>
-                <div class='contact-content'>
-                    <form action=''>
-                        <div class='form-container'>
-                            <div class='form-content'>
-                                <label for=''>Nome:</label>
-                                <input type='text'>
+
+                <div class='register-container-items'>
+
+                    <div class='item-cards'>
+                        <p>Cadastro de paciente</p>
+                        <form action='#' method='post'>
+                            <div class='form-container'>
+                                <div class='form-group'>
+                                    <label for='name'>Nome:</label>
+                                    <input type='text' id='name' name='name'>
+                                </div>
                             </div>
-                            <div class='form-content'>
-                                <label for=''>Email:</label>
-                                <input type='email'>
-                            </div>
-                            <div class='form-content'>
-                                <label for=''>Número de Telefone:</label>
-                                <input type='text'>
-                            </div>
-                            <div class='form-content'>
-                                <label for=''>Idade do Responsável:</label>
-                                <input type='text'>
-                            </div>
-                            <div class='form-content'>
-                                <label for=''>Senha:</label>
-                                <input type='text'>
-                            </div>
-                            <div class='form-content'>
-                                <label for=''>Confirmar Senha:</label>
-                                <input type='text'>
-                            </div>
-                            <div class='form-content'>
-                                <input type='submit' value='Enviar'>
-                            </div>
-                            <div class='form-content'>
-                                <a href='login.html' class='register-links' >Ja tem uma conta? Faça o Login</a>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+
                 </div>
-            </div>  <!-- container -->
-        </div> <!-- form -->
+
+            </div>
+        </div>
 
 
-
-        <!-- footer -->
         <footer>
             <div class='footer-container'>
                 <div class='footer-content'>
@@ -112,7 +97,7 @@
                 </div>
             </div>
         </footer>
-        
+    
         <!-- jquery -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
         <script>
@@ -120,10 +105,8 @@
                 $('.loader-container').fadeOut(1000);
             });
         </script>
-        
-        <script src='../javascript/navbar.js'></script>
-        <script src='../javascript/functions.js'></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+        <script src='assets/javascript/navbar.js'></script>
+        <script src='assets/javascript/functions.js'></script>
     </body>
 </html>
