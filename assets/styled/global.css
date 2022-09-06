@@ -71,6 +71,7 @@ body span.info-span-content{
     display: block;
     color: #757575;
     text-transform: uppercase;
+    text-shadow: 0px 10px rgb(0 0 0 / 20%);
     letter-spacing: .3125rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -407,26 +408,29 @@ body span.info-span{
 }
 
 .register-main .register-container .register-content-buttons .btn{
-    margin: 0 10px;
+    margin: 10px;
 }
 
 .register-main .register-container .register-content-buttons .btn button{
-    border: 1px solid var(--primary);
+    border: 1px solid var(--body);
+    box-shadow: 5px 5px 20px rgb(0 0 0 / 20%);
     border-radius: 5px;
     cursor: pointer;
     background: none;
-    color: var(--primary);
+    color: var(--body);
     padding: 20px 50px;
     transition: all 600ms ease-in-out;
 }
 
 .register-main .register-container .register-content-buttons .btn button:hover{
     background-color: var(--primary);
+    border-color: var(--primary);
     color: #fff;
 }
 
 .register-main .register-container .register-content-buttons .btn button.active-btn{
     background-color: var(--primary);
+    border-color: var(--primary);
     color: #fff;
 }
 
@@ -440,6 +444,10 @@ body span.info-span{
 .register-main .register-container .register-container-items .item-cards{
     pointer-events: none;
     display: none;
+    -webkit-transition: display 600ms ease-in-out;
+    -moz-transition: display 600ms ease-in-out;
+    -ms-transition: display 600ms ease-in-out;
+    transition: display 600ms ease-in-out;
 }
 
 .register-main .register-container .register-container-items .item-cards.focus{
@@ -492,7 +500,6 @@ body span.info-span{
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input[type = 'submit']:hover{
     color: #fff;
-    text-shadow: 2px 2px rgb(0 0 0 / 30%);
     background-color: var(--primary);
 }
 
@@ -527,6 +534,26 @@ footer .footer-container .footer-content{
 
     .main{
         background-size: cover;
+    }
+
+    /* register.html */
+
+    .register-main{
+        margin-top: -50px;
+    }
+
+    .main .container .main-content.register h1{
+        transform: scale(.8);
+        width: 100%;
+    }
+
+    .register-main .register-container{
+        padding: 20px;
+    }
+
+    .register-main .register-container .register-container-items .item-cards form .form-container{
+        width: 100%;
+        padding: 20px;
     }
 
     /* about */
