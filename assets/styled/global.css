@@ -472,7 +472,8 @@ body span.info-span{
     height: 100%;
 }
 
-.register-main .register-container .register-container-items .item-cards form p{
+.register-main .register-container .register-container-items .item-cards form h2{
+    text-shadow: 0px 5px rgb(0 0 0 / 20%);
     margin-bottom: 5px;
 }
 

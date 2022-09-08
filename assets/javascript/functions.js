@@ -1,5 +1,5 @@
 
-// function
+// function's
 
 date = function(){
     return document.querySelector('#date').innerHTML = new Date().getFullYear();
