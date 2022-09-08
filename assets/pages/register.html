@@ -63,16 +63,16 @@
                 <span class='info-span-content'>TIPOS DE CADASTRO</span>
                 <div class='register-content-buttons'>
                     <div class='btn'>
-                        <button class='button-control arrow-left active-btn'>Paciente</button>
+                        <button onclick="location.href='#paciente'" class='button-control arrow-left'>Paciente</button>
                     </div>
                     <div class='btn'>
-                        <button class='button-control'>Responsavel</button>
+                        <button onclick="location.href='#responsavel'" class='button-control active-btn'>Responsavel</button>
                     </div>
                 </div>
 
                 <div class='register-container-items'>
 
-                    <div class='item-cards focus'>
+                    <div id='paciente' class='item-cards'>
                         <form method='post'>
                             <p>Cadastro de Paciente.</p>
                             <div class='form-container'>
@@ -97,7 +97,7 @@
                                     <input type='text' required id='cpf' name='cpf'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='password'>Senha:<span style='color: red;'>*</span></label>
+                                    <label for='password'>Criar Senha:<span style='color: red;'>*</span></label>
                                     <input type='password' required id='password' name='password'>
                                 </div>
                                 <div class='form-group'>
@@ -111,32 +111,32 @@
                         </form>
                     </div>
 
-                    <div class='item-cards'>
+                    <div id='responsavel' class='item-cards top focus'>
                         <form method='post'>
                             <p>Cadastro de Responsável.</p>
-                            <div class='form-container'>
+                            <div class='form-container top'>
                                 <div class='form-group'>
-                                    <label for='nameR'>Nome do Responsavel:<span style='color: red;'>*</span></label>
+                                    <label for='nameR'>Nome do Responsável:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='nameR' name='nameR'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='emailR'>Email do Responsavel:<span style='color: red;'>*</span></label>
+                                    <label for='emailR'>Email do Responsável:<span style='color: red;'>*</span></label>
                                     <input type='email' required id='emailR' name='emailR'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='dateR'>Data de nascimento do Responsavel:<span style='color: red;'>*</span></label>
+                                    <label for='dateR'>Data de nascimento do Responsável:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='dateR' name='dateR'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='phoneR'>Telefone do Responsavel:<span style='color: red;'>*</span></label>
+                                    <label for='phoneR'>Telefone do Responsável:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='phoneR' name='phoneR'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='cpfR'>CPF do Responsavel:<span style='color: red;'>*</span></label>
+                                    <label for='cpfR'>CPF do Responsável:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='cpfR' name='cpfR'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='passwordR'>Senha:<span style='color: red;'>*</span></label>
+                                    <label for='passwordR'>Criar Senha:<span style='color: red;'>*</span></label>
                                     <input type='password' required id='passwordR' name='passwordR'>
                                 </div>
                                 <div class='form-group'>
@@ -144,7 +144,7 @@
                                     <input type='password' required id='passwordCR' name='passwordCR'>
                                 </div>
                                 <div class='form-group'>
-                                    <input type='submit' value='Cadastrar Responsavel'>
+                                    <input type='submit' value='Cadastrar Responsável'>
                                 </div>
                             </div>
                         </form>

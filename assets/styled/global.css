@@ -95,6 +95,20 @@ body span.info-span{
     padding: 5px;
 }
 
+/* anim */
+
+@keyframes loader {
+    to{
+        transform: rotate(500deg);
+    }
+}
+
+@keyframes animScaleGlobal {
+    100%{
+        transform: scaleX(1);
+    }
+}
+
 /* loader */
 
 .loader-container{
@@ -117,12 +131,6 @@ body span.info-span{
     border-radius: 50%;
     border-top-color: transparent;
     animation: loader 1.2s linear infinite;
-}
-
-@keyframes loader {
-    to{
-        transform: rotate(500deg);
-    }
 }
 
 /* scroll */
@@ -443,15 +451,18 @@ body span.info-span{
 
 .register-main .register-container .register-container-items .item-cards{
     pointer-events: none;
-    display: none;
-    -webkit-transition: display 600ms ease-in-out;
-    -moz-transition: display 600ms ease-in-out;
-    -ms-transition: display 600ms ease-in-out;
-    transition: display 600ms ease-in-out;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 600ms ease-in-out;
+}
+
+.register-main .register-container .register-container-items .item-cards.top{
+    margin-top: -827px;
 }
 
 .register-main .register-container .register-container-items .item-cards.focus{
-    display: block;
+    opacity: 1;
+    animation: animScaleGlobal 900ms cubic-bezier(1, 0, 0.5, 1) forwards;
     pointer-events: auto;
 }
 
@@ -472,6 +483,10 @@ body span.info-span{
     background-color: #e6e6e6d3;
 }
 
+.register-main .register-container .register-container-items .item-cards form .form-container.top{
+    background-color: #00000021;
+}
+
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group{
     margin: 20px 0;
     text-align: left;
@@ -485,8 +500,16 @@ body span.info-span{
     width: 100%;
     border: none;
     padding: 10px;
-    background-color: #ffffffb6;
+    background-color: #ffffff9d;
     outline: none;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input:focus{
+    border: 1px solid var(--primary);
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input:valid{
+    border: 1px solid var(--primary);
 }
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input[type = 'submit']{
@@ -557,6 +580,10 @@ footer .footer-container .footer-content{
     .register-main .register-container .register-container-items .item-cards form .form-container{
         width: 100%;
         padding: 20px;
+    }
+
+    .register-main .register-container .register-container-items .item-cards.top{
+        margin-top: -768px;
     }
 
     /* about */
