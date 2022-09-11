@@ -77,6 +77,11 @@
                         <form action='../php/register.php?type=paciente' method='post'>
                             <h2>Cadastro de Paciente.</h2>
                             <div class='form-container'>
+                                <?php if (isset($_GET['error'])){ ?>
+                                    <div class='error'>
+                                        <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['error'] ?></span>
+                                    </div>
+                                <?php } ?>
                                 <div class='form-group'>
                                     <label for='name'>Nome do Paciente:<span style='color: red;'>*</span></label>
                                     <input type='text' required placeholder='Nome' id='name' name='name'>
@@ -156,7 +161,7 @@
             </div>
         </div>
 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#222222" fill-opacity="1" d="M0,192L1440,160L1440,320L0,320Z"></path></svg>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><path fill='#222222' fill-opacity='1' d='M0,192L1440,160L1440,320L0,320Z'></path></svg>
         <footer>
             <div class='footer-container'>
                 <div class='footer-content'>
