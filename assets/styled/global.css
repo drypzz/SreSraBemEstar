@@ -493,6 +493,15 @@ body span.info-span{
     padding: 10px;
 }
 
+.register-main .register-container .register-container-items .item-cards form .form-container .success{
+    margin: 20px 0;
+    width: 100%;
+    color: green;
+    border-radius: 5px;
+    background-color: rgba(0, 255, 0, .1);
+    padding: 10px;
+}
+
 .register-main .register-container .register-container-items .item-cards form .form-container .error span{
     font-family: sans-serif;
 }

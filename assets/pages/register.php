@@ -80,11 +80,17 @@
                         <form action='../php/register.php?type=paciente' method='post'>
                             <h2>Cadastro de Paciente.</h2>
                             <div class='form-container'>
-                                <?php if (isset($_GET['error'])){ ?>
-                                    <div class='error'>
-                                        <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['error'] ?></span>
-                                    </div>
-                                <?php } ?>
+                                <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
+                                    <?php if($_GET['type'] == 'succes'){ ?>
+                                        <div class='success'>
+                                            <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
+                                        </div>
+                                    <?php }else{; ?>
+                                        <div class='error'>
+                                            <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
+                                        </div>
+                                    <?php }; ?>
+                                <?php }; ?>
                                 <div class='form-group'>
                                     <label for='name'>Nome do Paciente:<span style='color: red;'>*</span></label>
                                     <input type='text' required placeholder='Nome' id='name' name='name'>
@@ -124,11 +130,17 @@
                         <form action='../php/register.php?type=responsavel' method='post'>
                             <h2>Cadastro de Responsável.</h2>
                             <div class='form-container top'>
-                                <?php if (isset($_GET['error'])){ ?>
-                                    <div class='error'>
-                                        <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['error'] ?></span>
-                                    </div>
-                                <?php } ?>
+                                <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
+                                    <?php if($_GET['type'] == 'succes'){ ?>
+                                        <div class='success'>
+                                            <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
+                                        </div>
+                                    <?php }else{; ?>
+                                        <div class='error'>
+                                            <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
+                                        </div>
+                                    <?php }; ?>
+                                <?php }; ?>
                                 <div class='form-group'>
                                     <label for='nameR'>Nome do Responsável:<span style='color: red;'>*</span></label>
                                     <input type='text' required placeholder='Nome' id='nameR' name='nameR'>

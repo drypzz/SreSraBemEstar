@@ -8,8 +8,12 @@
         return $str;
     };
 
-    function infoError($page, $error){
-        return header('Location: '.$page.'?error='.$error);
+    function infoBox($page, $msg, $type){
+        if($type === 'success'){
+            return header('Location: '.$page.'?info='.$msg.'&type=success');
+        }else{
+            return header('Location: '.$page.'?info='.$msg.'&type=error');
+        };
     };
 
     if( ($_GET['type'] === 'paciente') ){
@@ -23,28 +27,28 @@
             $passwordC = checkString($_POST['passwordC']);
             
             if(empty($date) && empty($phone) && empty($cpf)){
-                infoError('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.');
+                infoBox('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.');
             }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                infoError('../pages/register.php', 'Insira um email valido.');
+                infoBox('../pages/register.php', 'Insira um email valido.');
             }else if($passwordC === $password){
                 $query = $pdo->prepare('SELECT * FROM paciente WHERE email = ?');
                 if($query->execute(array($email))){
                     if(!$query->rowCount() > 0){
                         $sql = $pdo->prepare("INSERT INTO paciente(`id`, `nome`, `email`, `data`, `telefone`, `cpf`, `senha`) VALUES(NULL, ?, ?, ?, ?, ?, ?)");
                         $sql->execute(array($name, $email, $date, $phone, $cpf, md5($password)));
-                        header('Location: ../../index.html');
+                        infoBox('../pages/register.php', 'Cadastro efetuado com sucesso.', 'success');
                         exit();
                     }else{
-                        infoError('../pages/register.php', 'Email ja cadastrado.');
+                        infoBox('../pages/register.php', 'Email ja cadastrado.');
                         exit();
                     };
                 };
             }else{
-                infoError('../pages/register.php', 'Senhas não coincidem');
+                infoBox('../pages/register.php', 'Senhas não coincidem');
                 exit();
             };
         }else{
-            infoError('../pages/register.php', 'Insira todas as informações');
+            infoBox('../pages/register.php', 'Insira todas as informações');
             exit();
         };
     }else{
@@ -58,9 +62,9 @@
             $passwordC = checkString($_POST['passwordCR']);
 
             if(empty($date) && empty($phone) && empty($cpf)){
-                infoError('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.');
+                infoBox('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.');
             }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                infoError('../pages/register.php', 'Insira um email valido.');
+                infoBox('../pages/register.php', 'Insira um email valido.');
             }else if($passwordC === $password){
                 $query = $pdo->prepare('SELECT * FROM responsavel WHERE email = ?');
                 if($query->execute(array($email))){
@@ -70,16 +74,16 @@
                         header('Location: ../../index.html');
                         exit();
                     }else{
-                        infoError('../pages/register.php', 'Email ja cadastrado.');
+                        infoBox('../pages/register.php', 'Email ja cadastrado.');
                         exit();
                     };
                 };
             }else{
-                infoError('../pages/register.php', 'Senhas não coincidem');
+                infoBox('../pages/register.php', 'Senhas não coincidem');
                 exit();
             };
         }else{
-            infoError('../pages/register.php', 'Insira todas as informações');
+            infoBox('../pages/register.php', 'Insira todas as informações');
             exit();
         };
     };
