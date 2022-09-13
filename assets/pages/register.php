@@ -35,11 +35,14 @@
                     <li class='navbar-item'>
                         <a href='../../index.html' class='navbar-links'>Pagina Inicial</a>
                     </li>
+                    <li class='navbar-item'>
+                        <a href='../../index.html#about' class='navbar-links'>Sobre</a>
+                    </li>
                     <!-- <li class='navbar-item'>
                         <a href='#' class='navbar-links'>Contato</a>
                     </li> -->
                     <li class='navbar-item'>
-                        <a href='../pages/register.html' class='navbar-links active'>Cadastre-se</a>
+                        <a href='#' class='navbar-links active'>Cadastre-se</a>
                     </li>
                 </ul>
             </div> <!-- container -->
@@ -121,6 +124,11 @@
                         <form action='../php/register.php?type=responsavel' method='post'>
                             <h2>Cadastro de Responsável.</h2>
                             <div class='form-container top'>
+                                <?php if (isset($_GET['error'])){ ?>
+                                    <div class='error'>
+                                        <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['error'] ?></span>
+                                    </div>
+                                <?php } ?>
                                 <div class='form-group'>
                                     <label for='nameR'>Nome do Responsável:<span style='color: red;'>*</span></label>
                                     <input type='text' required placeholder='Nome' id='nameR' name='nameR'>

@@ -3,7 +3,7 @@
         $database = array(
             'host' => 'localhost',
             'port' => '3306',
-            'dbname' => 'pi',
+            'dbname' => '',
             'user' => 'root',
             'password' => '',
         ),
