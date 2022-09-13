@@ -3,7 +3,7 @@
 </div>
 
 <div align='center'>
-    <p><strong>Ultima atualização:</strong> 11 Set. 2022<br><strong>Última versão:</strong> 1.0.0</p>
+    <p><strong>Ultima atualização:</strong> 13 Set. 2022<br><strong>Última versão:</strong> 1.0.0</p>
 </div>
 
 <div align='center'>
