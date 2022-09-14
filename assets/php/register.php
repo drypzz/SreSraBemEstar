@@ -35,17 +35,22 @@
             }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                 infoBox('../pages/register.php', 'Insira um email valido.', 'nao', 'error');
             }else if($passwordC === $password){
-                $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ?');
+                $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso');
                 if($query->execute(array($cpf))){
-                    if(!$query->rowCount() > 0){
-                        $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dt_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, NULL, ?)");
-                        $sql->execute(array($name, $email, $date, $phone, $cpf, md5($password)));
-                        infoBox('../pages/register.php', 'Cadastro efetuado com sucesso.', 'nao', 'success');
-                        exit();
+                    if($query->execute(array($email))){
+                        if(!$query->rowCount() > 0){
+                            $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, NULL, ?)");
+                            $sql->execute(array($name, $email, $date, $phone, $cpf, md5($password)));
+                            infoBox('../pages/register.php', 'Cadastro efetuado com sucesso.', 'nao', 'success');
+                            exit();
+                        };
                     }else{
-                        infoBox('../pages/register.php', 'CPF ja cadastrado.', 'nao', 'error');
+                        infoBox('../pages/register.php', 'Email ja cadastrado.', 'nao', 'error');
                         exit();
                     };
+                }else{
+                    infoBox('../pages/register.php', 'CPF ja cadastrado.', 'nao', 'error');
+                    exit();
                 };
             }else{
                 infoBox('../pages/register.php', 'Senhas não coincidem', 'nao', 'error');
@@ -70,17 +75,25 @@
             }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                 infoBox('../pages/register.php', 'Insira um email valido.', 'sim', 'error');
             }else if($passwordC === $password){
-                $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ?');
+                $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ? AND Email_Resp');
                 if($query->execute(array($cpf))){
-                    if(!$query->rowCount() > 0){
-                        $sql = $pdo->prepare("INSERT INTO cadresponsavel(`CPF_Resp`, `Nome_Resp`, `Email_Resp`, `Dat_Nasc_Resp`, `Telefone_Resp`, `Senha_Resp`) VALUES(?, ?, ?, ?, ?, ?)");
-                        $sql->execute(array($cpf, $name, $email, $date, $phone, md5($password)));
-                        infoBox('../pages/register.php', 'Cadastro efetuado com sucesso.', 'sim', 'success');
-                        exit();
+                    if($query->execute(array($email))){
+                        if(!$query->rowCount() > 0){
+                            $sql = $pdo->prepare("INSERT INTO cadresponsavel(`CPF_Resp`, `Nome_Resp`, `Email_Resp`, `Dat_Nasc_Resp`, `Telefone_Resp`, `Senha_Resp`) VALUES(?, ?, ?, ?, ?, ?)");
+                            $sql->execute(array($cpf, $name, $email, $date, $phone, md5($password)));
+                            infoBox('../pages/register.php', 'Cadastro efetuado com sucesso.', 'sim', 'success');
+                            exit();
+                        }else{
+                            infoBox('../pages/register.php', 'Erro interno.', 'sim', 'error');
+                            exit();
+                        };
                     }else{
-                        infoBox('../pages/register.php', 'CPF já cadastrado.', 'sim', 'error');
+                        infoBox('../pages/register.php', 'Email já cadastrado.', 'sim', 'error');
                         exit();
                     };
+                }else{
+                    infoBox('../pages/register.php', 'CPF já cadastrado.', 'sim', 'error');
+                    exit();
                 };
             }else{
                 infoBox('../pages/register.php', 'Senhas não coincidem', 'sim', 'error');

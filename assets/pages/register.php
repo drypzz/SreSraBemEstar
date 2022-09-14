@@ -42,7 +42,7 @@
                         <a href='#' class='navbar-links'>Contato</a>
                     </li> -->
                     <li class='navbar-item'>
-                        <a href='#' class='navbar-links active'>Cadastre-se</a>
+                        <a href='#' class='navbar-links active'>Registro</a>
                     </li>
                 </ul>
             </div> <!-- container -->
@@ -52,8 +52,8 @@
         <div class='main register'>
             <div class='container'>
                 <div class='main-content register'>
-                    <h1>CADASTRO !</h1>
-                    <p>Escolha um tipo de cadastro.</p>
+                    <h1>SR. & SRA. BEM ESTAR</h1>
+                    <p>Escolha uma aba entre as de Registro e Login.</p>
                 </div>
             </div> <!-- container -->
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
@@ -64,84 +64,68 @@
 
         <div class='register-main'>
             <div class='register-container'>
-                <span class='info-span-content'>TIPOS DE CADASTRO</span>
+                <span class='info-span-content'>NÃO TEM UMA CONTA? REGISTRE-A AQUI.</span>
                 <div class='register-content-buttons'>
                     <div class='btn'>
-                        <button class='button-control arrow-left'>Paciente</button>
+                        <button class='button-control arrow-left'>Logar-se</button>
                     </div>
                     <div class='btn'>
-                        <button class='button-control active-btn'>Responsavel</button>
+                        <button class='button-control active-btn'>Registrar-se</button>
                     </div>
                 </div>
 
                 <div class='register-container-items'>
 
                     <div class='item-cards'>
-                        <form action='../php/register.php?type=paciente' method='post'>
-                            <h2>Cadastro de Paciente.</h2>
+                        <form action='../php/register.php?type=registro' method='post'>
+                            <h2>Painel de logar.</h2>
                             <div class='form-container'>
-                                <?php if(isset($_GET['resp']) == 'nao'){ ?>
-                                    <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
-                                        <?php if($_GET['type'] == 'success'){ ?>
-                                            <div class='success'>
-                                                <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
-                                            </div>
-                                        <?php }else{; ?>
-                                            <div class='error'>
-                                                <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
-                                            </div>
+                                <?php if(isset($_GET['resp'])){ ?>
+                                    <?php if($_GET['resp'] == 'nao'){ ?>
+                                        <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
+                                            <?php if($_GET['type'] == 'success'){ ?>
+                                                <div class='success'>
+                                                    <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
+                                                </div>
+                                            <?php }else{; ?>
+                                                <div class='error'>
+                                                    <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
+                                                </div>
+                                            <?php }; ?>
                                         <?php }; ?>
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
-                                    <label for='name'>Nome do Paciente:<span style='color: red;'>*</span></label>
-                                    <input type='text' required placeholder='Nome' id='name' name='name'>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='email'>Email do Paciente:<span style='color: red;'>*</span></label>
-                                    <input type='email' required placeholder='sr&srabemestar@gmail.com' id='email' name='email'>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='date'>Data de nascimento do Paciente:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='date' placeholder='00/00/0000' name='date' autocomplete='off' maxlength='10'>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='phone'>Telefone do Paciente:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='phone' placeholder='(00) 0 0000-0000' name='phone' autocomplete='off' maxlength='15'>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='cpf'>CPF do Paciente:<span style='color: red;'>*</span></label>
+                                    <label for='cpf'>CPF:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='cpf' placeholder='000.000.000-00' name='cpf' autocomplete='off' maxlength='14'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='password'>Criar Senha:<span style='color: red;'>*</span></label>
+                                    <label for='password'>Senha:<span style='color: red;'>*</span></label>
                                     <input type='password' required id='password' name='password'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='passwordC'>Confirmar senha:<span style='color: red;'>*</span></label>
-                                    <input type='password' required id='passwordC' name='passwordC'>
-                                </div>
-                                <div class='form-group'>
-                                    <input type='submit' value='Cadastrar Paciente'>
+                                    <input type='submit' value='Entrar'>
                                 </div>
                             </div>
                         </form>
                     </div>
 
-                    <div id='responsavel' class='item-cards top focus'>
-                        <form action='../php/register.php?type=responsavel' method='post'>
-                            <h2>Cadastro de Responsável.</h2>
+                    <div id='login' class='item-cards top focus'>
+                        <form action='../php/register.php?type=login' method='post'>
+                            <h2>Painel de Registro.</h2>
                             <div class='form-container top'>
-                                <?php if(isset($_GET['resp']) == 'sim'){ ?>
-                                    <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
-                                        <?php if($_GET['type'] == 'success'){ ?>
-                                            <div class='success'>
-                                                <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
-                                            </div>
-                                        <?php }else{; ?>
-                                            <div class='error'>
-                                                <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
-                                            </div>
+                                <?php if(isset($_GET['resp'])){ ?>
+                                    <?php if($_GET['resp'] == 'sim'){ ?>
+                                        <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
+                                            <?php if($_GET['type'] == 'success'){ ?>
+                                                <div class='success'>
+                                                    <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
+                                                </div>
+                                            <?php }else{; ?>
+                                                <div class='error'>
+                                                    <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
+                                                </div>
+                                            <?php }; ?>
                                         <?php }; ?>
                                     <?php }; ?>
                                 <?php }; ?>
@@ -173,6 +157,14 @@
                                     <label for='passwordCR'>Confirmar senha:<span style='color: red;'>*</span></label>
                                     <input type='password' required id='passwordCR' name='passwordCR'>
                                 </div>
+                                <div class='form-group'>
+                                    <div class='admin'>
+                                        <input type='checkbox' required id='resp' name='resp'>
+                                        <label for='resp'>Você é uma pessoa 'Responsável' por outra ou um paciente ?</label>
+                                    </div>
+                                </div>
+                                <div class='form-group'>
+                                    <span style='color: #c74040; font-size: 17px;'><i>OBS: A opção acima, define se você é um 'Responsavel' por alguem. Caso tenha marcado, você é um 'Responsavel', caso não tenha, sera um Paciente.</i></span>
                                 <div class='form-group'>
                                     <input type='submit' value='Cadastrar Responsável'>
                                 </div>

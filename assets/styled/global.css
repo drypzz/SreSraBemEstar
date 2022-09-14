@@ -457,7 +457,7 @@ body span.info-span{
 }
 
 .register-main .register-container .register-container-items .item-cards.top{
-    margin-top: -827px;
+    margin-top: -411px;
 }
 
 .register-main .register-container .register-container-items .item-cards.focus{
@@ -506,10 +506,6 @@ body span.info-span{
     font-family: sans-serif;
 }
 
-.register-main .register-container .register-container-items .item-cards form .form-container.top{
-    background-color: #00000021;
-}
-
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group{
     margin: 20px 0;
     text-align: left;
@@ -547,6 +543,16 @@ body span.info-span{
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input[type = 'submit']:hover{
     color: #fff;
     background-color: var(--primary);
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group .admin input{
+    width: 5%;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group .admin label{
+    display: contents;
+    user-select: none;
+    cursor: pointer;
 }
 
 /* footer */
