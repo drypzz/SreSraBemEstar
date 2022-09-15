@@ -46,14 +46,19 @@
                         if($query->execute(array($cpf))){
                             if($query->execute(array($email))){
                                 if($validCPF->execute(array($cpfr))){
-                                    if(!$query->rowCount() > 0 && !$validCPF->rowCount() < 0){
-                                        $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
-                                        $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, md5($password)));
-                                        infoBox('../pages/register.php', 'Cadastro efetuado com sucesso.', 'sim', 'success');
+                                    if($validCPF->rowCount() > 0){
+                                        if(!$query->rowCount() > 0){
+                                            $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
+                                            $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, md5($password)));
+                                            infoBox('../pages/register.php', 'Cadastro de Paciente efetuado com sucesso.', 'sim', 'success');
+                                            exit();
+                                        };
+                                    }else{
+                                        infoBox('../pages/register.php', 'CPF do responsável não cadastrado.', 'sim', 'error');
                                         exit();
                                     };
                                 }else{
-                                    infoBox('../pages/register.php', 'CPF do responsável ja cadastrado.', 'sim', 'error');
+                                    infoBox('../pages/register.php', 'CPF do responsável não encontrado.', 'sim', 'error');
                                     exit();
                                 };
                             }else{
@@ -84,7 +89,7 @@
                             if(!$query->rowCount() > 0){
                                 $sql = $pdo->prepare("INSERT INTO cadresponsavel(`CPF_Resp`, `Nome_Resp`, `Email_Resp`, `Dat_Nasc_Resp`, `Telefone_Resp`, `Senha_Resp`) VALUES(?, ?, ?, ?, ?, ?)");
                                 $sql->execute(array($cpf, $name, $email, $date, $phone, md5($password)));
-                                infoBox('../pages/register.php', 'Cadastro efetuado com sucesso.', 'sim', 'success');
+                                infoBox('../pages/register.php', 'Cadastro de Responsavel efetuado com sucesso.', 'sim', 'success');
                                 exit();
                             }else{
                                 infoBox('../pages/register.php', 'Erro interno.', 'sim', 'error');
