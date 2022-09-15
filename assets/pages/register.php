@@ -77,11 +77,11 @@
                 <div class='register-container-items'>
 
                     <div class='item-cards'>
-                        <form action='../php/register.php?type=registro' method='post'>
+                        <form action='../php/register.php?type=login' method='post'>
                             <h2>Painel de logar.</h2>
                             <div class='form-container'>
-                                <?php if(isset($_GET['resp'])){ ?>
-                                    <?php if($_GET['resp'] == 'nao'){ ?>
+                                <?php if(isset($_GET['reg'])){ ?>
+                                    <?php if($_GET['reg'] == 'nao'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
@@ -96,12 +96,12 @@
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
-                                    <label for='cpf'>CPF:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='cpf' placeholder='000.000.000-00' name='cpf' autocomplete='off' maxlength='14'>
+                                    <label for='cpfLogin'>CPF:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='cpfLogin' placeholder='000.000.000-00' name='cpfLogin' autocomplete='off' maxlength='14'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='password'>Senha:<span style='color: red;'>*</span></label>
-                                    <input type='password' required id='password' name='password'>
+                                    <label for='passwordLogin'>Senha:<span style='color: red;'>*</span></label>
+                                    <input type='password' required id='passwordLogin' name='passwordLogin'>
                                 </div>
                                 <div class='form-group'>
                                     <input type='submit' value='Entrar'>
@@ -111,11 +111,11 @@
                     </div>
 
                     <div id='login' class='item-cards top focus'>
-                        <form action='../php/register.php?type=login' method='post'>
+                        <form action='../php/register.php?type=register' method='post'>
                             <h2>Painel de Registro.</h2>
                             <div class='form-container top'>
-                                <?php if(isset($_GET['resp'])){ ?>
-                                    <?php if($_GET['resp'] == 'sim'){ ?>
+                                <?php if(isset($_GET['reg'])){ ?>
+                                    <?php if($_GET['reg'] == 'sim'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
@@ -130,37 +130,43 @@
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
-                                    <label for='nameR'>Nome do Responsável:<span style='color: red;'>*</span></label>
-                                    <input type='text' required placeholder='Nome' id='nameR' name='nameR'>
+                                    <label for='name'>Nome:<span style='color: red;'>*</span></label>
+                                    <input type='text' required placeholder='Nome' id='name' name='name'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='emailR'>Email do Responsável:<span style='color: red;'>*</span></label>
-                                    <input type='email' required placeholder='sr&srabemestar@gmail.com' id='emailR' name='emailR'>
+                                    <label for='email'>Email:<span style='color: red;'>*</span></label>
+                                    <input type='email' required placeholder='sr&srabemestar@gmail.com' id='email' name='email'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='dateR'>Data de nascimento do Responsável:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='dateR' placeholder='00/00/0000' name='dateR' autocomplete='off' maxlength='10'>
+                                    <label for='date'>Data de nascimento:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='date' placeholder='00/00/0000' name='date' autocomplete='off' maxlength='10'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='phoneR'>Telefone do Responsável:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='phoneR' placeholder='(00) 0 0000-0000' name='phoneR' autocomplete='off' maxlength='15'>
+                                    <label for='phone'>Telefone:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='phone' placeholder='(00) 0 0000-0000' name='phone' autocomplete='off' maxlength='15'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='cpfR'>CPF do Responsável:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='cpfR' placeholder='000.000.000-00' name='cpfR' autocomplete='off' maxlength='14'>
+                                    <label for='cpf'>CPF:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='cpf' placeholder='000.000.000-00' name='cpf' autocomplete='off' maxlength='14'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='passwordR'>Criar Senha:<span style='color: red;'>*</span></label>
-                                    <input type='password' required id='passwordR' name='passwordR'>
+                                    <label for='password'>Criar Senha:<span style='color: red;'>*</span></label>
+                                    <input type='password' required id='password' name='password'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='passwordCR'>Confirmar senha:<span style='color: red;'>*</span></label>
-                                    <input type='password' required id='passwordCR' name='passwordCR'>
+                                    <label for='passwordC'>Confirmar senha:<span style='color: red;'>*</span></label>
+                                    <input type='password' required id='passwordC' name='passwordC'>
                                 </div>
                                 <div class='form-group'>
                                     <div class='admin'>
-                                        <input type='checkbox' required id='resp' name='resp'>
+                                        <input type='checkbox' id='resp' name='resp'>
                                         <label for='resp'>Você é uma pessoa 'Responsável' por outra ou um paciente ?</label>
+                                    </div>
+                                </div>
+                                <div id='divCpf' style='display:none;'>
+                                    <div class='form-group'>
+                                        <label for='cpfR'>CPF do Responsável:<span style='color: red;'>*</span></label>
+                                        <input type='text' required id='cpfR' placeholder='000.000.000-00' name='cpfR' autocomplete='off' maxlength='14'>
                                     </div>
                                 </div>
                                 <div class='form-group'>
