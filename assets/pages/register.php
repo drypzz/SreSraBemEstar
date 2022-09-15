@@ -98,10 +98,12 @@
                                 <div class='form-group'>
                                     <label for='cpfLogin'>CPF:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='cpfLogin' placeholder='000.000.000-00' name='cpfLogin' autocomplete='off' maxlength='14'>
+                                    <span id='span-error-cpflogin' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
                                     <label for='passwordLogin'>Senha:<span style='color: red;'>*</span></label>
                                     <input type='password' required id='passwordLogin' name='passwordLogin'>
+                                    <span id='span-error-passwordlogin' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
                                     <input type='submit' value='Entrar'>
@@ -139,15 +141,18 @@
                                 </div>
                                 <div class='form-group'>
                                     <label for='date'>Data de nascimento:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='date' placeholder='00/00/0000' name='date' autocomplete='off' maxlength='10'>
+                                    <input type='text' required id='date' placeholder='00-00-0000' name='date' autocomplete='off' maxlength='10'>
+                                    <span id='span-error-date' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
                                     <label for='phone'>Telefone:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='phone' placeholder='(00) 0 0000-0000' name='phone' autocomplete='off' maxlength='15'>
+                                    <span id='span-error-phone' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
                                     <label for='cpf'>CPF:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='cpf' placeholder='000.000.000-00' name='cpf' autocomplete='off' maxlength='14'>
+                                    <span id='span-error-cpf' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
                                     <label for='password'>Criar Senha:<span style='color: red;'>*</span></label>
@@ -165,8 +170,9 @@
                                 </div>
                                 <div id='divCpf' style='display:none;'>
                                     <div class='form-group'>
-                                        <label for='cpfR'>CPF do Responsável:<span style='color: red;'>*</span></label>
+                                        <label for='cpfR'>CPF do Responsável por você:<span style='color: red;'>*</span></label>
                                         <input type='text' id='cpfR' placeholder='000.000.000-00' name='cpfR' autocomplete='off' maxlength='14'>
+                                        <span id='span-error-cpfR' style='color: red;'></span>
                                     </div>
                                     <div class='form-group'>
                                         <span style='color: #c74040; font-size: 17px;'><b><i>OBS¹ - Caso o 'Responsável' não tenha uma conta em nosso Site, crie uma sem marcar a opção a cima.</i></b></span>
