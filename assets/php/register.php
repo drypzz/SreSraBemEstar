@@ -40,13 +40,20 @@
                     }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                         infoBox('../pages/register.php', 'Insira um email valido.', 'sim', 'error');
                     }else if($passwordC === $password){
+                        $validCPF = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ?');
+
                         $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso');
                         if($query->execute(array($cpf))){
                             if($query->execute(array($email))){
-                                if(!$query->rowCount() > 0){
-                                    $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
-                                    $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, md5($password)));
-                                    infoBox('../pages/register.php', 'Cadastro efetuado com sucesso.', 'sim', 'success');
+                                if($validCPF->execute(array($cpfr))){
+                                    if(!$query->rowCount() > 0 && !$validCPF->rowCount() < 0){
+                                        $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
+                                        $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, md5($password)));
+                                        infoBox('../pages/register.php', 'Cadastro efetuado com sucesso.', 'sim', 'success');
+                                        exit();
+                                    };
+                                }else{
+                                    infoBox('../pages/register.php', 'CPF do responsável ja cadastrado.', 'sim', 'error');
                                     exit();
                                 };
                             }else{
