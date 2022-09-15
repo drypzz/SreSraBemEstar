@@ -18,7 +18,7 @@
 
     --scroll: #0d0e0f;
 
-    --body: rgb(34, 34, 34);
+    --body: #222222;
 }
 
 /* global */
@@ -66,12 +66,12 @@ body span.category{
 }
 
 body span.info-span-content{
-    font-size: 0.875rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     display: block;
     color: #757575;
     text-transform: uppercase;
-    text-shadow: 0px 10px rgb(0 0 0 / 20%);
+    text-shadow: 0px 5px rgb(0 0 0 / 20%);
     letter-spacing: .3125rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -394,7 +394,7 @@ body span.info-span{
 .register-main{
     width: 100%;
     height: 100%;
-    margin-top: -170px;
+    margin-top: -120px;
 }
 
 .register-main .register-container{
@@ -457,7 +457,7 @@ body span.info-span{
 }
 
 .register-main .register-container .register-container-items .item-cards.top{
-    margin-top: -827px;
+    margin-top: -411px;
 }
 
 .register-main .register-container .register-container-items .item-cards.focus{
@@ -484,8 +484,26 @@ body span.info-span{
     background-color: #e6e6e6d3;
 }
 
-.register-main .register-container .register-container-items .item-cards form .form-container.top{
-    background-color: #00000021;
+.register-main .register-container .register-container-items .item-cards form .form-container .error{
+    margin: 20px 0;
+    width: 100%;
+    color: #c62828;
+    border-radius: 5px;
+    background-color: rgba(255, 0, 0, .1);
+    padding: 10px;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .success{
+    margin: 20px 0;
+    width: 100%;
+    color: green;
+    border-radius: 5px;
+    background-color: rgba(0, 255, 0, .1);
+    padding: 10px;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .error span{
+    font-family: sans-serif;
 }
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group{
@@ -500,9 +518,11 @@ body span.info-span{
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input{
     width: 100%;
     border: none;
+    border-radius: 5px 5px 0 0;
     padding: 10px;
     background-color: #ffffff9d;
     outline: none;
+    border-bottom: 1px solid #ccccccde;
 }
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input:focus{
@@ -527,11 +547,22 @@ body span.info-span{
     background-color: var(--primary);
 }
 
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group .admin input{
+    width: 5%;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group .admin label{
+    display: contents;
+    user-select: none;
+    cursor: pointer;
+}
+
 /* footer */
 
 footer{
     width: 100%;
     height: 100%;
+    margin-top: -100px;
     background-color: var(--body);
 }
 
@@ -554,6 +585,10 @@ footer .footer-container .footer-content{
 
     body span.info{
         padding: 3px;
+    }
+
+    footer{
+        margin-top: -40px;
     }
 
     .main, .main.register{
@@ -584,7 +619,7 @@ footer .footer-container .footer-content{
     }
 
     .register-main .register-container .register-container-items .item-cards.top{
-        margin-top: -768px;
+        margin-top: -355px;
     }
 
     /* about */

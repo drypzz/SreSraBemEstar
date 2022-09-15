@@ -3,7 +3,7 @@
 </div>
 
 <div align='center'>
-    <p><strong>Ultima atualização:</strong> 31 Ago. 2022<br><strong>Última versão:</strong> 1.0.0</p>
+    <p><strong>Ultima atualização:</strong> 15 Set. 2022<br><strong>Última versão:</strong> 2.0.0</p>
 </div>
 
 <div align='center'>
@@ -18,6 +18,12 @@
             </td>
             <td>
                 <img src="https://img.shields.io/badge/CSS3-206991?&style=for-the-badge&logo=css3&logoColor=white" target="_blank" alt="css">
+            </td>
+            <td>
+                <img src="https://img.shields.io/badge/PHP-8098e8?&style=for-the-badge&logo=php&logoColor=white" target="_blank" alt="php">
+            </td>
+            <td>
+                <img src="https://img.shields.io/badge/MYSQL-e8aa80?&style=for-the-badge&logo=mysql&logoColor=white" target="_blank" alt="mysql">
             </td>
         </tr>
     </table>
