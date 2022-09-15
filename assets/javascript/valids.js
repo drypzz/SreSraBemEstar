@@ -69,8 +69,10 @@ input_04.addEventListener('keypress', () => {
 
 document.getElementById('resp').onclick = function(){
     if(document.getElementById('resp').checked){
-        return document.querySelector('#divCpf').style = 'display: block';
+        document.querySelector('#divCpf').style = 'display: block';
+        document.querySelector('#cpfR').setAttribute('required', '');
     }else{
-        return document.querySelector('#divCpf').style = 'display: none';
+        document.querySelector('#divCpf').style = 'display: none';
+        document.querySelector('#cpfR').removeAttribute('required');
     };
 };

@@ -110,7 +110,7 @@
                         </form>
                     </div>
 
-                    <div id='login' class='item-cards top focus'>
+                    <div id='register' class='item-cards top focus'>
                         <form action='../php/register.php?type=register' method='post'>
                             <h2>Painel de Registro.</h2>
                             <div class='form-container top'>
@@ -160,17 +160,21 @@
                                 <div class='form-group'>
                                     <div class='admin'>
                                         <input type='checkbox' id='resp' name='resp'>
-                                        <label for='resp'>Você é uma pessoa 'Responsável' por outra ou um paciente ?</label>
+                                        <label for='resp'>Você é um paciente ? Não responsavel por outra pessoa.</label>
                                     </div>
                                 </div>
                                 <div id='divCpf' style='display:none;'>
                                     <div class='form-group'>
                                         <label for='cpfR'>CPF do Responsável:<span style='color: red;'>*</span></label>
-                                        <input type='text' required id='cpfR' placeholder='000.000.000-00' name='cpfR' autocomplete='off' maxlength='14'>
+                                        <input type='text' id='cpfR' placeholder='000.000.000-00' name='cpfR' autocomplete='off' maxlength='14'>
+                                    </div>
+                                    <div class='form-group'>
+                                        <span style='color: #c74040; font-size: 17px;'><b><i>OBS¹ - Caso o 'Responsável' não tenha uma conta em nosso Site, crie uma sem marcar a opção a cima.</i></b></span>
                                     </div>
                                 </div>
                                 <div class='form-group'>
-                                    <span style='color: #c74040; font-size: 17px;'><i>OBS: A opção acima, define se você é um 'Responsavel' por alguem. Caso tenha marcado, você é um 'Responsavel', caso não tenha, sera um Paciente.</i></span>
+                                    <span style='color: #c74040; font-size: 17px;'><i>OBS² - A opção acima, define se você é um 'Paciente (Idoso)'. Caso tenha marcado, você é um 'Paciente', caso não tenha, sera um Responsavel.</i></span>
+                                </div>
                                 <div class='form-group'>
                                     <input type='submit' value='Cadastrar Responsável'>
                                 </div>

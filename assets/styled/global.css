@@ -518,9 +518,11 @@ body span.info-span{
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input{
     width: 100%;
     border: none;
+    border-radius: 5px 5px 0 0;
     padding: 10px;
     background-color: #ffffff9d;
     outline: none;
+    border-bottom: 1px solid #ccccccde;
 }
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input:focus{
