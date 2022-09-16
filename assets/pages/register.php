@@ -96,14 +96,14 @@
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
-                                    <label for='cpfLogin'>CPF:<span style='color: red;'>*</span></label>
+                                    <label for='cpfLogin'>CPF do Responsável:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='cpfLogin' placeholder='000.000.000-00' name='cpfLogin' autocomplete='off' maxlength='14'>
                                     <span id='span-error-cpflogin' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='passwordLogin'>Senha:<span style='color: red;'>*</span></label>
+                                    <label for='passwordLogin'>Senha do Responsável:<span style='color: red;'>*</span></label>
                                     <input type='password' required id='passwordLogin' name='passwordLogin'>
-                                    <span id='span-error-passwordlogin' style='color: red;'></span>
+                                    <span id='span-error-passwordLogin' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
                                     <input type='submit' value='Entrar'>

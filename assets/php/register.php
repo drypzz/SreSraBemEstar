@@ -29,6 +29,9 @@
     $passwordC = checkString($_POST['passwordC']);
     $cpfr = checkString($_POST['cpfR']);
 
+    $cpfLogin = checkString($_POST['cpfLogin']);
+    $passwordLogin = checkString($_POST['passwordLogin']);
+
     $checked = (isset($_POST['resp']) ? true : false);
 
     if($_GET['type'] == 'register'){
@@ -65,7 +68,7 @@
 
                                             if($age->format('%y') > 18){
                                                 $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
-                                                $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, md5($password)));
+                                                $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, $password));
                                                 infoBox('../pages/register.php', 'Cadastro de Paciente efetuado com sucesso.', 'sim', 'success');
                                                 exit();
                                             
@@ -127,7 +130,7 @@
 
                                 if($age->format('%y') > 18){
                                     $sql = $pdo->prepare("INSERT INTO cadresponsavel(`CPF_Resp`, `Nome_Resp`, `Email_Resp`, `Dat_Nasc_Resp`, `Telefone_Resp`, `Senha_Resp`) VALUES(?, ?, ?, ?, ?, ?)");
-                                    $sql->execute(array($cpf, $name, $email, $date, $phone, md5($password)));
+                                    $sql->execute(array($cpf, $name, $email, $date, $phone, $password));
                                     infoBox('../pages/register.php', 'Cadastro de Responsavel efetuado com sucesso.', 'sim', 'success');
                                     exit();
                                 
@@ -161,6 +164,65 @@
         }else{
             infoBox('../pages/register.php', 'Insira todas as informações.', 'sim', 'error');
             exit();
+        };
+
+    }else if($_GET['type'] == 'login'){
+        
+        if( isset($_POST['cpfLogin']) && isset($_POST['passwordLogin']) ){
+            
+            if( empty($cpfLogin) && empty($passwordLogin) ){
+                infoBox('../pages/register.php', 'Insira corretamente as informações: CPF, SENHA.', 'nao', 'error');       
+            
+            }else{
+                $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE `CPF_Resp` = ? AND `Senha_Resp` = ?');
+                $queryPaciente = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ?');
+
+                if($queryPaciente->execute(array($cpf))){
+                    $keys = $queryPaciente->fetchAll(PDO::FETCH_ASSOC);
+                            
+                    foreach($keys as $k){
+                        $cpfKeys = $k['CPF_Idoso'];
+                    };
+
+                    if($query->execute(array($cpfLogin, $passwordLogin))){
+                        $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                        
+                        foreach($row as $k){
+                            $cpfDate = $k['CPF_Resp'];
+                            $nameDate = $k['Nome_Resp'];
+                            $passwordResp = $k['Senha_Resp'];
+                        };
+
+                        if(!$queryPaciente->rowCount() > 0){
+                            
+                            if($cpfKeys != $cpfDate){
+
+                                if($passwordLogin === $passwordResp){
+                                    infoBox('../pages/register.php', 'Logado com sucesso.', 'nao', 'success');
+                                
+                                }else{
+                                    infoBox('../pages/register.php', 'Verifique sua senha.', 'nao', 'error');
+                                    exit();
+                                };
+                                
+                            }else{
+                                infoBox('../pages/register.php', 'Você deve fazer login utilizando o CPF do Responsável.', 'nao', 'error');
+                                exit();
+                            };
+
+                        }else{
+                            infoBox('../pages/register.php', 'CPF do responsável não cadastrado.', 'nao', 'error');
+                            exit();
+                        };
+
+                    }else{
+                        infoBox('../pages/register.php', 'CPF ou Senha estão incorretos.', 'nao', 'error');
+                    };
+
+                };
+                
+            };
+
         };
 
     };
