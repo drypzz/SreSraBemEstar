@@ -4,7 +4,28 @@
         <meta charset='UTF-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
-        <title>Início - Sr. & Sra. Bem Estar</title>
+
+        <meta property='og:type' content='website' />
+
+        <meta name='theme-color' content='#32cd74'>
+
+        <meta name='title' content='Sr. & Sra. Bem Estar'>
+        <meta name='description' content='Olá, seja bem vindo(a), ao nosso site. Aqui você vera ***** e um pouco sobre nós.'/>
+        <meta name='url' content='#'>
+
+        <meta property='og:title' content='Sr. & Sra. Bem Estar - Registro'>
+        <link rel='image_src' href='../gfx/logo.png'>
+        
+        <meta property='og:description' content='Olá, seja bem vindo(a), ao nosso site. Aqui você vera ***** e um pouco sobre nós.'>
+
+        <meta property='og:site_name' content='Sr. & Sra. Bem Estar'>
+        <meta property='og:url' content='#'>
+
+        <meta property='og:image' content='../gfx/logo.png'>
+        <meta property='og:image:width' content='900'>
+        <meta property='og:image:height' content='900'>
+
+        <title>Registro - Sr. & Sra. Bem Estar</title>
 
         <link rel='stylesheet' href='../styled/global.css'>
 
