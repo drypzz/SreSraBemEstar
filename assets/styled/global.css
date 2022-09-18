@@ -262,6 +262,16 @@ body span.info-span{
     background-attachment: fixed;
 }
 
+.main.admin{
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 90%),url(../gfx/swat.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+}
+
 .main .container{
     display: flex;
     align-items: center;
@@ -280,7 +290,20 @@ body span.info-span{
     margin-top: 250px;
 }
 
+.main .container .main-content.admin{
+    text-align: center;
+    padding: 20px;
+    margin-top: 250px;
+}
+
 .main .container .main-content.register h1{
+    background-color: var(--body);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.main .container .main-content.admin h1{
     background-color: var(--body);
     padding: 10px;
     border-radius: 5px;

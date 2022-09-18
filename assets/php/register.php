@@ -186,7 +186,7 @@
                     };
 
                     if(count($row) > 0){
-                        infoBox('../pages/register.php', 'Logado com sucesso.', 'nao', 'success');
+                        header('Location: ../pages/admin.php?name='.$nameRes.'&cpf='.$cpfResp);
                     
                     }else{
                         infoBox('../pages/register.php', 'CPF ou Senha incorretos.', 'nao', 'error');
