@@ -149,6 +149,44 @@ body span.info-span{
     background-color: var(--quintos);
 }
 
+
+/* dark mode */
+
+.dark-container{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 90%;
+    left: 95%;
+    bottom: 0;
+}
+
+.dark-container button{
+    background: none;
+    border: 3px solid var(--primary);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: all 600ms ease-in-out;
+}
+
+.dark-container button:hover{
+    background-color: var(--primary);
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+    z-index: 99999;
+}
+
+.dark-mode p, .dark-mode span{
+    color: #fff;
+}
+
+
 /* nav */
 
 .navbar-toggle a{
