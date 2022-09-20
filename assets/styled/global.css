@@ -300,6 +300,16 @@ body span.info-span{
     background-attachment: fixed;
 }
 
+.main.admin{
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 90%),url(../gfx/swat.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+}
+
 .main .container{
     display: flex;
     align-items: center;
@@ -318,7 +328,20 @@ body span.info-span{
     margin-top: 250px;
 }
 
+.main .container .main-content.admin{
+    text-align: center;
+    padding: 20px;
+    margin-top: 250px;
+}
+
 .main .container .main-content.register h1{
+    background-color: var(--body);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.main .container .main-content.admin h1{
     background-color: var(--body);
     padding: 10px;
     border-radius: 5px;
@@ -495,7 +518,7 @@ body span.info-span{
 }
 
 .register-main .register-container .register-container-items .item-cards.top{
-    margin-top: -827px;
+    margin-top: -411px;
 }
 
 .register-main .register-container .register-container-items .item-cards.focus{
@@ -531,12 +554,17 @@ body span.info-span{
     padding: 10px;
 }
 
-.register-main .register-container .register-container-items .item-cards form .form-container .error span{
-    font-family: sans-serif;
+.register-main .register-container .register-container-items .item-cards form .form-container .success{
+    margin: 20px 0;
+    width: 100%;
+    color: green;
+    border-radius: 5px;
+    background-color: rgba(0, 255, 0, .1);
+    padding: 10px;
 }
 
-.register-main .register-container .register-container-items .item-cards form .form-container.top{
-    background-color: #00000021;
+.register-main .register-container .register-container-items .item-cards form .form-container .error span{
+    font-family: sans-serif;
 }
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group{
@@ -551,9 +579,37 @@ body span.info-span{
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input{
     width: 100%;
     border: none;
+    border-radius: 5px 5px 0 0;
     padding: 10px;
     background-color: #ffffff9d;
     outline: none;
+    border-bottom: 1px solid #ccccccde;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input#resp{
+    display: none;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input#resp + label:before{
+    content: '';
+    transition: all 600ms ease-in-out;
+    width: 18px;
+    height: 18px;
+    border-radius: 10%;
+    background-color: #ffffff9d;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 3px;
+    border: 1px solid var(--body);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input#resp:checked + label:before{
+    background-color: var(--primary);
+    background-position: center;
+    border-color: var(--primary);
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input:focus{
@@ -576,6 +632,16 @@ body span.info-span{
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input[type = 'submit']:hover{
     color: #fff;
     background-color: var(--primary);
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group .admin input{
+    width: 5%;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group .admin label{
+    display: contents;
+    user-select: none;
+    cursor: pointer;
 }
 
 /* footer */
@@ -640,7 +706,7 @@ footer .footer-container .footer-content{
     }
 
     .register-main .register-container .register-container-items .item-cards.top{
-        margin-top: -768px;
+        margin-top: -355px;
     }
 
     /* about */

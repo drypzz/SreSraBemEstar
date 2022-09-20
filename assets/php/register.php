@@ -8,80 +8,199 @@
         return $str;
     };
 
-    function infoError($page, $error){
-        return header('Location: '.$page.'?error='.$error);
+    function infoBox($page, $msg, $resp, $type){
+        if($type == 'success'){
+            $return = header('Location: '.$page.'?info='.$msg.'&type=success&reg='.$resp);
+        }else if($type == 'error'){
+            $return = header('Location: '.$page.'?info='.$msg.'&type=error&reg='.$resp);
+        }else{
+            $return = header('Location: '.$page.'?info='.$msg.'&type=error&reg='.$resp);
+        };
+
+        return $return;
     };
 
-    if( ($_GET['type'] === 'paciente') ){
-        if( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['date']) && isset($_POST['phone']) && isset($_POST['cpf']) && isset($_POST['password']) && isset($_POST['passwordC']) ){
-            $name = checkString($_POST['name']);
-            $email = checkString($_POST['email']);
-            $date = checkString($_POST['date']);
-            $phone = checkString($_POST['phone']);
-            $cpf = checkString($_POST['cpf']);
-            $password = checkString($_POST['password']);
-            $passwordC = checkString($_POST['passwordC']);
-            
-            if(empty($date) && empty($phone) && empty($cpf)){
-                infoError('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.');
-            }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                infoError('../pages/register.php', 'Insira um email valido.');
-            }else if($passwordC === $password){
-                $query = $pdo->prepare('SELECT * FROM paciente WHERE email = ?');
-                if($query->execute(array($email))){
-                    if(!$query->rowCount() > 0){
-                        $sql = $pdo->prepare("INSERT INTO paciente(`id`, `nome`, `email`, `data`, `telefone`, `cpf`, `senha`) VALUES(NULL, ?, ?, ?, ?, ?, ?)");
-                        $sql->execute(array($name, $email, $date, $phone, $cpf, md5($password)));
-                        header('Location: ../../index.html');
-                        exit();
-                    }else{
-                        infoError('../pages/register.php', 'Email ja cadastrado.');
-                        exit();
-                    };
-                };
-            }else{
-                infoError('../pages/register.php', 'Senhas não coincidem');
-                exit();
-            };
-        }else{
-            infoError('../pages/register.php', 'Insira todas as informações');
-            exit();
-        };
-    }else{
-        if( isset($_POST['nameR']) && isset($_POST['emailR']) && isset($_POST['dateR']) && isset($_POST['phoneR']) && isset($_POST['cpfR']) && isset($_POST['passwordR']) && isset($_POST['passwordCR']) ){
-            $name = checkString($_POST['nameR']);
-            $email = checkString($_POST['emailR']);
-            $date = checkString($_POST['dateR']);
-            $phone = checkString($_POST['phoneR']);
-            $cpf = checkString($_POST['cpfR']);
-            $password = checkString($_POST['passwordR']);
-            $passwordC = checkString($_POST['passwordCR']);
+    $name = checkString($_POST['name']);
+    $email = checkString($_POST['email']);
+    $date = checkString($_POST['date']);
+    $phone = checkString($_POST['phone']);
+    $cpf = checkString($_POST['cpf']);
+    $password = checkString($_POST['password']);
+    $passwordC = checkString($_POST['passwordC']);
+    $cpfr = checkString($_POST['cpfR']);
 
-            if(empty($date) && empty($phone) && empty($cpf)){
-                infoError('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.');
-            }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                infoError('../pages/register.php', 'Insira um email valido.');
-            }else if($passwordC === $password){
-                $query = $pdo->prepare('SELECT * FROM responsavel WHERE email = ?');
-                if($query->execute(array($email))){
-                    if(!$query->rowCount() > 0){
-                        $sql = $pdo->prepare("INSERT INTO responsavel(`id`, `nome`, `email`, `data`, `telefone`, `cpf`, `senha`) VALUES(NULL, ?, ?, ?, ?, ?, ?)");
-                        $sql->execute(array($name, $email, $date, $phone, $cpf, md5($password)));
-                        header('Location: ../../index.html');
-                        exit();
+    $cpfLogin = checkString($_POST['cpfLogin']);
+    $passwordLogin = checkString($_POST['passwordLogin']);
+
+    $checked = (isset($_POST['resp']) ? true : false);
+
+    if($_GET['type'] == 'register'){
+        
+        if( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['date']) && isset($_POST['phone']) && isset($_POST['cpf']) && isset($_POST['password']) && isset($_POST['passwordC']) ){
+            
+            if( $checked == true ){
+                
+                if(isset($cpfr)){
+                    
+                    if(empty($date) && empty($phone) && empty($cpf)){
+                        infoBox('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.', 'sim', 'error');
+                    
+                    }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                        infoBox('../pages/register.php', 'Insira um email valido.', 'sim', 'error');
+                    
+                    }else if($passwordC === $password){
+                        $validCPF = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ?');
+
+                        $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso');
+                        
+                        if($query->execute(array($cpf))){
+
+                            if($query->execute(array($email))){
+
+                                if($validCPF->execute(array($cpfr))){
+
+                                    if($validCPF->rowCount() > 0){
+
+                                        if(!$query->rowCount() > 0){
+
+                                            $currentDate = date('d-m-Y');
+                                            $age = date_diff(date_create($date), date_create($currentDate));
+
+                                            if($age->format('%y') > 18){
+                                                $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
+                                                $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, $password));
+                                                infoBox('../pages/register.php', 'Cadastro de Paciente efetuado com sucesso.', 'sim', 'success');
+                                                exit();
+                                            
+                                            }else{
+                                                infoBox('../pages/register.php', 'Você é menor de idade', 'sim', 'error');
+                                                exit();
+                                            };
+
+                                        };
+
+                                    }else{
+                                        infoBox('../pages/register.php', 'CPF do responsável não cadastrado.', 'sim', 'error');
+                                        exit();
+                                    };
+
+                                }else{
+                                    infoBox('../pages/register.php', 'CPF do responsável não encontrado.', 'sim', 'error');
+                                    exit();
+                                };
+
+                            }else{
+                                infoBox('../pages/register.php', 'Email ja cadastrado.', 'sim', 'error');
+                                exit();
+                            };
+
+                        }else{
+                            infoBox('../pages/register.php', 'CPF ja cadastrado.', 'sim', 'error');
+                            exit();
+                        };
+
                     }else{
-                        infoError('../pages/register.php', 'Email ja cadastrado.');
+                        infoBox('../pages/register.php', 'Senhas não coincidem', 'sim', 'error');
                         exit();
                     };
+
+                }else{
+                    infoBox('../pages/register.php', 'Insira o CPF do responsavel.', 'sim', 'error');
+                    exit();
                 };
             }else{
-                infoError('../pages/register.php', 'Senhas não coincidem');
-                exit();
+                if(empty($date) && empty($phone) && empty($cpf)){
+                    infoBox('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.', 'sim', 'error');
+                
+                }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    infoBox('../pages/register.php', 'Insira um email valido.', 'sim', 'error');
+               
+                }else if($passwordC === $password){
+                    
+                    $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ? AND Email_Resp');
+                    
+                    if($query->execute(array($cpf))){
+                        
+                        if($query->execute(array($email))){
+                            
+                            if(!$query->rowCount() > 0){
+
+                                $currentDate = date('d-m-Y');
+                                $age = date_diff(date_create($date), date_create($currentDate));
+
+                                if($age->format('%y') > 18){
+                                    $sql = $pdo->prepare("INSERT INTO cadresponsavel(`CPF_Resp`, `Nome_Resp`, `Email_Resp`, `Dat_Nasc_Resp`, `Telefone_Resp`, `Senha_Resp`) VALUES(?, ?, ?, ?, ?, ?)");
+                                    $sql->execute(array($cpf, $name, $email, $date, $phone, $password));
+                                    infoBox('../pages/register.php', 'Cadastro de Responsavel efetuado com sucesso.', 'sim', 'success');
+                                    exit();
+                                
+                                }else{
+                                    infoBox('../pages/register.php', 'Você é menor de idade.', 'sim', 'error');
+                                    exit();
+                                };
+                            
+                            }else{
+                                infoBox('../pages/register.php', 'Erro interno.', 'sim', 'error');
+                                exit();
+                            };
+
+                        }else{
+                            infoBox('../pages/register.php', 'Email já cadastrado.', 'sim', 'error');
+                            exit();
+                        };
+
+                    }else{
+                        infoBox('../pages/register.php', 'CPF já cadastrado.', 'sim', 'error');
+                        exit();
+                    };
+
+                }else{
+                    infoBox('../pages/register.php', 'Senhas não coincidem.', 'sim', 'error');
+                    exit();
+                };
+
             };
+
         }else{
-            infoError('../pages/register.php', 'Insira todas as informações');
+            infoBox('../pages/register.php', 'Insira todas as informações.', 'sim', 'error');
             exit();
         };
+
+    }else if($_GET['type'] == 'login'){
+        
+        if( isset($_POST['cpfLogin']) && isset($_POST['passwordLogin']) ){
+            
+            if( empty($cpfLogin) && empty($passwordLogin) ){
+                infoBox('../pages/register.php', 'Insira corretamente as informações: CPF, SENHA.', 'nao', 'error');
+            
+            }else{
+                $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE `CPF_Resp` = ? AND `Senha_Resp` = ?');
+
+                if($query->execute(array($cpfLogin, $passwordLogin))){
+
+                    $row = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach($row as $k){
+                        $nameRes = $k['Nome_Resp'];
+                        $cpfResp = $k['CPF_Resp'];
+                    };
+
+                    if(count($row) > 0){
+                        header('Location: ../pages/admin.php?name='.$nameRes.'&cpf='.$cpfResp);
+                    
+                    }else{
+                        infoBox('../pages/register.php', 'CPF ou Senha incorretos.', 'nao', 'error');
+                    };
+
+                };
+
+            };
+
+        }else{
+            infoBox('../pages/register.php', 'Insira todas as informações.', 'nao', 'error');
+            exit();
+        };
+
     };
 
 ?>
