@@ -33,7 +33,7 @@
 
         <link rel='shortcut icon' href='../gfx/logo.png' type='image/x-icon'>
     </head>
-    <body>
+    <body class='transition'>
         <!-- loader -->
         <div class='loader-container'>
             <div class='loader'></div>
@@ -70,7 +70,7 @@
         </nav> <!-- navbar -->
 
         <!-- main -->
-        <div class='main register'>
+        <div class='transition main register'>
             <div class='container'>
                 <div class='main-content register'>
                     <h1>SR. & SRA. BEM ESTAR</h1>
@@ -78,7 +78,7 @@
                 </div>
             </div> <!-- container -->
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
-                <path fill='#f4f4f4' fill-opacity='1' d='M0,192L80,176C160,160,320,128,480,138.7C640,149,800,203,960,218.7C1120,235,1280,213,1360,202.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'></path>
+                <path class='transition' id='oathhhhs' fill-opacity='1' d='M0,192L80,176C160,160,320,128,480,138.7C640,149,800,203,960,218.7C1120,235,1280,213,1360,202.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'></path>
             </svg>
         </div> <!-- main -->
 
@@ -100,7 +100,7 @@
                     <div class='item-cards'>
                         <form action='../php/register.php?type=login' method='post'>
                             <h2>Painel de logar.</h2>
-                            <div class='form-container'>
+                            <div class='transition form-container'>
                                 <?php if(isset($_GET['reg'])){ ?>
                                     <?php if($_GET['reg'] == 'nao'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
@@ -214,6 +214,10 @@
             </div>
         </div>
 
+        <div class='dark-container'>
+            <button id='darkmode' onclick='darkmode()'></button>
+        </div>
+
         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><path fill='#222222' fill-opacity='1' d='M0,192L1440,160L1440,320L0,320Z'></path></svg>
         <footer>
             <div class='footer-container'>
@@ -222,7 +226,7 @@
                 </div>
             </div>
         </footer>
-    
+
         <!-- jquery -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
         <script>
@@ -234,7 +238,11 @@
         </script>
 
         <script src='../javascript/navbar.js'></script>
+
         <script src='../javascript/cards.js'></script>
+
         <script src='../javascript/valids.js'></script>
+
+        <script src='../javascript/darkmode.js'></script>
     </body>
 </html>
