@@ -203,6 +203,7 @@ body span.info-span{
 
 .dark-mode span.info-span-content{
     color: rgb(187, 187, 187);
+    text-shadow: 0px 5px rgba(255, 255, 255, .2);
 }
 
 .dark-mode .register-main .register-container .register-content-buttons .btn button{

@@ -1,10 +1,13 @@
+const elementDate = document.querySelector('#date');
 
 // function's
 
 date = function(){
-    return document.querySelector('#date').innerHTML = new Date().getFullYear();
+    return elementDate.innerHTML = new Date().getFullYear();
 };
 
 // callback
 
-date();
+if(elementDate){
+    date();
+};

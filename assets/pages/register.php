@@ -40,7 +40,7 @@
         </div>
 
         <!-- navbar -->
-        <nav class='navbar'>
+        <nav class='transition navbar'>
             <div class='navbar-container'>
                 <div class='navbar-logo'>
                     <a href='#'>
@@ -73,8 +73,8 @@
         <div class='transition main register'>
             <div class='container'>
                 <div class='main-content register'>
-                    <h1>SR. & SRA. BEM ESTAR</h1>
-                    <p>Escolha uma aba entre as de Registro e Login.</p>
+                    <h1 class='transition'>SR. & SRA. BEM ESTAR</h1>
+                    <p class='transition'>Escolha uma aba entre as de Registro e Login.</p>
                 </div>
             </div> <!-- container -->
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
@@ -83,7 +83,7 @@
         </div> <!-- main -->
 
 
-        <div class='register-main'>
+        <div class='transition register-main'>
             <div class='register-container'>
                 <span class='info-span-content'>NÃO TEM UMA CONTA? REGISTRE-A AQUI.</span>
                 <div class='register-content-buttons'>
@@ -97,8 +97,8 @@
 
                 <div class='register-container-items'>
 
-                    <div class='item-cards'>
-                        <form action='../php/register.php?type=login' method='post'>
+                    <div class='transition item-cards'>
+                        <form class='transition' action='../php/register.php?type=login' method='post'>
                             <h2>Painel de logar.</h2>
                             <div class='transition form-container'>
                                 <?php if(isset($_GET['reg'])){ ?>
@@ -133,7 +133,7 @@
                         </form>
                     </div>
 
-                    <div id='register' class='item-cards top focus'>
+                    <div id='register' class='transition item-cards top focus'>
                         <form action='../php/register.php?type=register' method='post'>
                             <h2>Painel de Registro.</h2>
                             <div class='form-container top'>
