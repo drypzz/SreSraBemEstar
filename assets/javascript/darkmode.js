@@ -6,11 +6,11 @@ if(svgElement){
 
 // dark-mode btn
 
-document.querySelector('#darkmode').addEventListener('click',
-    () => {
-        var element = document.querySelector('#darkmode');
+const buttonDarkMode = document.querySelector('#darkmode');
 
-        element.classList.toggle('active')
+buttonDarkMode.addEventListener('click',
+    () => {
+        buttonDarkMode.classList.toggle('active')
     }
 );
 
