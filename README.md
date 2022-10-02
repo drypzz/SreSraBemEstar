@@ -3,28 +3,21 @@
 </div>
 
 <div align='center'>
-    <p><strong>Ultima atualização:</strong> 25 Set. 2022<br><strong>Última versão:</strong> 2.0.0</p>
+    <p><strong>Ultima atualização:</strong> 2 Out. 2022<br><strong>Última versão:</strong> 2.0.1</p>
 </div>
 
 <div align='center'>
-    <h3>Sendo utilizado no desenvolvimento:</h3>
-    <table>
-        <tr>
-            <td>
-                <img src="https://img.shields.io/badge/HTML5-ff7f36?style=for-the-badge&logo=html5&logoColor=fff" alt="html">
-            </td>
-            <td>
-                <img src="https://img.shields.io/badge/JavaScript-ffee00?&style=for-the-badge&logo=javascript&logoColor=black" alt="js">
-            </td>
-            <td>
-                <img src="https://img.shields.io/badge/CSS3-206991?&style=for-the-badge&logo=css3&logoColor=white" target="_blank" alt="css">
-            </td>
-            <td>
-                <img src="https://img.shields.io/badge/PHP-8098e8?&style=for-the-badge&logo=php&logoColor=white" target="_blank" alt="php">
-            </td>
-            <td>
-                <img src="https://img.shields.io/badge/MYSQL-e8aa80?&style=for-the-badge&logo=mysql&logoColor=white" target="_blank" alt="mysql">
-            </td>
-        </tr>
-    </table>
+    <a target='_blank' href='https://github.com/drypzz/'>
+        <div dir='auto'>
+            <img align='center' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg' width='30' alt='html5'>
+            -
+            <img align='center' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg' width='30' alt='js'>
+            -
+            <img align='center' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain.svg' width='30' alt='css3'>
+            -
+            <img align='center' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-plain.svg' width='30' alt='php'>
+            -
+            <img align='center' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-plain.svg' width='30' alt='mysql'>
+        </div>
+    </a>
 </div>

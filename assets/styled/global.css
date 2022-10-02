@@ -241,11 +241,14 @@ body span.info-span{
 
 .dark-mode .main .container .main-content .main-btn .btn a{
     border-color: black;
-    color: black;
+    background-color: black;
+    color: white;
 }
 
 .dark-mode .main .container .main-content .main-btn .btn a:hover{
+    border-color: white;
     background-color: black;
+    color: white;
 }
 
 .dark-mode .main{
@@ -459,16 +462,18 @@ body span.info-span{
 }
 
 .main .container .main-content .main-btn .btn a{
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid white;
+    color: black;
+    background-color: white;
     border-radius: 5px;
     padding: 10px 15px;
     transition: all .5s ease-in-out;
 }
 
 .main .container .main-content .main-btn .btn a:hover{
-    background-color: #fff;
-    color: var(--primary);
+    border-color: black;
+    background-color: white;
+    color: black;
 }
 
 .main .container .main-content .main-btn .btn a i{
