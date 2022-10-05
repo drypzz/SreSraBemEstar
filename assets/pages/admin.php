@@ -12,6 +12,26 @@
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'>
 
         <link rel='shortcut icon' href='../gfx/logo.png' type='image/x-icon'>
+
+        <?php
+            session_start();
+
+            if((!isset($_SESSION['name']) == true) and (!isset($_SESSION['cpf']) == true)){
+                header('location: ../../index.html');
+                unset($_SESSION['name']);
+                unset($_SESSION['cpf']);
+            };
+
+            if(isset($_GET['logout'])){
+                header('location: ../../index.html');
+                unset($_SESSION['name']);
+                unset($_SESSION['cpf']);
+            };
+
+            $name = $_SESSION['name'];
+            $cpf = $_SESSION['cpf'];
+        ?>
+        
     </head>
     <body>
         <!-- loader -->
@@ -37,7 +57,7 @@
                         <a href='#' class='navbar-links active'>Pagina Inicial</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='register' class='navbar-links'>Sair</a>
+                        <a href='?logout' class='navbar-links'>Sair</a>
                     </li>
                 </ul>
             </div> <!-- container -->
@@ -50,10 +70,10 @@
                     <h1>ABA ADMINISTRATIVA<br>SR. & SRA. BEM ESTAR</h1>
                 </div>
             </div> <!-- container -->
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
-                <path fill='#f4f4f4' fill-opacity='1' d='M0,192L80,176C160,160,320,128,480,138.7C640,149,800,203,960,218.7C1120,235,1280,213,1360,202.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'></path>
-            </svg>
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' id='wave'><path class='transition' id='oathhhhs' fill-opacity='1' d='M0,96L80,90.7C160,85,320,75,480,96C640,117,800,171,960,165.3C1120,160,1280,96,1360,64L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'></path></svg>
         </div> <!-- main -->
+
+        <h1>Bem vindo(a) <?php echo $name ?></h1>
 
         <div class='dark-container'>
             <button id='darkmode' onclick='darkmode()'></button>

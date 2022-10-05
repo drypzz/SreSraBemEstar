@@ -167,7 +167,8 @@
         };
 
     }else if($_GET['type'] == 'login'){
-        
+        session_start();
+
         if( isset($_POST['cpfLogin']) && isset($_POST['passwordLogin']) ){
             
             if( empty($cpfLogin) && empty($passwordLogin) ){
@@ -186,9 +187,13 @@
                     };
 
                     if(count($row) > 0){
-                        header('Location: ../pages/admin.php?name='.$nameRes.'&cpf='.$cpfResp);
+                        $_SESSION['name'] = $nameRes;
+                        $_SESSION['cpf'] = $cpfResp;
+                        header('Location: ../pages/admin.php');
                     
                     }else{
+                        unset($_SESSION['name']);
+                        unset($_SESSION['cpf']);
                         infoBox('../pages/register.php', 'CPF ou Senha incorretos.', 'nao', 'error');
                     };
 
