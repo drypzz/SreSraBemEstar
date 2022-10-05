@@ -197,8 +197,8 @@ body span.info-span{
 
 /* dark mode settings */
 
-.dark-mode p, .dark-mode span{
-    color: #fff;
+.dark-mode p, .dark-mode span, .dark-mode span.info, .dark-mode span.info-span{
+    color: #c8c8c8;
 }
 
 .dark-mode span.info-span-content{
@@ -216,22 +216,22 @@ body span.info-span{
 }
 
 .dark-mode .navbar-links:hover{
-    color: white;
+    color: #c8c8c8;
     background-color: black;
 }
 
 .dark-mode .navbar-links.active{
-    color: white;
+    color: #c8c8c8;
     background-color: black;
 }
 
 .dark-mode .register-main .register-container .register-container-items .item-cards form .form-container{
     background-color: rgba(255, 255, 255, .1);
-    color: white;
+    color: #c8c8c8;
 }
 
 .dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group input{
-    color: white;
+    color: #c8c8c8;
     background-color: rgba(255, 255, 255, .1);
 }
 
@@ -239,16 +239,21 @@ body span.info-span{
     color: black;
 }
 
+.dark-mode .main .container .main-content.register h1{
+    color: black;
+    background-color: #c8c8c8;
+}
+
 .dark-mode .main .container .main-content .main-btn .btn a{
     border-color: black;
     background-color: black;
-    color: white;
+    color: #c8c8c8;
 }
 
 .dark-mode .main .container .main-content .main-btn .btn a:hover{
-    border-color: white;
+    border-color: #c8c8c8;
     background-color: black;
-    color: white;
+    color: #c8c8c8;
 }
 
 .dark-mode .main{
