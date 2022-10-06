@@ -201,6 +201,14 @@ body span.info-span{
     color: #c8c8c8;
 }
 
+.dark-mode .main .container .main-content.admin h1{
+    background-color: #c8c8c8;
+}
+
+.dark-mode .admin-main .admin-container .admin-content img{
+    border-color: #c8c8c8;
+}
+
 .dark-mode span.info-span-content{
     color: rgb(187, 187, 187);
     text-shadow: 0px 5px rgba(255, 255, 255, .2);
@@ -729,6 +737,91 @@ body span.info-span{
     cursor: pointer;
 }
 
+/* admin.php */
+
+.admin-main{
+    height: 100%;
+    width: 100%;
+    margin-top: -170px;
+}
+
+.admin-main .admin-container{
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.admin-main .admin-container .admin-ts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.admin-main .admin-container .admin-ts.item .admin-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.admin-main .admin-container .admin-ts .admin-content{
+    margin: 20px;
+}
+
+.admin-main .admin-container .admin-ts .admin-content img{
+    width: 100px;
+    padding: 10px;
+    border: 2px solid var(--body);
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.admin-main .admin-container .admin-ts.item .admin-content .admin-content-item{
+    margin: 10px;
+}
+
+.admin-main .admin-container .admin-ts.item .admin-content .container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d8d8d8;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+    transition: all 600ms ease-in-out;
+}
+
+.admin-main .admin-container .admin-ts.item .admin-content .container:hover{
+    background-color: var(--primary);
+}
+
+.admin-main .admin-container .admin-ts.item .admin-content a{
+    color: black;
+    transition: all 600ms ease-in-out;
+}
+
+.admin-main .admin-container .admin-ts.item .admin-content .container .admin-content-item p{
+    max-width: 420px;
+}
+
+.admin-main .admin-container .admin-ts.item .admin-content .container .admin-content-item img{
+    width: 100px;
+    padding: 10px;
+    border: 2px solid var(--primary);
+    background-color: #686868;
+    border-radius: 50%;
+}
+
 /* footer */
 
 footer{
@@ -785,7 +878,25 @@ footer .footer-container .footer-content{
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='black' class='bi bi-lightbulb' viewBox='0 0 16 16'%3E%3Cpath d='M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z'/%3E%3C/svg%3E");
     }
 
-    /* register.html */
+    /* admin.php */
+
+    .main .container .main-content.admin h1{
+        font-size: 25px;
+    }
+
+    .admin-main{
+        margin-top: -80px;
+    }
+
+    .admin-main .admin-container{
+        padding: 10px;
+    }
+
+    .admin-main .admin-container .admin-ts.item .admin-content .container{
+        flex-direction: column;
+    }
+
+    /* register.php */
 
     .register-main{
         margin-top: -10px;

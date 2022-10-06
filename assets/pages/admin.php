@@ -33,7 +33,7 @@
         ?>
         
     </head>
-    <body>
+    <body class='transition'>
         <!-- loader -->
         <div class='loader-container'>
             <div class='loader'></div>
@@ -73,7 +73,84 @@
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' id='wave'><path class='transition' id='oathhhhs' fill-opacity='1' d='M0,96L80,90.7C160,85,320,75,480,96C640,117,800,171,960,165.3C1120,160,1280,96,1360,64L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'></path></svg>
         </div> <!-- main -->
 
-        <h1>Bem vindo(a) <?php echo $name ?></h1>
+        <div class='admin-main'>
+            <div class='admin-container'>
+                <div class='admin-ts'>
+                    <div class='admin-content'>
+                        <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/loiroimundo.png' alt='Foto de perfil'>
+                    </div>
+                    <div class='admin-content'>
+                        <h1>Olá, <?php echo $name; ?></h1>
+                        <p>Seu CPF: <?php echo $cpf; ?></p>
+                    </div>
+                </div>
+                <div class='admin-ts item'>
+                    <div class='admin-content'>
+                        
+                        <a href=''>
+                            <div class='container'>
+                                <div class='admin-content-item'>
+                                    <img src='../gfx/agenda.png' alt=''>
+                                </div>
+                                <div class='admin-content-item'>
+                                    <h1>Agenda</h1>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href=''>
+                            <div class='container'>
+                                <div class='admin-content-item'>
+                                    <img src='../gfx/level.png' alt=''>
+                                </div>
+                                <div class='admin-content-item'>
+                                    <h1>Level</h1>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href=''>
+                            <div class='container'>
+                                <div class='admin-content-item'>
+                                    <img src='../gfx/remedio.png' alt=''>
+                                </div>
+                                <div class='admin-content-item'>
+                                    <h1>Remédios</h1>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href=''>
+                            <div class='container'>
+                                <div class='admin-content-item'>
+                                    <img src='../gfx/comorbidade.png' alt=''>
+                                </div>
+                                <div class='admin-content-item'>
+                                    <h1>Comorbidade</h1>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href=''>
+                            <div class='container'>
+                                <div class='admin-content-item'>
+                                    <img src='../gfx/tarefa.png' alt=''>
+                                </div>
+                                <div class='admin-content-item'>
+                                    <h1>Tarefa</h1>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class='dark-container'>
             <button id='darkmode' onclick='darkmode()'></button>
