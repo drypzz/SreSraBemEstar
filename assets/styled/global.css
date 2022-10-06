@@ -202,7 +202,8 @@ body span.info-span{
 }
 
 .dark-mode .main .container .main-content.admin h1{
-    background-color: #c8c8c8;
+    background-color: rgba(255, 255, 255, .7);
+    color: black;
 }
 
 .dark-mode .admin-main .admin-container .admin-content img{
@@ -276,7 +277,27 @@ body span.info-span{
     background-image: linear-gradient(112deg, rgba(0, 0, 0, .4) 1%, rgba(0, 0, 0, .8) 90%),url(../gfx/swat.jpg);
 }
 
+.dark-mode .admin-main .admin-container .admin-ts.item .admin-content .container{
+    background-color: rgba(255, 255, 255, .1);
+}
 
+.dark-mode .admin-main .admin-container .admin-ts.item .admin-content .container p{
+    color: #c8c8c8;
+    transition: all 600ms ease-in-out;
+}
+
+.dark-mode .admin-main .admin-container .admin-ts.item .admin-content .container:hover p{
+    color: black;
+}
+
+.dark-mode .admin-main .admin-container .admin-ts.item .admin-content .container h1{
+    color: #c8c8c8;
+    transition: all 600ms ease-in-out;
+}
+
+.dark-mode .admin-main .admin-container .admin-ts.item .admin-content .container:hover h1{
+    color: black;
+}
 
 /* nav */
 
@@ -890,6 +911,10 @@ footer .footer-container .footer-content{
 
     .admin-main .admin-container{
         padding: 10px;
+    }
+
+    .admin-main .admin-container .admin-ts.item{
+        margin: 0 auto;
     }
 
     .admin-main .admin-container .admin-ts.item .admin-content .container{
