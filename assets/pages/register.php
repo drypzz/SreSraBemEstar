@@ -97,7 +97,7 @@
 
                 <div class='register-container-items'>
 
-                    <div class='transition item-cards'>
+                    <div class='transition item-cards' style='display: none;'>
                         <form class='transition' action='../php/register.php?type=login' method='post'>
                             <h2>Painel de logar.</h2>
                             <div class='transition form-container'>
@@ -133,8 +133,8 @@
                         </form>
                     </div>
 
-                    <div id='register' class='transition item-cards top focus'>
-                        <form action='../php/register.php?type=register' method='post'>
+                    <div id='register' class='transition item-cards top focus' style='display: block;'>
+                        <form id='registro' action='../php/register.php?type=register' method='post'>
                             <h2>Painel de Registro.</h2>
                             <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>

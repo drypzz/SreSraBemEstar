@@ -116,10 +116,12 @@ const divCpfR = document.querySelector('#divCpf');
 
 buttonCheckBox.onclick = function(){
     if(buttonCheckBox.checked){
-        divCpfR.style = 'display: block';
+        divCpfR.classList.add('focus');
+        divCpfR.style = 'display: block;';
         inputCpfR.setAttribute('required', '');
     }else{
-        divCpfR.style = 'display: none';
+        divCpfR.classList.remove('focus');
+        divCpfR.style = 'display: none;';
         inputCpfR.removeAttribute('required');
     };
 };

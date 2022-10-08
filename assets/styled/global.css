@@ -641,8 +641,8 @@ body span.info-span{
     pointer-events: auto;
 }
 
-.register-main .register-container .register-container-items .item-cards form{
-    margin-top: 20px;
+.register-main .register-container .register-container-items .item-cards form#registro{
+    margin-top: 420px;
     width: 100%;
     height: 100%;
 }
@@ -684,6 +684,17 @@ body span.info-span{
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group{
     margin: 20px 0;
     text-align: left;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container #divCpf{
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 600ms ease-in-out;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container #divCpf.focus{
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group label{
@@ -934,6 +945,10 @@ footer .footer-container .footer-content{
 
     .register-main .register-container{
         padding: 20px;
+    }
+
+    .register-main .register-container .register-container-items .item-cards form#registro{
+        margin-top: 350px;
     }
 
     .register-main .register-container .register-container-items .item-cards form .form-container{

@@ -27,9 +27,12 @@ controls.forEach(control => {
         };
 
         items.forEach(item => item.classList.remove('focus'));
+        items.forEach(item => item.style = 'display: none;');
+        
         controls.forEach(item => item.classList.remove('active-btn'));
 
         items[count].classList.add('focus');
+        items[count].style = 'display: block;';
         controls[count].classList.add('active-btn');
     });
 });
