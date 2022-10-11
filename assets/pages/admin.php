@@ -16,20 +16,21 @@
         <?php
             session_start();
 
-            if((!isset($_SESSION['name']) == true) and (!isset($_SESSION['cpf']) == true)){
+            $name = $_SESSION['name'];
+            $cpf = $_SESSION['cpf'];
+
+            if((!isset($name) == true) and (!isset($cpf) == true)){
                 header('location: ../../index.html');
-                unset($_SESSION['name']);
-                unset($_SESSION['cpf']);
+                unset($name);
+                unset($cpf);
             };
 
             if(isset($_GET['logout'])){
                 header('location: ../../index.html');
-                unset($_SESSION['name']);
-                unset($_SESSION['cpf']);
+                unset($name);
+                unset($cpf);
+                session_destroy();
             };
-
-            $name = $_SESSION['name'];
-            $cpf = $_SESSION['cpf'];
         ?>
         
     </head>
