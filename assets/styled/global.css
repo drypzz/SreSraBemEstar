@@ -221,17 +221,18 @@ body span.info-span{
 }
 
 .dark-mode .navbar-links{
-    color: black;
+    color: #fff;
+    background-color: var(--body);
 }
 
 .dark-mode .navbar-links:hover{
-    color: #c8c8c8;
-    background-color: black;
+    color: var(--body);
+    background-color: #fff;
 }
 
 .dark-mode .navbar-links.active{
-    color: #c8c8c8;
-    background-color: black;
+    color: var(--body);
+    background-color: #fff;
 }
 
 .dark-mode .register-main .register-container .register-container-items .item-cards form .form-container{
@@ -322,10 +323,12 @@ body span.info-span{
     justify-content: flex-start;
     height: 80px;
     z-index: 1;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .2);
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 /* logo */
@@ -340,7 +343,7 @@ body span.info-span{
 }
 
 .navbar-logo a img{
-    width: 80px;
+    width: 70px;
 }
 
 /* menu */
@@ -364,8 +367,9 @@ body span.info-span{
 }
 
 .navbar-links{
-    color: #fff;
+    color: var(--body);
     display: flex;
+    background-color: #fff;
     font-size: 18px;
     font-weight: 500 !important;
     align-items: center;
@@ -373,21 +377,23 @@ body span.info-span{
     width: 150px;
     text-decoration: none;
     height: 100%;
+    border-radius: 5px;
     transition: all .5s ease;
 }
 
 .navbar-links.active{
-    color: var(--body);
+    color: #fff;
     transition: all .5s ease;
-    background-color: #fff;
+    background-color: var(--body);
     border-radius: 5px;
 }
 
 .navbar-links:hover{
     background-color: #fff;
     border-radius: 5px;
-    color: var(--body);
+    color: #fff;
     transition: all .5s ease-out;
+    background-color: var(--body);
 }
 
 /* main */
@@ -1003,6 +1009,7 @@ footer .footer-container .footer-content{
         justify-content: space-between;
         height: 80px;
         z-index: 1;
+        background: transparent;
         width: 100%;
         max-width: 1300px;
         padding: 0;
