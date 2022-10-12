@@ -10,13 +10,13 @@
         <meta name='theme-color' content='#32cd74'>
 
         <meta name='title' content='Sr. & Sra. Bem Estar'>
-        <meta name='description' content='Olá, seja bem vindo(a), ao nosso site. Aqui você vera ***** e um pouco sobre nós.'/>
+        <meta name='description' content='Olá, seja bem vindo(a), ao nosso site. Registre-se / Entre aqui.'/>
         <meta name='url' content='#'>
 
         <meta property='og:title' content='Sr. & Sra. Bem Estar - Registro'>
         <link rel='image_src' href='../gfx/logo.png'>
         
-        <meta property='og:description' content='Olá, seja bem vindo(a), ao nosso site. Aqui você vera ***** e um pouco sobre nós.'>
+        <meta property='og:description' content='Olá, seja bem vindo(a), ao nosso site. Registre-se / Entre aqui.'>
 
         <meta property='og:site_name' content='Sr. & Sra. Bem Estar'>
         <meta property='og:url' content='#'>
@@ -98,7 +98,7 @@
                 <div class='register-container-items'>
 
                     <div class='transition item-cards' style='display: none;'>
-                        <form class='transition' action='../php/register.php?type=login' method='post'>
+                        <form class='transition' action='../php/global.php?type=login' method='post'>
                             <h2>Painel de logar.</h2>
                             <div class='transition form-container'>
                                 <?php if(isset($_GET['reg'])){ ?>
@@ -134,7 +134,7 @@
                     </div>
 
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
-                        <form id='registro' action='../php/register.php?type=register' method='post'>
+                        <form id='registro' action='../php/global.php?type=register' method='post'>
                             <h2>Painel de Registro.</h2>
                             <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>
