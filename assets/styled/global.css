@@ -1077,7 +1077,7 @@ footer .footer-container .footer-content{
     }
 
     .navbar-links.active{
-        color: var(--secondary);
+        color: white;
         border: none;
     }
 
