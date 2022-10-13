@@ -1129,6 +1129,7 @@ footer .footer-container .footer-content{
     .navbar-links.active{
         color: white;
         border: none;
+        background-color: #0d0e0f;
     }
 
     .navbar-item:hover{
