@@ -87,7 +87,7 @@
                 <div class='admin-ts item'>
                     <div class='admin-content'>
                         
-                        <a href=''>
+                        <a>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/agenda.png' alt=''>
@@ -99,7 +99,7 @@
                             </div>
                         </a>
                         
-                        <a href=''>
+                        <a>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/level.png' alt=''>
@@ -111,7 +111,7 @@
                             </div>
                         </a>
 
-                        <a href=''>
+                        <a>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/remedio.png' alt=''>
@@ -123,7 +123,7 @@
                             </div>
                         </a>
 
-                        <a href=''>
+                        <a>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/comorbidade.png' alt=''>
@@ -135,7 +135,7 @@
                             </div>
                         </a>
 
-                        <a href=''>
+                        <a>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/tarefa.png' alt=''>
