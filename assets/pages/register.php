@@ -14,14 +14,14 @@
         <meta name='url' content='#'>
 
         <meta property='og:title' content='Sr. & Sra. Bem Estar - Registro'>
-        <link rel='image_src' href='../gfx/logo.png'>
+        <link rel='image_src' href='../gfx/primary/logo.png'>
         
         <meta property='og:description' content='Olá, seja bem vindo(a), ao nosso site. Registre-se / Entre aqui.'>
 
         <meta property='og:site_name' content='Sr. & Sra. Bem Estar'>
         <meta property='og:url' content='#'>
 
-        <meta property='og:image' content='../gfx/logo.png'>
+        <meta property='og:image' content='../gfx/primary/logo.png'>
         <meta property='og:image:width' content='900'>
         <meta property='og:image:height' content='900'>
 
@@ -31,7 +31,7 @@
 
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'>
 
-        <link rel='shortcut icon' href='../gfx/logo.png' type='image/x-icon'>
+        <link rel='shortcut icon' href='../gfx/primary/logo.png' type='image/x-icon'>
     </head>
     <body class='transition'>
         <!-- loader -->
@@ -44,7 +44,7 @@
             <div class='navbar-container'>
                 <div class='navbar-logo'>
                     <a href='#'>
-                        <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/logo.png' alt=''>
+                        <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/primary/logo.png' alt=''>
                     </a>
                 </div>
                 <div class='navbar-toggle' id='mobile-menu'>
