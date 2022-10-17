@@ -8,6 +8,7 @@
 :root{
     /* colors */
     --primary: #32cd74;
+    --blues: rgb(53, 153, 204);
     
     --secondary: #0000007a;
     --tertiary: #ffffff7a;
@@ -66,7 +67,7 @@ body span.category{
 }
 
 body span.info-span-content{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 1.5;
     display: block;
     color: #757575;
@@ -288,27 +289,27 @@ body span.info-span{
 }
 
 .dark-mode .main .container .main-content .main-btn .btn a{
-    border-color: black;
-    background-color: black;
+    border-color: var(--body);
+    background-color: var(--body);
     color: #c8c8c8;
 }
 
 .dark-mode .main .container .main-content .main-btn .btn a:hover{
     border-color: #c8c8c8;
-    background-color: black;
-    color: #c8c8c8;
+    background-color: #c8c8c8;
+    color: var(--body);
 }
 
 .dark-mode .main{
-    background-image: linear-gradient(112deg, rgba(0, 0, 0, .4) 1%, rgba(0, 0, 0, .8) 90%),url(../gfx/cell.png);
+    background-image: linear-gradient(112deg, rgba(0, 0, 0, .4) 1%, rgba(0, 0, 0, .8) 90%),url(../gfx/wall/cell.png);
 }
 
 .dark-mode .main.register{
-    background-image: linear-gradient(112deg, rgba(0, 0, 0, .4) 1%, rgba(0, 0, 0, .8) 90%),url(../gfx/swat.jpg);
+    background-image: linear-gradient(112deg, rgba(0, 0, 0, .4) 1%, rgba(0, 0, 0, .8) 90%),url(../gfx/wall/swat.jpg);
 }
 
 .dark-mode .main.admin{
-    background-image: linear-gradient(112deg, rgba(0, 0, 0, .4) 1%, rgba(0, 0, 0, .8) 90%),url(../gfx/swat.jpg);
+    background-image: linear-gradient(112deg, rgba(0, 0, 0, .4) 1%, rgba(0, 0, 0, .8) 90%),url(../gfx/wall/swat.jpg);
 }
 
 .dark-mode .admin-main .admin-container .admin-ts.item .admin-content .container{
@@ -438,7 +439,7 @@ body span.info-span{
 
 .main{
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 90%),url(../gfx/cell.png);
+    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 90%),url(../gfx/wall/cell.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -448,7 +449,7 @@ body span.info-span{
 
 .main.register{
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 90%),url(../gfx/swat.jpg);
+    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 90%),url(../gfx/wall/swat.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -458,7 +459,7 @@ body span.info-span{
 
 .main.admin{
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 90%),url(../gfx/swat.jpg);
+    background-image: linear-gradient(112deg,var(--tertiary) 1%,var(--secondary) 90%),url(../gfx/wall/swat.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -541,7 +542,7 @@ body span.info-span{
 
 .main .container .main-content .main-btn .btn a{
     border: 1px solid white;
-    color: black;
+    color: var(--body);
     background-color: white;
     border-radius: 5px;
     padding: 10px 15px;
@@ -549,9 +550,9 @@ body span.info-span{
 }
 
 .main .container .main-content .main-btn .btn a:hover{
-    border-color: black;
-    background-color: white;
-    color: black;
+    border-color: var(--body);
+    background-color: var(--body);
+    color: #fff;
 }
 
 .main .container .main-content .main-btn .btn a i{
@@ -582,6 +583,8 @@ body span.info-span{
 .about .about-container .about-content p{
     max-width: 1000px;
     text-align: justify;
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 50px;
 }
 
 .about .about-container .about-content .about-imgs{
@@ -595,6 +598,24 @@ body span.info-span{
 
 .about .about-container .about-content .about-imgs .about-imgs-content{
     margin: 20px;
+}
+
+.about .about-container .about-content .about-imgs .about-imgs-content span{
+    margin: 15px;
+    display: block;
+}
+
+.about .about-container .about-content .about-imgs .about-imgs-content a i{
+    border: 1px solid var(--blues);
+    color: var(--blues);
+    border-radius: 50%;
+    padding: 25px;
+    transition: all 600ms ease-in-out;
+}
+
+.about .about-container .about-content .about-imgs .about-imgs-content a i:hover{
+    background-color: var(--blues);
+    color: #fff;
 }
 
 .about .about-container .about-content .about-imgs .about-imgs-content img{

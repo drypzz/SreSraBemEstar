@@ -11,7 +11,7 @@
 
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'>
 
-        <link rel='shortcut icon' href='../gfx/logo.png' type='image/x-icon'>
+        <link rel='shortcut icon' href='../gfx/primary/logo.png' type='image/x-icon'>
 
         <?php
             session_start();
@@ -45,7 +45,7 @@
             <div class='navbar-container'>
                 <div class='navbar-logo'>
                     <a href='#'>
-                        <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/logo.png' alt=''>
+                        <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/primary/logo.png' alt=''>
                     </a>
                 </div>
                 <div class='navbar-toggle' id='mobile-menu'>
@@ -84,7 +84,7 @@
             <div class='admin-container'>
                 <div class='admin-ts'>
                     <div class='admin-content'>
-                        <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/loiroimundo.png' alt='Foto de perfil'>
+                        <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/primary/loiroimundo.png' alt='Foto de perfil'>
                     </div>
                     <div class='admin-content'>
                         <h1>Olá, <?php echo $name; ?></h1>
@@ -97,7 +97,7 @@
                         <a href='agenda.php'>
                             <div class='container'>
                                 <div class='admin-content-item'>
-                                    <img src='../gfx/agenda.png' alt=''>
+                                    <img src='../gfx/icons/agenda.png' alt=''>
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Agenda</h1>
@@ -109,7 +109,7 @@
                         <a>
                             <div class='container'>
                                 <div class='admin-content-item'>
-                                    <img src='../gfx/level.png' alt=''>
+                                    <img src='../gfx/icons/level.png' alt=''>
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Level</h1>
@@ -121,7 +121,7 @@
                         <a>
                             <div class='container'>
                                 <div class='admin-content-item'>
-                                    <img src='../gfx/remedio.png' alt=''>
+                                    <img src='../gfx/icons/remedio.png' alt=''>
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Remédios</h1>
@@ -133,7 +133,7 @@
                         <a>
                             <div class='container'>
                                 <div class='admin-content-item'>
-                                    <img src='../gfx/comorbidade.png' alt=''>
+                                    <img src='../gfx/icons/comorbidade.png' alt=''>
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Comorbidade</h1>
@@ -145,7 +145,7 @@
                         <a>
                             <div class='container'>
                                 <div class='admin-content-item'>
-                                    <img src='../gfx/tarefa.png' alt=''>
+                                    <img src='../gfx/icons/tarefa.png' alt=''>
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Tarefa</h1>
