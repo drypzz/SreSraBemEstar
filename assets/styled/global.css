@@ -807,6 +807,11 @@ body span.info-span{
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input:valid{
     border: 1px solid var(--primary);
+}   
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-radio{
+   text-align: left;
+   padding: 3px 3px 3px 0px;
 }
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input[type = 'submit']{

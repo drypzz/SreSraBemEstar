@@ -14,23 +14,23 @@
         <link rel='shortcut icon' href='../gfx/logo.png' type='image/x-icon'>
 
         <?php
-            session_start();
+            // session_start();
 
-            $name = $_SESSION['name'];
-            $cpf = $_SESSION['cpf'];
+            // $name = $_SESSION['name'];
+            // $cpf = $_SESSION['cpf'];
 
-            if((!isset($name) == true) and (!isset($cpf) == true)){
-                header('location: ../../index.html');
-                unset($name);
-                unset($cpf);
-            };
+            // if((!isset($name) == true) and (!isset($cpf) == true)){
+            //     header('location: ../../index.html');
+            //     unset($name);
+            //     unset($cpf);
+            // };
 
-            if(isset($_GET['logout'])){
-                header('location: ../../index.html');
-                unset($name);
-                unset($cpf);
-                session_destroy();
-            };
+            // if(isset($_GET['logout'])){
+            //     header('location: ../../index.html');
+            //     unset($name);
+            //     unset($cpf);
+            //     session_destroy();
+            // };
         ?>
         
     </head>
@@ -90,11 +90,11 @@
                 <div class='register-container-items'>
 
                     <div class='transition item-cards' style='display: none;'>
-                        <form class='transition' action='../php/global.php?type=login' method='post'>
+                        <form class='transition' action='../php/global.php?type=remedio' method='post'>
                             <h2>Painel da tarefa.</h2>
                             <div class='transition form-container'>
                                 <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'nao'){ ?>
+                                    <?php if($_GET['reg'] == 'remedio'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
@@ -109,14 +109,14 @@
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
-                                    <label for='cpfLogin'>Descrição:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='cpfLogin' placeholder='Suas imformações' name='cpfLogin' autocomplete='off'>
-                                    <span id='span-error-cpflogin' style='color: red;'></span>
+                                    <label for='name-remedio'>Remédios:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='name-remedio' name='name-remedio'>
+                                    <span id='span-error-name-remedio' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='passwordLogin'>Remédios:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='passwordLogin' name='passwordLogin'>
-                                    <span id='span-error-passwordLogin' style='color: red;'></span>
+                                    <label for='desc-remedio'>Descrição:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'>
+                                    <span id='span-error-desc' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
                                     <input type='submit' value='Salvar'>
@@ -126,7 +126,7 @@
                     </div>
 
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
-                        <form id='registro' action='../php/global.php?type=register' method='post'>
+                        <form id='registro' action='../php/global.php?type=agenda' method='post'>
                             <h2>Painel do Idoso.</h2>
                             <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>
@@ -146,32 +146,39 @@
                                 <?php }; ?>
 
                                 <div class='form-group'>
-                                    <label for='name'>Remédio:<span style='color: red;'>*</span></label>
-                                    <input type='text' required placeholder='Nome' id='name' name='name'>
+                                    <label for='remedios'>Remédio:<span style='color: red;'>*</span></label>
+                                    <input type='text' required placeholder='Nome' id='remedios' name='remedios'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='email'>Comorbidade:<span style='color: red;'>*</span></label>
-                                    <input type='email' required placeholder='sr&srabemestar@gmail.com' id='email' name='email'>
+                                    <label for='comorbidade'>Comorbidade:<span style='color: red;'>*</span></label>
+                                    <input type='text' required placeholder='sr&srabemestar@gmail.com' id='comorbidade' name='comorbidade'>
                                 </div>
                                 <div class='form-group'>
                                     <label for='date'>Nivel:<span style='color: red;'>*</span></label>
-                                    
-                                    <input class='input-radio' type='radio' id='baixo' name='fav_language' value='BAIXO'>
-                                    <label for='baixo'>BAIXO</label>
-
-                                    <input class='input-radio' type='radio' id='moderado' name='fav_language' value='MODERADO'>
-                                    <label for='moderado'>MODERADO</label>
-
-                                    <input class='input-radio' type='radio' id='alto' name='fav_language' value='ALTO'>
-                                    <label for='alto'>ALTO</label>
-
-                                    <input class='input-radio' type='radio' id='mtalto' name='fav_language' value='MUITO ALTO'>
-                                    <label for='mtalto'>MUITO ALTO</label>
-
-                                    <span id='span-error-date' style='color: red;'></span>
                                 </div>
                                
-            
+                                <div class="form-radio">
+                                    <input class='input-radio' type='radio' id='baixo' name='radio' value='BAIXO'>
+                                    <label for='baixo'>BAIXO</label>
+                                </div>
+
+                                <div class="form-radio">
+                                    <input class='input-radio' type='radio' id='moderado' name='radio' value='MODERADO'>
+                                    <label for='moderado'>MODERADO</label>
+                                </div>
+
+                                <div class="form-radio">
+                                    <input class='input-radio' type='radio' id='alto' name='radio' value='ALTO'>
+                                    <label for='alto'>ALTO</label>
+                                </div>
+
+                                <div class="form-radio">
+                                    <input class='input-radio' type='radio' id='mtalto' name='radio' value='MUITO ALTO'>
+                                    <label for='mtalto'>MUITO ALTO</label>
+                                </div>                               
+                                
+                                
+                                
                                 <div class='form-group'>
                                     <input type='submit' value='Salvar'>
                                 </div>

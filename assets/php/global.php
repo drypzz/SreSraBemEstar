@@ -20,22 +20,22 @@
         return $return;
     };
 
-    $name = checkString($_POST['name']);
-    $email = checkString($_POST['email']);
-    $date = checkString($_POST['date']);
-    $phone = checkString($_POST['phone']);
-    $cpf = checkString($_POST['cpf']);
-    $password = checkString($_POST['password']);
-    $passwordC = checkString($_POST['passwordC']);
-    $cpfr = checkString($_POST['cpfR']);
-
-    $cpfLogin = checkString($_POST['cpfLogin']);
-    $passwordLogin = checkString($_POST['passwordLogin']);
-
-    $checked = (isset($_POST['resp']) ? true : false);
-
     if($_GET['type'] == 'register'){
         
+        $name = checkString($_POST['name']);
+        $email = checkString($_POST['email']);
+        $date = checkString($_POST['date']);
+        $phone = checkString($_POST['phone']);
+        $cpf = checkString($_POST['cpf']);
+        $password = checkString($_POST['password']);
+        $passwordC = checkString($_POST['passwordC']);
+        $cpfr = checkString($_POST['cpfR']);
+
+        $cpfLogin = checkString($_POST['cpfLogin']);
+        $passwordLogin = checkString($_POST['passwordLogin']);
+
+        $checked = (isset($_POST['resp']) ? true : false);
+
         if( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['date']) && isset($_POST['phone']) && isset($_POST['cpf']) && isset($_POST['password']) && isset($_POST['passwordC']) ){
             
             if( $checked == true ){
@@ -206,6 +206,37 @@
             exit();
         };
 
+    }else if($_GET['type'] == 'remedio'){
+
+        if( isset($_POST['desc-remedio']) && isset($_POST['name-remedio'])){
+
+            if(empty($_POST['desc-remedio']) && empty($_POST['name-remedio'])){
+                infoBox('../pages/agenda.php', 'Insira corretamente as informações: NOME DO REMÉDIO E DESCRIÇÃO.', 'remedio', 'error');
+            
+            }else{
+                $query = $pdo->prepare('SELECT * FROM remedio WHERE Nome_Remed = ?');
+                
+                if($query->execute(array($_POST['name-remedio']))){
+
+                    if(!$query->rowCount() > 0){
+
+                        $var = 0;
+
+                        $valuesvar = ($var + 1);
+
+                        $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`) VALUES(".($valuesvar).", ?, ?)");
+                        $sql->execute(array($_POST['name-remedio'], $_POST['desc-remedio']));
+                        infoBox('../pages/agenda.php', 'Remedio cadastrado com sucesso.', 'remedio', 'success');
+                        exit();
+
+                    };
+
+                }else{
+                    infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'remedio', 'error');
+                    exit();
+                };
+            };
+        };
     };
 
 ?>
