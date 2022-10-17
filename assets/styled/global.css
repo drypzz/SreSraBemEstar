@@ -585,6 +585,7 @@ body span.info-span{
     text-align: justify;
     border-bottom: 1px solid var(--primary);
     padding-bottom: 50px;
+    transition: all 600ms ease-in-out;
 }
 
 .about .about-container .about-content .about-imgs{

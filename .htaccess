@@ -1,5 +1,7 @@
 Options -Indexes
 
+php_flag output_buffering on
+
 <FilesMatch "config.php$">
     Deny from all
 </FilesMatch>
