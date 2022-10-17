@@ -64,6 +64,12 @@
             </div> <!-- container -->
         </nav> <!-- navbar -->
 
+
+        <div>
+            
+        </div>
+
+
         <!-- main -->
         <div class='transition main admin'>
             <div class='container'>
@@ -88,7 +94,7 @@
                 <div class='admin-ts item'>
                     <div class='admin-content'>
                         
-                        <a>
+                        <a href='agenda.php'>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/agenda.png' alt=''>
