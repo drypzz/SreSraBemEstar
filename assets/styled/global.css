@@ -766,13 +766,14 @@ body span.info-span{
     display: block;
 }
 
-.register-main .register-container .register-container-items .item-cards form .form-container .form-group input{
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input, .register-main .register-container .register-container-items .item-cards form .form-container .form-group textarea{
     width: 100%;
     border: none;
     border-radius: 5px 5px 0 0;
     padding: 10px;
     background-color: #ffffff9d;
     outline: none;
+    resize: none;
     border-bottom: 1px solid #ccccccde;
 }
 
@@ -806,7 +807,7 @@ body span.info-span{
     border: 1px solid var(--primary);
 }
 
-.register-main .register-container .register-container-items .item-cards form .form-container .form-group input:valid{
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input:valid, .register-main .register-container .register-container-items .item-cards form .form-container .form-group textarea:valid{
     border: 1px solid var(--primary);
 }   
 

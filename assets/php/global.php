@@ -31,9 +31,6 @@
         $passwordC = checkString($_POST['passwordC']);
         $cpfr = checkString($_POST['cpfR']);
 
-        $cpfLogin = checkString($_POST['cpfLogin']);
-        $passwordLogin = checkString($_POST['passwordLogin']);
-
         $checked = (isset($_POST['resp']) ? true : false);
 
         if( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['date']) && isset($_POST['phone']) && isset($_POST['cpf']) && isset($_POST['password']) && isset($_POST['passwordC']) ){
@@ -169,6 +166,9 @@
     }else if($_GET['type'] == 'login'){
         session_start();
 
+        $cpfLogin = checkString($_POST['cpfLogin']);
+        $passwordLogin = checkString($_POST['passwordLogin']);
+
         if( isset($_POST['cpfLogin']) && isset($_POST['passwordLogin']) ){
             
             if( empty($cpfLogin) && empty($passwordLogin) ){
@@ -216,19 +216,27 @@
             }else{
                 $query = $pdo->prepare('SELECT * FROM remedio WHERE Nome_Remed = ?');
                 
+                $queryRemedio = $pdo->prepare('SELECT * FROM remedio');
+
+                if($queryRemedio->execute()){
+                    $row = $queryRemedio->fetchAll(PDO::FETCH_ASSOC);
+                    foreach($row as $key => $i){
+                        $idRemedio = ($i['Cod_Remedio'] ?? 0);
+                    };
+                };
+
                 if($query->execute(array($_POST['name-remedio']))){
 
                     if(!$query->rowCount() > 0){
 
-                        $var = 0;
-
-                        $valuesvar = ($var + 1);
-
-                        $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`) VALUES(".($valuesvar).", ?, ?)");
-                        $sql->execute(array($_POST['name-remedio'], $_POST['desc-remedio']));
+                        $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`) VALUES(?, ?, ?)");
+                        $sql->execute(array(($idRemedio + 1), $_POST['name-remedio'], $_POST['desc-remedio']));
                         infoBox('../pages/agenda.php', 'Remedio cadastrado com sucesso.', 'remedio', 'success');
                         exit();
 
+                    }else{
+                        infoBox('../pages/agenda.php', 'Remedio ja cadastrado.', 'remedio', 'error');
+                        exit();
                     };
 
                 }else{
@@ -236,6 +244,17 @@
                     exit();
                 };
             };
+        };
+    } else if($_GET['type'] == 'agenda'){
+
+        if( isset($_POST['name-remedio']) && isset($_POST['comorbidade']) && isset($_POST['baixo']) && isset($_POST['moderado']) && isset($_POST['alto']) && isset($_POST['mtalto'])){
+
+            if(empty($_POST['name-remedio']) && isset($_POST['comorbidade']) && isset($_POST['baixo']) && isset($_POST['moderado']) && isset($_POST['alto']) && isset($_POST['mtalto'])){
+                infoBox('../pages/agenda.php', 'Insira corretamente as informações: NOME DO REMÉDIO, COMORBIDADE E NÍVEL.', 'agenda', 'error');
+
+            }else{
+                
+            }
         };
     };
 

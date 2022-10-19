@@ -115,7 +115,8 @@
                                 </div>
                                 <div class='form-group'>
                                     <label for='desc-remedio'>Descrição:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'>
+                                    <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
+                                    <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
                                     <span id='span-error-desc' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
@@ -146,8 +147,8 @@
                                 <?php }; ?>
 
                                 <div class='form-group'>
-                                    <label for='remedios'>Remédio:<span style='color: red;'>*</span></label>
-                                    <input type='text' required placeholder='Nome' id='remedios' name='remedios'>
+                                    <label for='name-remedio'>Remédio:<span style='color: red;'>*</span></label>
+                                    <input type='text' required placeholder='Nome' id='name-remedio' name='name-remedio'>
                                 </div>
                                 <div class='form-group'>
                                     <label for='comorbidade'>Comorbidade:<span style='color: red;'>*</span></label>
@@ -176,9 +177,7 @@
                                     <input class='input-radio' type='radio' id='mtalto' name='radio' value='MUITO ALTO'>
                                     <label for='mtalto'>MUITO ALTO</label>
                                 </div>                               
-                                
-                                
-                                
+                                                                
                                 <div class='form-group'>
                                     <input type='submit' value='Salvar'>
                                 </div>
