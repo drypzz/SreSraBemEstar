@@ -77,24 +77,24 @@
 
         <div class='transition register-main'>
             <div class='register-container'>
-                <span class='info-span-content'>AGENDA</span>
+                <span class='info-span-content'>NÍVEL</span>
                 <div class='register-content-buttons'>
                     <div class='btn'>
-                        <button class='button-control arrow-left'>Tarefas</button>
+                        <button class='button-control arrow-left'>Nível</button>
                     </div>
                     <div class='btn'>
-                        <button class='button-control active-btn'>Agenda</button>
+                        <button class='button-control active-btn'>Comorbidade</button>
                     </div>
                 </div>
 
                 <div class='register-container-items'>
 
                     <div class='transition item-cards' style='display: none;'>
-                        <form class='transition' action='../php/global.php?type=remedio' method='post'>
-                            <h2>Painel da tarefa.</h2>
+                        <form class='transition' action='../php/global.php?type=nivel' method='post'>
+                            <h2>Painel do Nível.</h2>
                             <div class='transition form-container'>
                                 <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'remedio'){ ?>
+                                    <?php if($_GET['reg'] == 'nivel'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
@@ -109,16 +109,17 @@
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
-                                    <label for='name-remedio'>Remédios:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='name-remedio' name='name-remedio'>
-                                    <span id='span-error-name-remedio' style='color: red;'></span>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='desc-remedio'>Descrição:<span style='color: red;'>*</span></label>
-                                    <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
+                                    <label for='Descricao_Nivel'>Descrição:<span style='color: red;'>*</span></label>
+                                    <textarea name="Descricao_Nivel" id="Descricao_Nivel" cols="5" rows="5"></textarea>
                                     <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
                                     <span id='span-error-desc' style='color: red;'></span>
                                 </div>
+
+                                <div class="form-radio">
+                                    <input type="radio" name='baixo' id='baixo' value='BAIXO'>
+                                    <label for='baixo'>BAIXO</label>
+                                </div>
+
                                 <div class='form-group'>
                                     <input type='submit' value='Salvar'>
                                 </div>
@@ -127,7 +128,7 @@
                     </div>
 
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
-                        <form id='registro' action='../php/global.php?type=agenda' method='post'>
+                        <form id='registro' action='../php/global.php?type=comorbidade' method='post'>
                             <h2>Painel do Idoso.</h2>
                             <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>
@@ -147,19 +148,15 @@
                                 <?php }; ?>
 
                                 <div class='form-group'>
-                                <label for='cpfidoso'>CPF do Idoso:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='cpfidoso' placeholder='000.000.000-00' name='cpfidoso' autocomplete='off' maxlength='14'>
+                                <label for='comorbidade'>Comorbidade:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='comorbidade' placeholder='000.000.000-00' name='comorbidade' autocomplete='off' maxlength='14'>
                                     <span id='span-error-cpfidoso' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='Data-Tarefa'>Data da Tarefa:<span style='color: red;'> *Clique no Calendário</span></label>
-                                    <input type='date' name='Data-Tarefa' id='Data-Tarefa'>
+                                    <label for='Cod_Nivel'>Nível da Comorbidade:<span style='color: red;'>*</span></label>
+                                    <input type='date' name='Cod_Nivel' id='Cod_Nivel'>
                                 </div>
-                                <div class='form-group'>
-                                    <label for='Hora-Tarefa'>Hora da Tarefa:<span style='color: red;'> *Clique no Relógio</span></label>
-                                    <input type='time' required id='Hora-Tarefa' name='Hora-Tarefa'>
-                                </div>
-                                                                                               
+                                                                                       
                                 <div class='form-group'>
                                     <input type='submit' value='Salvar'>
                                 </div>

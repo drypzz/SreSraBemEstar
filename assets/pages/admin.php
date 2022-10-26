@@ -106,7 +106,7 @@
                             </div>
                         </a>
                         
-                        <a>
+                        <a href='nivel.php'>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/icons/level.png' alt=''>

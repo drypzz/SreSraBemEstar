@@ -5,6 +5,7 @@ const error_cpf = document.querySelector('#span-error-cpf');
 const error_cpfR = document.querySelector('#span-error-cpfR');
 const error_date = document.querySelector('#span-error-date');
 const error_phone = document.querySelector('#span-error-phone');
+const error_cpf_idoso = document.querySelector('#span-error-cpfidoso')
 
 // cpf's
 
@@ -43,6 +44,27 @@ input_02.addEventListener('keypress', (e) => {
         };
     }else{
         error_cpf.innerHTML = '* Insira apenas numeros';
+    };
+});
+
+// cpf idoso - agenda
+
+const input_06 = document.querySelector('#cpfidoso');
+
+input_02.addEventListener('keypress', (e) => {
+    let inputLength = input_02.value.length;
+
+    var key = e.keyCode || e.charCode;
+
+    if (key >= 48 && key <= 57) {
+        error_cpf_idoso.innerHTML = '';
+        if (inputLength === 3 || inputLength === 7){
+            input_02.value += '.';
+        }else if(inputLength === 11){
+            input_02.value += '-';
+        };
+    }else{
+        error_cpf_idoso.innerHTML = '* Insira penas numeros';
     };
 });
 
