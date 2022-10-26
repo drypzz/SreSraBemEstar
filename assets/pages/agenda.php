@@ -58,7 +58,7 @@
                         <a href='#' class='navbar-links active'>Pagina Inicial</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='?logout' class='navbar-links'>Sair</a>
+                        <a href='admin.php' class='navbar-links'>Voltar</a>
                     </li>
                 </ul>
             </div> <!-- container -->
@@ -128,7 +128,7 @@
 
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
                         <form id='registro' action='../php/global.php?type=agenda' method='post'>
-                            <h2>Painel do Idoso.</h2>
+                            <h2>Painel Cadastro de Agenda.</h2>
                             <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>
                                     <?php if($_GET['reg'] == 'sim'){ ?>
@@ -157,7 +157,7 @@
                                         if($query->execute([$cpf])){
                                             $row = $query->fetchAll(PDO::FETCH_ASSOC);
                                             foreach($row as $key => $i){ ?>
-                                        <option value=<?php echo $i['Nome_Idoso']; ?>><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
+                                        <option value=<?php echo $i['CPF_Idoso']; ?>><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
                                             <?php };
                                         }; ?>
 

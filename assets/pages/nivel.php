@@ -58,7 +58,7 @@
                         <a href='#' class='navbar-links active'>Pagina Inicial</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='?logout' class='navbar-links'>Sair</a>
+                        <a href='admin.php' class='navbar-links'>Voltar</a>
                     </li>
                 </ul>
             </div> <!-- container -->

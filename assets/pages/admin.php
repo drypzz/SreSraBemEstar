@@ -55,7 +55,10 @@
                 </div>
                 <ul class='navbar-menu'>
                     <li class='navbar-item'>
-                        <a href='#' class='navbar-links active'>Pagina Inicial</a>
+                        <a href='../../index.html' class='navbar-links'>Pagina Inicial</a>
+                    </li>
+                    <li class='navbar-item'>
+                        <a href='#' class='navbar-links active'>Gerenciar</a>
                     </li>
                     <li class='navbar-item'>
                         <a href='?logout' class='navbar-links'>Sair</a>

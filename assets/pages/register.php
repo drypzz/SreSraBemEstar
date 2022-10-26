@@ -59,9 +59,6 @@
                     <li class='navbar-item'>
                         <a href='../../index.html#about' class='navbar-links'>Sobre</a>
                     </li>
-                    <!-- <li class='navbar-item'>
-                        <a href='#' class='navbar-links'>Contato</a>
-                    </li> -->
                     <li class='navbar-item'>
                         <a href='#' class='navbar-links active'>Registro</a>
                     </li>
