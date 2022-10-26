@@ -115,7 +115,7 @@
                                 </div>
                                 <div class='form-group'>
                                     <label for='desc-remedio'>Descrição:<span style='color: red;'>*</span></label>
-                                    <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
+                                    <textarea name='desc-remedio' id='desc-remedio' cols='5' rows='5'></textarea>
                                     <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
                                     <span id='span-error-desc' style='color: red;'></span>
                                 </div>
@@ -147,9 +147,21 @@
                                 <?php }; ?>
 
                                 <div class='form-group'>
-                                <label for='cpfidoso'>CPF do Idoso:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='cpfidoso' placeholder='000.000.000-00' name='cpfidoso' autocomplete='off' maxlength='14'>
-                                    <span id='span-error-cpfidoso' style='color: red;'></span>
+                                    <select required class='form-control' name='select' id='select'>
+                                        <option value=''>Selecione um CPF</option>
+                                        <?php
+                                        include '../mysql/pdo.php';
+
+                                        $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Resp = ?');
+
+                                        if($query->execute([$cpf])){
+                                            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                                            foreach($row as $key => $i){ ?>
+                                        <option value=<?php echo $i['Nome_Idoso']; ?>><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
+                                            <?php };
+                                        }; ?>
+
+                                    </select>
                                 </div>
                                 <div class='form-group'>
                                     <label for='Data-Tarefa'>Data da Tarefa:<span style='color: red;'> *Clique no Calendário</span></label>
