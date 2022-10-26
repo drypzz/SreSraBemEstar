@@ -23,7 +23,7 @@ input_01.addEventListener('keypress', (e) => {
             input_01.value += '-';
         };
     }else{
-        error_cpf_login.innerHTML = '* Insira penas numeros';
+        error_cpf_login.innerHTML = '* Insira apenas numeros';
     };
 });
 
@@ -42,7 +42,7 @@ input_02.addEventListener('keypress', (e) => {
             input_02.value += '-';
         };
     }else{
-        error_cpf.innerHTML = '* Insira penas numeros';
+        error_cpf.innerHTML = '* Insira apenas numeros';
     };
 });
 
@@ -61,7 +61,7 @@ input_05.addEventListener('keypress', (e) => {
             input_05.value += '-';
         };
     }else{
-        error_cpfR.innerHTML = '* Insira penas numeros';
+        error_cpfR.innerHTML = '* Insira apenas numeros';
     };
 });
 
@@ -81,7 +81,7 @@ input_03.addEventListener('keypress', (e) => {
         };
 
     }else{
-        error_date.innerHTML = '* Insira penas numeros';
+        error_date.innerHTML = '* Insira apenas numeros';
     };
 });
 
@@ -104,7 +104,7 @@ input_04.addEventListener('keypress', (e) => {
             input_04.value += '-';
         };
     }else{
-        error_phone.innerHTML = '* Insira penas numeros';
+        error_phone.innerHTML = '* Insira apenas numeros';
     };
 });
 
