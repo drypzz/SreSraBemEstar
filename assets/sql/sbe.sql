@@ -58,14 +58,14 @@ CREATE TABLE `idoso_como` (
 DROP TABLE IF EXISTS `nivel`;
 CREATE TABLE `nivel` (
   `Cod_Nivel` int(11) NOT NULL,
-  `Descricao_Nivel` varchar(255) DEFAULT NULL
+  `Descricao_Nivel` text(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `remedio`;
 CREATE TABLE `remedio` (
   `Cod_Remedio` int(11) NOT NULL,
   `Nome_Remed` varchar(180) DEFAULT NULL,
-  `Descricao_Remed` varchar(180) DEFAULT NULL
+  `Descricao_Remed` text(180) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `tarefa`;
