@@ -189,10 +189,12 @@
                     if(count($row) > 0){
                         $_SESSION['name'] = $nameRes;
                         $_SESSION['cpf'] = $cpfResp;
+                        $_SESSION['logged'] = true;
                         header('Location: ../pages/admin.php');
                     
                     }else{
                         unset($_SESSION['name']);
+                        unset($_SESSION['logged']);
                         unset($_SESSION['cpf']);
                         infoBox('../pages/register.php', 'CPF ou Senha incorretos.', 'nao', 'error');
                     };

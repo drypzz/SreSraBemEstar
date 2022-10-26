@@ -16,19 +16,18 @@
         <?php
             session_start();
 
-            $name = $_SESSION['name'];
-            $cpf = $_SESSION['cpf'];
-
-            if((!isset($name) == true) and (!isset($cpf) == true)){
-                header('location: ../../index.html');
-                unset($name);
-                unset($cpf);
+            if((!isset($_SESSION['logged']))){
+                header('location: ../../index.php');
+                unset($_SESSION['name']);
+                unset($_SESSION['logged']);
+                unset($_SESSION['cpf']);
             };
 
             if(isset($_GET['logout'])){
-                header('location: ../../index.html');
-                unset($name);
-                unset($cpf);
+                header('location: ../../index.php');
+                unset($_SESSION['name']);
+                unset($_SESSION['logged']);
+                unset($_SESSION['cpf']);
                 session_destroy();
             };
         ?>
@@ -111,7 +110,6 @@
                                 <div class='form-group'>
                                     <label for='desc-remedio'>Descrição da Tarefa:<span style='color: red;'>*</span></label>
                                     <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
-                                    <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
                                     <span id='span-error-desc' style='color: red;'></span>
                                 </div>
 

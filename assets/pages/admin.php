@@ -16,19 +16,18 @@
         <?php
             session_start();
 
-            $name = $_SESSION['name'];
-            $cpf = $_SESSION['cpf'];
-
-            if((!isset($name) == true) and (!isset($cpf) == true)){
-                header('location: ../../index.html');
-                unset($name);
-                unset($cpf);
+            if((!isset($_SESSION['logged']))){
+                header('location: ../../index.php');
+                unset($_SESSION['name']);
+                unset($_SESSION['logged']);
+                unset($_SESSION['cpf']);
             };
 
             if(isset($_GET['logout'])){
-                header('location: ../../index.html');
-                unset($name);
-                unset($cpf);
+                header('location: ../../index.php');
+                unset($_SESSION['name']);
+                unset($_SESSION['logged']);
+                unset($_SESSION['cpf']);
                 session_destroy();
             };
         ?>
@@ -90,8 +89,8 @@
                         <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/primary/loiroimundo.png' alt='Foto de perfil'>
                     </div>
                     <div class='admin-content'>
-                        <h1>Olá, <?php echo $name; ?></h1>
-                        <p>Seu CPF: <?php echo $cpf; ?></p>
+                        <h1>Olá, <?php echo $_SESSION['name']; ?></h1>
+                        <p>Seu CPF: <?php echo $_SESSION['cpf']; ?></p>
                     </div>
                 </div>
                 <div class='admin-ts item'>

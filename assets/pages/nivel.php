@@ -16,19 +16,18 @@
         <?php
             session_start();
 
-            $name = $_SESSION['name'];
-            $cpf = $_SESSION['cpf'];
-
-            if((!isset($name) == true) and (!isset($cpf) == true)){
-                header('location: ../../index.html');
-                unset($name);
-                unset($cpf);
+            if((!isset($_SESSION['logged']))){
+                header('location: ../../index.php');
+                unset($_SESSION['name']);
+                unset($_SESSION['logged']);
+                unset($_SESSION['cpf']);
             };
 
             if(isset($_GET['logout'])){
-                header('location: ../../index.html');
-                unset($name);
-                unset($cpf);
+                header('location: ../../index.php');
+                unset($_SESSION['name']);
+                unset($_SESSION['logged']);
+                unset($_SESSION['cpf']);
                 session_destroy();
             };
         ?>
