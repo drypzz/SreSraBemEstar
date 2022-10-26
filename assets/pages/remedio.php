@@ -44,7 +44,7 @@
             <div class='navbar-container'>
                 <div class='navbar-logo'>
                     <a href='#'>
-                        <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/logo.png' alt=''>
+                        <img class='unselectable' draggable='false' (dragstart)='false;' src='../gfx/primary/logo.png' alt=''>
                     </a>
                 </div>
                 <div class='navbar-toggle' id='mobile-menu'>
