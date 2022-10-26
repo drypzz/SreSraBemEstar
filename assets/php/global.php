@@ -247,6 +247,36 @@
                 };
             };
         };
+    }else if($_GET['type'] == 'agenda'){
+
+        if( isset($_POST['Data-Tarefa']) && isset($_POST['Hora-Tarefa']) && isset($_POST['select-agend']) ){
+
+            if(empty($_POST['Data-Tarefa']) && empty($_POST['Hora-Tarefa'])){
+                infoBox('../pages/agenda.php', 'Insira corretamente as informações: DATA DA TAREFA E HORA DA TAREFA.', 'agenda', 'error');
+            
+            }else{
+                $query = $pdo->prepare('SELECT * FROM agenda');
+
+                if($query->rowCount() > 0){
+
+                    $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`) VALUES(NULL, ?, ?, ?)");
+                    if($sql->execute(array($_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa']))){;
+                        infoBox('../pages/agenda.php', 'Agenda cadastrada com sucesso.', 'agenda', 'success');
+                        exit();
+                    };
+
+                }else{
+                    infoBox('../pages/agenda.php', 'Agenda ja cadastrado.', 'agenda', 'error');
+                    exit();
+                };
+
+                // }else{
+                //     infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'agenda', 'error');
+                //     exit();
+                // };
+            };
+        };
+
     };
 
 ?>

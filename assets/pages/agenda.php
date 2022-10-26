@@ -164,17 +164,17 @@
                                 <?php }; ?>
 
                                 <div class='form-group'>
-                                    <select required class='form-control' name='select' id='select'>
+                                    <select required class='form-control' name='select-agend' id='select-agend'>
                                         <option value=''>Selecione um CPF</option>
                                         <?php
                                         include '../mysql/pdo.php';
 
                                         $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Resp = ?');
 
-                                        if($query->execute([$cpf])){
+                                        if($query->execute([$_SESSION['cpf']])){
                                             $row = $query->fetchAll(PDO::FETCH_ASSOC);
                                             foreach($row as $key => $i){ ?>
-                                        <option value=<?php echo $i['CPF_Idoso']; ?>><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
+                                        <option value="<?php echo $i['CPF_Idoso']; ?>"><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
                                             <?php };
                                         }; ?>
 
