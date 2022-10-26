@@ -8,6 +8,7 @@
         return $str;
     };
 
+    // OBGD PELO CARINHO S2
     function infoBox($page, $msg, $resp, $type){
         if($type == 'success'){
             $return = header('Location: '.$page.'?info='.$msg.'&type=success&reg='.$resp);
@@ -208,6 +209,7 @@
             exit();
         };
 
+        // REMEDIO
     }else if($_GET['type'] == 'remedio'){
 
         if( isset($_POST['desc-remedio']) && isset($_POST['name-remedio'])){
@@ -247,6 +249,7 @@
                 };
             };
         };
+        // AGENDA
     }else if($_GET['type'] == 'agenda'){
 
         if( isset($_POST['Data-Tarefa']) && isset($_POST['Hora-Tarefa']) && isset($_POST['select-agend']) ){
@@ -275,6 +278,30 @@
                 //     exit();
                 // };
             };
+        };
+
+    } else if($_GET['type'] == 'nivel'){
+
+        if( isset($_POST['Descricao_Nivel']) && isset($_POST['baixo']) && isset($_POST['moderado']) && isset($_POST['alto']) && isset($_POST['mtalto']) ){
+
+            if(empty($_POST['Descricao_Nivel']) && empty($_POST['baixo']) && empty($_POST['moderado']) && empty($_POST['alto']) && empty($_POST['mtalto'])){
+                infoBox('../pages/nivel.php', 'Insira corretamente as informções: DESCRIÇÃO DO NÍVEL', 'nivel', 'error');
+
+            }else{
+                $query = $pdo->prepare('SELECT * FROM nivel');
+
+                if($query->rowCount() > 0){
+
+                    $sql = $pdo->prepare("INSERT INTO nivel(`Cod_Nivel `, `Descricao_Nivel`) VALUES(NULL, ?");
+                    if($sql->execute(array($_POST['Cod_Nivel'], $_POST['Descricao_Nivel'], $_POST['baixo'], $_POST['moderado'], $_POST['alto'], $_POST['mtalto']))){
+                        infoBox('../pages/nivel.php', 'Informções cadastradas com sucesso.', 'nivel', 'success');
+                    };
+                }else{
+                    infoBox('../pages/agenda.php', 'Informações ja cadastradas cadastrada com sucesso.', 'nivel', 'error');
+                    exit();
+                };
+            };
+
         };
 
     };
