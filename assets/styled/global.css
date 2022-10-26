@@ -811,6 +811,11 @@ body span.info-span{
     border: 1px solid var(--primary);
 }   
 
+.register-main .register-container .register-container-items .item-cards form .form-container .form-radio{
+    padding: 5px;
+    text-align: left;
+}
+
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input[type = 'submit']{
     background: none;
     border: 1px solid var(--primary);

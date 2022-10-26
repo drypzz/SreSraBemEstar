@@ -58,7 +58,7 @@
                         <a href='#' class='navbar-links active'>Pagina Inicial</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='admin.php' class='navbar-links'>Voltar</a>
+                        <a href='?logout' class='navbar-links'>Sair</a>
                     </li>
                 </ul>
             </div> <!-- container -->
@@ -77,80 +77,21 @@
 
         <div class='transition register-main'>
             <div class='register-container'>
-                <span class='info-span-content'>AGENDA</span>
+                <span class='info-span-content'>REMÉDIOS</span>
                 <div class='register-content-buttons'>
                     <div class='btn'>
-                        <button class='button-control arrow-left'>Tarefas</button>
-                    </div>
-                    <div class='btn'>
-                        <button class='button-control active-btn'>Agenda</button>
+                        <button class='button-control arrow-left'>Remédios</button>
                     </div>
                 </div>
 
                 <div class='register-container-items'>
 
-                    <div class='transition item-cards' style='display: none;'>
-                        <form class='transition' action='../php/global.php?type=tarefa' method='post'>
-                            <h2>Painel da tarefa.</h2>
-                            <div class='transition form-container'>
-                                <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'tarefa'){ ?>
-                                        <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
-                                            <?php if($_GET['type'] == 'success'){ ?>
-                                                <div class='success'>
-                                                    <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
-                                                </div>
-                                            <?php }else{; ?>
-                                                <div class='error'>
-                                                    <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
-                                                </div>
-                                            <?php }; ?>
-                                        <?php }; ?>
-                                    <?php }; ?>
-                                <?php }; ?>
-                                <div class='form-group'>
-                                    <label for='desc-remedio'>Descrição da Tarefa:<span style='color: red;'>*</span></label>
-                                    <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
-                                    <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
-                                    <span id='span-error-desc' style='color: red;'></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for='cod_remedio'>Código do Remédio:</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for='cod_agen'>Código da Agenda:</label>
-                                </div>
-
-                                <div class='form-group'>
-                                    <input type='submit' value='Salvar'>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-
-
-
-
-
-
-
-                    <!-- colocar a o código do cpf do idoso na agenda tlgd -->
-
-                    <!-- colocar a o código da agenda na tarefa tlgd -->
-
-
-
-
-
-                    <div id='register' class='transition item-cards top focus' style='display: block;'>
+                <!-- <div id='register' class='transition item-cards top focus' style='display: block;'>
                         <form id='registro' action='../php/global.php?type=agenda' method='post'>
-                            <h2>Painel Cadastro de Agenda.</h2>
+                            <h2>Painel do Idoso.</h2>
                             <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'agenda'){ ?>
+                                    <?php if($_GET['reg'] == 'sim'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
@@ -166,21 +107,9 @@
                                 <?php }; ?>
 
                                 <div class='form-group'>
-                                    <select required class='form-control' name='select' id='select'>
-                                        <option value=''>Selecione um CPF</option>
-                                        <?php
-                                        include '../mysql/pdo.php';
-
-                                        $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Resp = ?');
-
-                                        if($query->execute([$cpf])){
-                                            $row = $query->fetchAll(PDO::FETCH_ASSOC);
-                                            foreach($row as $key => $i){ ?>
-                                        <option value=<?php echo $i['CPF_Idoso']; ?>><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
-                                            <?php };
-                                        }; ?>
-
-                                    </select>
+                                <label for='cpfidoso'>CPF do Idoso:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='cpfidoso' placeholder='000.000.000-00' name='cpfidoso' autocomplete='off' maxlength='14'>
+                                    <span id='span-error-cpfidoso' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
                                     <label for='Data-Tarefa'>Data da Tarefa:<span style='color: red;'> *Clique no Calendário</span></label>
@@ -196,7 +125,48 @@
                                 </div>
                             </div>
                         </form>
+                    </div> -->
+                    
+
+
+
+                    <div class='transition item-cards' style='display: none;'>
+                        <form class='transition' action='../php/global.php?type=remedio' method='post'>
+                            <h2>Painel da tarefa.</h2>
+                            <div class='transition form-container'>
+                                <?php if(isset($_GET['reg'])){ ?>
+                                    <?php if($_GET['reg'] == 'remedio'){ ?>
+                                        <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
+                                            <?php if($_GET['type'] == 'success'){ ?>
+                                                <div class='success'>
+                                                    <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
+                                                </div>
+                                            <?php }else{; ?>
+                                                <div class='error'>
+                                                    <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
+                                                </div>
+                                            <?php }; ?>
+                                        <?php }; ?>
+                                    <?php }; ?>
+                                <?php }; ?>
+                                <div class='form-group'>
+                                    <label for='name-remedio'>Remédios:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='name-remedio' name='name-remedio'>
+                                    <span id='span-error-name-remedio' style='color: red;'></span>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='desc-remedio'>Descrição:<span style='color: red;'>*</span></label>
+                                    <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
+                                    <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
+                                    <span id='span-error-desc' style='color: red;'></span>
+                                </div>
+                                <div class='form-group'>
+                                    <input type='submit' value='Salvar'>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                
 
                 </div>
 

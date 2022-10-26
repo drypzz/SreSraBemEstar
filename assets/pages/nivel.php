@@ -110,14 +110,34 @@
                                 <?php }; ?>
                                 <div class='form-group'>
                                     <label for='Descricao_Nivel'>Descrição:<span style='color: red;'>*</span></label>
-                                    <textarea name="Descricao_Nivel" id="Descricao_Nivel" cols="5" rows="5"></textarea>
+                                    <textarea name='Descricao_Nivel' id='Descricao_Nivel' cols='5' rows='5'></textarea>
                                     <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
                                     <span id='span-error-desc' style='color: red;'></span>
                                 </div>
 
-                                <div class="form-radio">
-                                    <input type="radio" name='baixo' id='baixo' value='BAIXO'>
-                                    <label for='baixo'>BAIXO</label>
+                                <div class='form-group'>
+                                    <label for='nivel_comorbidade'>Nível da Comorbidade:<span style='color: red;'>*</span></label>
+                                    <span id='span-error-nvl-comorbidade' style='color: red;'></span>
+                                </div>
+
+                                <div class='form-radio'>
+                                    <input type='radio' id='baixo' name='radio' value='BAIXO'>
+                                    <label for='baixo'>BAIXO</label><br>
+                                </div>
+
+                                <div class='form-radio'>
+                                    <input type='radio' id='moderado' name='radio' value='MODERADO'>
+                                    <label for='moderado'>MODERADO</label><br>
+                                </div>
+                                
+                                <div class='form-radio'>
+                                    <input type='radio' id='alto' name='radio' value='ALTO'>
+                                    <label for='alto'>ALTO</label><br>
+                                </div>
+
+                                <div class='form-radio'>
+                                    <input type='radio' id='mtalto' name='radio' value='MUITO ALTO'>
+                                    <label for='mtalto'>MUITO ALTO</label><br>
                                 </div>
 
                                 <div class='form-group'>
@@ -127,12 +147,21 @@
                         </form>
                     </div>
 
+
+
+
+                    <!-- código do nivel na comorbidade -->
+                    
+
+
+
+
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
                         <form id='registro' action='../php/global.php?type=comorbidade' method='post'>
-                            <h2>Painel do Idoso.</h2>
+                            <h2>Painel da Comorbidade.</h2>
                             <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'sim'){ ?>
+                                    <?php if($_GET['reg'] == 'comorbidade'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
@@ -149,12 +178,12 @@
 
                                 <div class='form-group'>
                                 <label for='comorbidade'>Comorbidade:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='comorbidade' placeholder='000.000.000-00' name='comorbidade' autocomplete='off' maxlength='14'>
-                                    <span id='span-error-cpfidoso' style='color: red;'></span>
+                                    <input type='text' required id='comorbidade' name='comorbidade' autocomplete='off'>
+                                    <span id='span-error-comorbidade' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='Cod_Nivel'>Nível da Comorbidade:<span style='color: red;'>*</span></label>
-                                    <input type='date' name='Cod_Nivel' id='Cod_Nivel'>
+                                    <!-- do nível da comorbidade tlgd baixo, alto etc.. -->
+                                    <label for='Cod_Nivel'>Nível da Comorbidade: </label> 
                                 </div>
                                                                                        
                                 <div class='form-group'>

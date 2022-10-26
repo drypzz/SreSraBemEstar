@@ -104,7 +104,7 @@
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Agenda</h1>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
+                                    <p>Na agenda você consegue definir horas e datas para suas atividades, e ainda junto com a descrição das suas tarefas.</p>
                                 </div>
                             </div>
                         </a>
@@ -115,44 +115,20 @@
                                     <img src='../gfx/icons/level.png' alt=''>
                                 </div>
                                 <div class='admin-content-item'>
-                                    <h1>Level</h1>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
+                                    <h1>Nível</h1>
+                                    <p>No nível você escreve como é sua comorbidade para que possa lembrar no futuro e junto com essa descrição da comorbidade o nível dela.</p>
                                 </div>
                             </div>
                         </a>
 
-                        <a>
+                        <a href='remedio.php'>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/icons/remedio.png' alt=''>
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Remédios</h1>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a>
-                            <div class='container'>
-                                <div class='admin-content-item'>
-                                    <img src='../gfx/icons/comorbidade.png' alt=''>
-                                </div>
-                                <div class='admin-content-item'>
-                                    <h1>Comorbidade</h1>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a>
-                            <div class='container'>
-                                <div class='admin-content-item'>
-                                    <img src='../gfx/icons/tarefa.png' alt=''>
-                                </div>
-                                <div class='admin-content-item'>
-                                    <h1>Tarefa</h1>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A odit illum distinctio! Omnis ducimus pariatur vitae perspiciatis sequi provident ipsum beatae incidunt, voluptatibus, aspernatur distinctio quisquam ullam voluptas, doloremque similique!</p>
+                                    <p>Informe seus remédios para lembrar no futuro e uma descrição de como tomar.</p>
                                 </div>
                             </div>
                         </a>
