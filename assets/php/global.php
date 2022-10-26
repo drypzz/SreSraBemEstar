@@ -254,30 +254,33 @@
 
         if( isset($_POST['Data-Tarefa']) && isset($_POST['Hora-Tarefa']) && isset($_POST['select-agend']) ){
 
-            if(empty($_POST['Data-Tarefa']) && empty($_POST['Hora-Tarefa'])){
-                infoBox('../pages/agenda.php', 'Insira corretamente as informações: DATA DA TAREFA E HORA DA TAREFA.', 'agenda', 'error');
+            if(empty($_POST['Data-Tarefa']) && empty($_POST['Hora-Tarefa']) && empty($_POST['select-agend'])){
+                infoBox('../pages/agenda.php', 'Insira corretamente as informações: Data e Hora e CPF.', 'agenda', 'error');
             
             }else{
                 $query = $pdo->prepare('SELECT * FROM agenda');
 
-                if($query->rowCount() > 0){
+                if($query->execute()){
 
-                    $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`) VALUES(NULL, ?, ?, ?)");
-                    if($sql->execute(array($_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa']))){;
-                        infoBox('../pages/agenda.php', 'Agenda cadastrada com sucesso.', 'agenda', 'success');
+                    $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                    foreach($row as $key => $i){
+                        $codAgend = ($i['Cod_Agen'] ?? 0);
+                    };
+
+                    if($query->rowCount() > 0){
+                        infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'agenda', 'error');
+
+                    }else{
+                        $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`) VALUES(?, ?, ?, ?)");
+                        $sql->execute(array(($codAgend + 1), $_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa']));
+                        infoBox('../pages/agenda.php', 'Agenda cadastrada com sucesso', 'agenda', 'success');
                         exit();
                     };
 
-                }else{
-                    infoBox('../pages/agenda.php', 'Agenda ja cadastrado.', 'agenda', 'error');
-                    exit();
                 };
 
-                // }else{
-                //     infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'agenda', 'error');
-                //     exit();
-                // };
             };
+
         };
 
     } else if($_GET['type'] == 'nivel'){

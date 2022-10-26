@@ -54,10 +54,10 @@
                 </div>
                 <ul class='navbar-menu'>
                     <li class='navbar-item'>
-                        <a href='../../index.html' class='navbar-links'>Pagina Inicial</a>
+                        <a href='../../index.php' class='navbar-links'>Pagina Inicial</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='../../index.html#about' class='navbar-links'>Sobre</a>
+                        <a href='../../index.php#about' class='navbar-links'>Sobre</a>
                     </li>
                     <li class='navbar-item'>
                         <a href='#' class='navbar-links active'>Registro</a>
