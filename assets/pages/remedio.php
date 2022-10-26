@@ -77,24 +77,21 @@
 
         <div class='transition register-main'>
             <div class='register-container'>
-                <span class='info-span-content'>NÍVEL</span>
+                <span class='info-span-content'>REMÉDIOS</span>
                 <div class='register-content-buttons'>
                     <div class='btn'>
-                        <button class='button-control arrow-left'>Nível</button>
-                    </div>
-                    <div class='btn'>
-                        <button class='button-control active-btn'>Comorbidade</button>
+                        <button class='button-control arrow-left'>Remédios</button>
                     </div>
                 </div>
 
                 <div class='register-container-items'>
 
-                    <div class='transition item-cards' style='display: none;'>
-                        <form class='transition' action='../php/global.php?type=nivel' method='post'>
-                            <h2>Painel do Nível.</h2>
-                            <div class='transition form-container'>
+                <!-- <div id='register' class='transition item-cards top focus' style='display: block;'>
+                        <form id='registro' action='../php/global.php?type=agenda' method='post'>
+                            <h2>Painel do Idoso.</h2>
+                            <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'nivel'){ ?>
+                                    <?php if($_GET['reg'] == 'sim'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
@@ -108,60 +105,37 @@
                                         <?php }; ?>
                                     <?php }; ?>
                                 <?php }; ?>
-                                <div class='form-group'>
-                                    <label for='Descricao_Nivel'>Descrição:<span style='color: red;'>*</span></label>
-                                    <textarea name='Descricao_Nivel' id='Descricao_Nivel' cols='5' rows='5'></textarea>
-                                    <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
-                                    <span id='span-error-desc' style='color: red;'></span>
-                                </div>
 
                                 <div class='form-group'>
-                                    <label for='nivel_comorbidade'>Nível da Comorbidade:<span style='color: red;'>*</span></label>
-                                    <span id='span-error-nvl-comorbidade' style='color: red;'></span>
+                                <label for='cpfidoso'>CPF do Idoso:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='cpfidoso' placeholder='000.000.000-00' name='cpfidoso' autocomplete='off' maxlength='14'>
+                                    <span id='span-error-cpfidoso' style='color: red;'></span>
                                 </div>
-
-                                <div class='form-radio'>
-                                    <input type='radio' id='baixo' name='radio' value='BAIXO'>
-                                    <label for='baixo'>BAIXO</label><br>
+                                <div class='form-group'>
+                                    <label for='Data-Tarefa'>Data da Tarefa:<span style='color: red;'> *Clique no Calendário</span></label>
+                                    <input type='date' name='Data-Tarefa' id='Data-Tarefa'>
                                 </div>
-
-                                <div class='form-radio'>
-                                    <input type='radio' id='moderado' name='radio' value='MODERADO'>
-                                    <label for='moderado'>MODERADO</label><br>
+                                <div class='form-group'>
+                                    <label for='Hora-Tarefa'>Hora da Tarefa:<span style='color: red;'> *Clique no Relógio</span></label>
+                                    <input type='time' required id='Hora-Tarefa' name='Hora-Tarefa'>
                                 </div>
-                                
-                                <div class='form-radio'>
-                                    <input type='radio' id='alto' name='radio' value='ALTO'>
-                                    <label for='alto'>ALTO</label><br>
-                                </div>
-
-                                <div class='form-radio'>
-                                    <input type='radio' id='mtalto' name='radio' value='MUITO ALTO'>
-                                    <label for='mtalto'>MUITO ALTO</label><br>
-                                </div>
-
+                                                                                               
                                 <div class='form-group'>
                                     <input type='submit' value='Salvar'>
                                 </div>
                             </div>
                         </form>
-                    </div>
-
-
-
-
-                    <!-- código do nivel na comorbidade -->
+                    </div> -->
                     
 
 
 
-
-                    <div id='register' class='transition item-cards top focus' style='display: block;'>
-                        <form id='registro' action='../php/global.php?type=comorbidade' method='post'>
-                            <h2>Painel da Comorbidade.</h2>
-                            <div class='form-container top'>
+                    <div class='transition item-cards' style='display: none;'>
+                        <form class='transition' action='../php/global.php?type=remedio' method='post'>
+                            <h2>Painel da tarefa.</h2>
+                            <div class='transition form-container'>
                                 <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'comorbidade'){ ?>
+                                    <?php if($_GET['reg'] == 'remedio'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
@@ -175,23 +149,24 @@
                                         <?php }; ?>
                                     <?php }; ?>
                                 <?php }; ?>
-
                                 <div class='form-group'>
-                                <label for='comorbidade'>Comorbidade:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='comorbidade' name='comorbidade' autocomplete='off'>
-                                    <span id='span-error-comorbidade' style='color: red;'></span>
+                                    <label for='name-remedio'>Remédios:<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='name-remedio' name='name-remedio'>
+                                    <span id='span-error-name-remedio' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
-                                    <!-- do nível da comorbidade tlgd baixo, alto etc.. -->
-                                    <label for='Cod_Nivel'>Nível da Comorbidade: </label> 
+                                    <label for='desc-remedio'>Descrição:<span style='color: red;'>*</span></label>
+                                    <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
+                                    <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
+                                    <span id='span-error-desc' style='color: red;'></span>
                                 </div>
-                                                                                       
                                 <div class='form-group'>
                                     <input type='submit' value='Salvar'>
                                 </div>
                             </div>
                         </form>
                     </div>
+                
 
                 </div>
 

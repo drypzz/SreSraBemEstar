@@ -245,17 +245,6 @@
                 };
             };
         };
-    } else if($_GET['type'] == 'agenda'){
-
-        if( isset($_POST['name-remedio']) && isset($_POST['comorbidade']) && isset($_POST['baixo']) && isset($_POST['moderado']) && isset($_POST['alto']) && isset($_POST['mtalto'])){
-
-            if(empty($_POST['name-remedio']) && isset($_POST['comorbidade']) && isset($_POST['baixo']) && isset($_POST['moderado']) && isset($_POST['alto']) && isset($_POST['mtalto'])){
-                infoBox('../pages/agenda.php', 'Insira corretamente as informações: NOME DO REMÉDIO, COMORBIDADE E NÍVEL.', 'agenda', 'error');
-
-            }else{
-                
-            }
-        };
     };
 
 ?>

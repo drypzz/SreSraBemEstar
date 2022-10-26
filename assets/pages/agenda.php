@@ -90,11 +90,11 @@
                 <div class='register-container-items'>
 
                     <div class='transition item-cards' style='display: none;'>
-                        <form class='transition' action='../php/global.php?type=remedio' method='post'>
+                        <form class='transition' action='../php/global.php?type=tarefa' method='post'>
                             <h2>Painel da tarefa.</h2>
                             <div class='transition form-container'>
                                 <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'remedio'){ ?>
+                                    <?php if($_GET['reg'] == 'tarefa'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
@@ -109,16 +109,20 @@
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
-                                    <label for='name-remedio'>Remédios:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='name-remedio' name='name-remedio'>
-                                    <span id='span-error-name-remedio' style='color: red;'></span>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='desc-remedio'>Descrição:<span style='color: red;'>*</span></label>
+                                    <label for='desc-remedio'>Descrição da Tarefa:<span style='color: red;'>*</span></label>
                                     <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
                                     <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
                                     <span id='span-error-desc' style='color: red;'></span>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for='cod_remedio'>Código do Remédio:</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for='cod_agen'>Código da Agenda:</label>
+                                </div>
+
                                 <div class='form-group'>
                                     <input type='submit' value='Salvar'>
                                 </div>
@@ -126,12 +130,27 @@
                         </form>
                     </div>
 
+
+
+
+
+
+
+
+                    <!-- colocar a o código do cpf do idoso na agenda tlgd -->
+
+                    <!-- colocar a o código da agenda na tarefa tlgd -->
+
+
+
+
+
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
                         <form id='registro' action='../php/global.php?type=agenda' method='post'>
                             <h2>Painel do Idoso.</h2>
                             <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'sim'){ ?>
+                                    <?php if($_GET['reg'] == 'agenda'){ ?>
                                         <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
                                             <?php if($_GET['type'] == 'success'){ ?>
                                                 <div class='success'>
