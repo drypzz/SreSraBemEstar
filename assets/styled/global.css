@@ -274,7 +274,7 @@ body span.info-span{
     color: #c8c8c8;
 }
 
-.dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group input, .dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group textarea, .dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group select{
+.dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group input, .dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group textarea{
     color: #c8c8c8;
     background-color: rgba(255, 255, 255, .1);
 }
@@ -766,7 +766,7 @@ body span.info-span{
     display: block;
 }
 
-.register-main .register-container .register-container-items .item-cards form .form-container .form-group input, .register-main .register-container .register-container-items .item-cards form .form-container .form-group textarea, .register-main .register-container .register-container-items .item-cards form .form-container .form-group select{
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group input, .register-main .register-container .register-container-items .item-cards form .form-container .form-group textarea{
     width: 100%;
     border: none;
     border-radius: 5px 5px 0 0;
@@ -775,6 +775,64 @@ body span.info-span{
     outline: none;
     resize: none;
     border-bottom: 1px solid #ccccccde;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group .custom-select{
+    position: relative;
+}
+
+.select-selected {
+    background-color: #ffffff9d;
+    border-bottom: 1px solid #ccccccde;
+}
+
+.select-selected:valid{
+    border: 1px solid var(--primary);
+}
+
+.select-selected:after {
+    position: absolute;
+    content: '';
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #000 transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #000 transparent;
+    top: 7px;
+}
+
+.select-items div, .select-selected {
+    color: #000;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+.select-items {
+    position: absolute;
+    background-color: #ffffff;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group .custom-select select{
+    display: none;
 }
 
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group input#resp{

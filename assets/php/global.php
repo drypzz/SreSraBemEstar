@@ -267,7 +267,7 @@
                         $codAgend = ($i['Cod_Agen'] ?? 0);
                     };
 
-                    if($query->rowCount() > 0){
+                    if(!$query->rowCount() > 0){
                         infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'agenda', 'error');
 
                     }else{

@@ -164,6 +164,7 @@
                                 <?php }; ?>
 
                                 <div class='form-group'>
+<<<<<<< HEAD
                                     <select required class='form-control' name='select-agend' id='select-agend'>
                                         <option value=''>Selecione um CPF</option>
                                         <?php
@@ -179,6 +180,26 @@
                                         }; ?>
 
                                     </select>
+=======
+                                    <label>Selecione um Idoso(a)</label>
+                                    <div class='custom-select'>
+                                        <select required class='form-control' name='select-agend' id='select-agend'>
+                                            <option value=''>Selecione um CPF</option>
+                                            <?php
+                                            include '../mysql/pdo.php';
+
+                                            $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Resp = ?');
+
+                                            if($query->execute([$_SESSION['cpf']])){
+                                                $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                                                foreach($row as $key => $i){ ?>
+                                            <option value="<?php echo $i['CPF_Idoso']; ?>"><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
+                                                <?php };
+                                            }; ?>
+
+                                        </select>
+                                    </div>
+>>>>>>> 7206521ff5fa22c5cfb4debcce19c4791be603d4
                                 </div>
                                 <div class='form-group'>
                                     <label for='Data-Tarefa'>Data da Tarefa:<span style='color: red;'> *Clique no Calendário</span></label>
@@ -226,6 +247,8 @@
         </script>
 
         <script src='../javascript/valids.js'></script>
+
+        <script src="../javascript/select.js"></script>
 
         <script src='../javascript/functions.js'></script>
 

@@ -32,6 +32,8 @@
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'>
 
         <link rel='shortcut icon' href='../gfx/primary/logo.png' type='image/x-icon'>
+
+        <?php session_start(); ?>
     </head>
     <body class='transition'>
         <!-- loader -->
@@ -62,6 +64,11 @@
                     <li class='navbar-item'>
                         <a href='#' class='navbar-links active'>Registro</a>
                     </li>
+                    <?php if(isset($_SESSION['logged'])){ ?>
+                    <li class='navbar-item'>
+                        <a href='admin.php' class='navbar-links'>Gerenciar</a>
+                    </li>
+                    <?php }; ?>
                 </ul>
             </div> <!-- container -->
         </nav> <!-- navbar -->
