@@ -146,15 +146,6 @@
                         </form>
                     </div>
 
-
-
-
-                    <!-- código do nivel na comorbidade -->
-                    
-
-
-
-
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
                         <form id='registro' action='../php/global.php?type=comorbidade' method='post'>
                             <h2>Painel da Comorbidade.</h2>

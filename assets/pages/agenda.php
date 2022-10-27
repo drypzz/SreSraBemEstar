@@ -120,21 +120,6 @@
                         </form>
                     </div>
 
-
-
-
-
-
-
-
-                    <!-- colocar a o código do cpf do idoso na agenda tlgd -->
-
-                    <!-- colocar a o código da agenda na tarefa tlgd -->
-
-
-
-
-
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
                         <form id='registro' action='../php/global.php?type=agenda' method='post'>
                             <h2>Painel Cadastro de Agenda.</h2>
