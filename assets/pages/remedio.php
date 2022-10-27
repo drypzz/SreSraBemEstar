@@ -54,10 +54,10 @@
                 </div>
                 <ul class='navbar-menu'>
                     <li class='navbar-item'>
-                        <a href='#' class='navbar-links active'>Pagina Inicial</a>
+                        <a href='#' class='navbar-links active'>Remédio</a>
                     </li>
                     <li class='navbar-item'>
-                        <a href='?logout' class='navbar-links'>Sair</a>
+                        <a href='admin.php' class='navbar-links'>Voltar</a>
                     </li>
                 </ul>
             </div> <!-- container -->

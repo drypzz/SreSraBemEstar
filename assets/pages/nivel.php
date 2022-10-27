@@ -54,7 +54,7 @@
                 </div>
                 <ul class='navbar-menu'>
                     <li class='navbar-item'>
-                        <a href='#' class='navbar-links active'>Pagina Inicial</a>
+                        <a href='#' class='navbar-links active'>Nível</a>
                     </li>
                     <li class='navbar-item'>
                         <a href='admin.php' class='navbar-links'>Voltar</a>
