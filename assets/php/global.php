@@ -267,7 +267,7 @@
                         $codAgend = ($i['Cod_Agen'] ?? 0);
                     };
 
-                    if($query->rowCount() > 0){
+                    if(!$query->rowCount() > 0){
                         infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'agenda', 'error');
 
                     }else{
@@ -345,37 +345,6 @@
             };
 
         };
-        // remedio
-    };
-    // else if($_GET['type'] == 'remedio'){
-
-    //     if( isset($_POST['Nome_Remed']) && isset($_POST['Descricao_Remed'])){
-
-    //         if(empty($_POST['Nome_Remed']) && empty($_POST['Descricao_Remed'])){
-    //             infoBox('../pages/remedio.php', 'Insira corretamente as informções: REMÉDIO E DESCRIÇÃO DO REMÉDIO', 'remedio', 'error');
-
-    //         }else{
-    //             $query = $pdo->prepare('SELECT * FROM remedio');
-
-    //             if($query->execute()){
-
-    //                 $row = $query->fetchAll(PDO::FETCH_ASSOC);
-    //                 foreach($row as $key => $i){
-    //                     $codReme = ($i['Cod_Remedio'] ?? 0);
-    //                 };
-
-    //                 if(!$query->rowCount() > 0){
-    //                     infoBox('../pages/remedio.php', 'Erro ao cadastrar.', 'remedio', 'error');
-
-    //                 }else{
-    //                     $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`) VALUES(?, ?, ?)");
-    //                     $sql->execute(array(($codReme + 1), $_POST['Nome_Remed'], $_POST['Descricao_Remed']));
-    //                     infoBox('../pages/remedio.php', 'Remédio e Descrição cadastrada com sucesso', 'remedio', 'success');
-    //                     exit();
-    //                 };
-    //             };
-    //         };
-
-    //     };
-    // };    
+        
+    };  
 ?>

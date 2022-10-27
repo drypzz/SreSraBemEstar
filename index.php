@@ -32,6 +32,8 @@
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'>
 
         <link rel='shortcut icon' href='assets/gfx/primary/logo.png' type='image/x-icon'>
+
+        <?php session_start(); ?>
     </head>
     <body class='transition'>
         <!-- loader -->
@@ -59,12 +61,14 @@
                     <li class='navbar-item'>
                         <a href='#about' class='navbar-links'>Sobre</a>
                     </li>
-                    <!-- <li class='navbar-item'>
-                        <a href='#' class='navbar-links'>Contato</a>
-                    </li> -->
                     <li class='navbar-item'>
                         <a href='assets/pages/register.php' class='navbar-links'>Registrar-se</a>
                     </li>
+                    <?php if(isset($_SESSION['logged'])){ ?>
+                    <li class='navbar-item'>
+                        <a href='assets/pages/admin.php' class='navbar-links'>Gerenciar</a>
+                    </li>
+                    <?php }; ?>
                 </ul>
             </div> <!-- container -->
         </nav> <!-- navbar -->
