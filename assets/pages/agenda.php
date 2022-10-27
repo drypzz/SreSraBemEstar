@@ -114,14 +114,6 @@
                                 </div>
 
                                 <div class='form-group'>
-                                    <label for='cod_remedio'>Código do Remédio:</label>
-                                </div>
-
-                                <div class='form-group'>
-                                    <label for='cod_agen'>Código da Agenda:</label>
-                                </div>
-
-                                <div class='form-group'>
                                     <input type='submit' value='Salvar'>
                                 </div>
                             </div>

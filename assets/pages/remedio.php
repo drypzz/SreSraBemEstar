@@ -79,7 +79,7 @@
                 <span class='info-span-content'>REMÉDIOS</span>
                 <div class='register-content-buttons'>
                     <div class='btn'>
-                        <button class='button-control arrow-left'>Remédios</button>
+                        <button class='button-control arrow-left active-btn'>Remédios</button>
                     </div>
                 </div>
 
@@ -129,7 +129,7 @@
 
 
 
-                    <div class='transition item-cards' style='display: none;'>
+                    <div class='transition item-cards focus' style='display: block;'>
                         <form class='transition' action='../php/global.php?type=remedio' method='post'>
                             <h2>Painel da tarefa.</h2>
                             <div class='transition form-container'>
