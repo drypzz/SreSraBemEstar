@@ -345,37 +345,36 @@
             };
 
         };
-        // remedio
-    };
-    // else if($_GET['type'] == 'remedio'){
+        // tarefa
+    }else if($_GET['type'] == 'tarefa'){
 
-    //     if( isset($_POST['Nome_Remed']) && isset($_POST['Descricao_Remed'])){
+        if( isset($_POST['Desc_Tarefa']) ){
 
-    //         if(empty($_POST['Nome_Remed']) && empty($_POST['Descricao_Remed'])){
-    //             infoBox('../pages/remedio.php', 'Insira corretamente as informções: REMÉDIO E DESCRIÇÃO DO REMÉDIO', 'remedio', 'error');
+            if(empty($_POST['Desc_Tarefa']) ){
+                infoBox('../pages/agenda.php', 'Insira corretamente as informções: DESCRIÇÃO DA TAREFA', 'tarefa', 'error');
 
-    //         }else{
-    //             $query = $pdo->prepare('SELECT * FROM remedio');
+            }else{
+                $query = $pdo->prepare('SELECT * FROM tarefa');
 
-    //             if($query->execute()){
+                if($query->execute()){
 
-    //                 $row = $query->fetchAll(PDO::FETCH_ASSOC);
-    //                 foreach($row as $key => $i){
-    //                     $codReme = ($i['Cod_Remedio'] ?? 0);
-    //                 };
+                    $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                    foreach($row as $key => $i){
+                        $codTare = ($i['Cod_Tarefa'] ?? 0);
+                    };
 
-    //                 if(!$query->rowCount() > 0){
-    //                     infoBox('../pages/remedio.php', 'Erro ao cadastrar.', 'remedio', 'error');
+                    if(!$query->rowCount() > 0){
+                        infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'tarefa', 'error');
 
-    //                 }else{
-    //                     $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`) VALUES(?, ?, ?)");
-    //                     $sql->execute(array(($codReme + 1), $_POST['Nome_Remed'], $_POST['Descricao_Remed']));
-    //                     infoBox('../pages/remedio.php', 'Remédio e Descrição cadastrada com sucesso', 'remedio', 'success');
-    //                     exit();
-    //                 };
-    //             };
-    //         };
+                    }else{
+                        $sql = $pdo->prepare("INSERT INTO tarefa(`Cod_Tarefa`, `Desc_Tarefa`) VALUES(?, ?)");
+                        $sql->execute(array(($codTare + 1), $_POST['Desc_Tarefa'] ));
+                        infoBox('../pages/agenda.php', 'Descrição da Tarefa cadastrada com sucesso', 'Tarefa', 'success');
+                        exit();
+                    };
+                };
+            };
 
-    //     };
-    // };    
+        };
+    };    
 ?>

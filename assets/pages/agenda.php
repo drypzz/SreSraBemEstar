@@ -108,16 +108,16 @@
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
-                                    <label for='desc-remedio'>Descrição da Tarefa:<span style='color: red;'>*</span></label>
-                                    <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
+                                    <label for='Desc_Tarefa'>Descrição da Tarefa:<span style='color: red;'>*</span></label>
+                                    <textarea name='Desc_Tarefa' id='Desc_Tarefa' cols='5' rows='5'></textarea>
                                     <span id='span-error-desc' style='color: red;'></span>
                                 </div>
 
-                                <div class="form-group">
+                                <div class='form-group'>
                                     <label for='cod_remedio'>Código do Remédio:</label>
                                 </div>
 
-                                <div class="form-group">
+                                <div class='form-group'>
                                     <label for='cod_agen'>Código da Agenda:</label>
                                 </div>
 
@@ -174,7 +174,7 @@
                                         if($query->execute([$_SESSION['cpf']])){
                                             $row = $query->fetchAll(PDO::FETCH_ASSOC);
                                             foreach($row as $key => $i){ ?>
-                                        <option value="<?php echo $i['CPF_Idoso']; ?>"><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
+                                        <option value='<?php echo $i['CPF_Idoso']; ?>'><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
                                             <?php };
                                         }; ?>
 
