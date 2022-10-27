@@ -267,15 +267,10 @@
                         $codAgend = ($i['Cod_Agen'] ?? 0);
                     };
 
-                    if(!$query->rowCount() > 0){
-                        infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'agenda', 'error');
-
-                    }else{
-                        $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`) VALUES(?, ?, ?, ?)");
-                        $sql->execute(array(($codAgend + 1), $_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa']));
-                        infoBox('../pages/agenda.php', 'Agenda cadastrada com sucesso', 'agenda', 'success');
-                        exit();
-                    };
+                    $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`) VALUES(?, ?, ?, ?)");
+                    $sql->execute(array(($codAgend + 1), $_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa']));
+                    infoBox('../pages/agenda.php', 'Agenda cadastrada com sucesso', 'agenda', 'success');
+                    exit();
 
                 };
 
@@ -301,15 +296,12 @@
                         $codNivel = ($i['Cod_Nivel'] ?? 0);
                     };
 
-                    if($query->rowCount() > 0){
-                        infoBox('../pages/nivel.php', 'Erro ao cadastrar.', 'nivel', 'error');
 
-                    }else{
-                        $sql = $pdo->prepare("INSERT INTO nivel(`Cod_Nivel`, `Descricao_Nivel`) VALUES(?, ?)");
-                        $sql->execute(array(($codNivel + 1), $_POST['Descricao_Nivel']));
-                        infoBox('../pages/nivel.php', 'Nível cadastrado com sucesso', 'nivel', 'success');
-                        exit();
-                    };
+                    $sql = $pdo->prepare("INSERT INTO nivel(`Cod_Nivel`, `Descricao_Nivel`) VALUES(?, ?)");
+                    $sql->execute(array(($codNivel + 1), $_POST['Descricao_Nivel']));
+                    infoBox('../pages/nivel.php', 'Nível cadastrado com sucesso', 'nivel', 'success');
+                    exit();
+
                 };
             };
 
@@ -332,15 +324,12 @@
                         $codComo = ($i['Cod_Como'] ?? 0);
                     };
 
-                    if(!$query->rowCount() > 0){
-                        infoBox('../pages/nivel.php', 'Erro ao cadastrar.', 'comorbidade', 'error');
 
-                    }else{
-                        $sql = $pdo->prepare("INSERT INTO comorbidade(`Cod_Como`, `Comorbidade`) VALUES(?, ?)");
-                        $sql->execute(array(($codComo + 1), $_POST['comorbidade']));
-                        infoBox('../pages/nivel.php', 'Comorbidade cadastrada com sucesso', 'comorbidade', 'success');
-                        exit();
-                    };
+                    $sql = $pdo->prepare("INSERT INTO comorbidade(`Cod_Como`, `Comorbidade`) VALUES(?, ?)");
+                    $sql->execute(array(($codComo + 1), $_POST['comorbidade']));
+                    infoBox('../pages/nivel.php', 'Comorbidade cadastrada com sucesso', 'comorbidade', 'success');
+                    exit();
+
                 };
             };
 
@@ -363,15 +352,10 @@
                         $codTare = ($i['Cod_Tarefa'] ?? 0);
                     };
 
-                    if(!$query->rowCount() > 0){
-                        infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'tarefa', 'error');
-
-                    }else{
-                        $sql = $pdo->prepare("INSERT INTO tarefa(`Cod_Tarefa`, `Desc_Tarefa`) VALUES(?, ?)");
-                        $sql->execute(array(($codTare + 1), $_POST['Desc_Tarefa'] ));
-                        infoBox('../pages/agenda.php', 'Descrição da Tarefa cadastrada com sucesso', 'Tarefa', 'success');
-                        exit();
-                    };
+                    $sql = $pdo->prepare("INSERT INTO tarefa(`Cod_Tarefa`, `Desc_Tarefa`) VALUES(?, ?)");
+                    $sql->execute(array(($codTare + 1), $_POST['Desc_Tarefa'] ));
+                    infoBox('../pages/agenda.php', 'Descrição da Tarefa cadastrada com sucesso', 'tarefa', 'success');
+                    exit();
                 };
             };
 
