@@ -11,7 +11,7 @@
 
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'>
 
-        <link rel='shortcut icon' href='assets/gfx/primary/logo.png' type='image/x-icon'>
+        <link rel='shortcut icon' href='../gfx/primary/logo.png' type='image/x-icon'>
 
         <?php
             session_start();
@@ -132,6 +132,18 @@
                             </div>
                         </a>
 
+                        <a href='register.php'>
+                            <div class='container'>
+                                <div class='admin-content-item'>
+                                    <img src='../gfx/icons/agenda.png' alt=''>
+                                </div>
+                                <div class='admin-content-item'>
+                                    <h1>Cadastrar Idoso(a)</h1>
+                                    <p>Informe os dados necessários para cadastrar um paciente(Idoso(a)).</p>
+                                </div>
+                            </div>
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -147,14 +159,19 @@
                     <?php 
                         include "../mysql/pdo.php";
 
-                        $sql = $pdo->prepare('SELECT * FROM remedio');
+                        $sql = $pdo->prepare('SELECT * FROM agenda WHERE CPF_Resp = ?');
 
-                        if($sql->execute()){
+                        if($sql->execute([$_SESSION['cpf']])){
                             $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                             echo '<div class="container-list">';
-                            foreach($row as $key => $i){
+                            if($sql->rowCount() > 0){
+                                foreach($row as $key => $i){
+                                    echo '<div class="content-list">';
+                                    echo '<div class="list-main"> <h3>ID: '.$i['Cod_Agen'].'</h3> </div> <p><b>Data:</b> '.$i['Data_Tarefa'].'</p> <div><p><b>Hora:</b> '.$i['Hora_Tarefa'].'</p></div> </div>';
+                                };
+                            }else{
                                 echo '<div class="content-list">';
-                                echo '<div class="list-main"> <h1>'.$i['Nome_Remed'].'</h1> </div> <p>'.$i['Descricao_Remed'].'</p> </div>';
+                                echo '<div class="list-main"> <h3 style="color: red">* Nenhuma Agenda encontrada *</h3> </div></div>';
                             };
                             echo '</div>';
                         };
@@ -164,48 +181,56 @@
                 </div> <!-- content -->
 
                 <div class='content-listadmin'>
-                    <h1>Comorbidade(s) Cadastrada(s)</h1>
+                    <h1>Idoso(a)'s Cadastrado(s)</h1>
 
-                    <div class='container-list'>
+                    <?php 
+                        include "../mysql/pdo.php";
 
-                    <div class='content-list'>
-                            <div class='list-main'>
-                                <h1>Titulo</h1>
-                            </div>
-                            <p>Text.</p>
-                        </div> <!-- list -->
+                        $sql = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Resp = ?');
 
-                        <div class='content-list'>
-                            <div class='list-main'>
-                                <h1>Titulo</h1>
-                            </div>
-                            <p>Text.</p>
-                        </div> <!-- list -->
+                        if($sql->execute([$_SESSION['cpf']])){
+                            $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+                            echo '<div class="container-list">';
+                            if($sql->rowCount() > 0){
+                                foreach($row as $key => $i){
+                                    echo '<div class="content-list">';
+                                    echo '<div class="list-main"> <h3>Nome: '.$i['Nome_Idoso'].'</h3> </div> <p><b>CPF:</b> '.$i['CPF_Idoso'].'</p> </div>';
+                                };
+                            }else{
+                                echo '<div class="content-list">';
+                                echo '<div class="list-main"> <h3 style="color: red">* Nenhum Idoso(a) encontrado *</h3> </div></div>';
+                            };
+                            echo '</div>';
+                        };
 
-                    </div> <!-- list-container -->
+                    ?>
 
                 </div> <!-- content -->
 
                 <div class='content-listadmin'>
                     <h1>Remédio(s) Cadastrado(s)</h1>
 
-                    <div class='container-list'>
+                    <?php 
+                        include "../mysql/pdo.php";
 
-                        <div class='content-list'>
-                            <div class='list-main'>
-                                <h1>Titulo</h1>
-                            </div>
-                            <p>Text.</p>
-                        </div> <!-- list -->
+                        $sql = $pdo->prepare('SELECT * FROM remedio WHERE CPF_Resp = ?');
 
-                        <div class='content-list'>
-                            <div class='list-main'>
-                                <h1>Titulo</h1>
-                            </div>
-                            <p>Text.</p>
-                        </div> <!-- list -->
+                        if($sql->execute([$_SESSION['cpf']])){
+                            $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+                            echo '<div class="container-list">';
+                            if($sql->rowCount() > 0){
+                                foreach($row as $key => $i){
+                                    echo '<div class="content-list">';
+                                    echo '<div class="list-main"> <h3>Nome: '.$i['Nome_Remed'].'</h3> </div> <p><b>Descrição:</b> '.$i['Descricao_Remed'].'</p> </div>';
+                                };
+                            }else{
+                                echo '<div class="content-list">';
+                                echo '<div class="list-main"> <h3 style="color: red">* Nenhum remedio encontrado *</h3> </div></div>';
+                            };
+                            echo '</div>';
+                        };
 
-                    </div> <!-- list-container -->
+                    ?>
 
                 </div> <!-- content -->
 

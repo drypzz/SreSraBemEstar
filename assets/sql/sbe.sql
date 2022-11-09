@@ -10,7 +10,8 @@ CREATE TABLE `agenda` (
   `Cod_Agen` int(11) NOT NULL,
   `CPF_Idoso` varchar(180) DEFAULT NULL,
   `Data_Tarefa` date DEFAULT NULL,
-  `Hora_Tarefa` time DEFAULT NULL
+  `Hora_Tarefa` time DEFAULT NULL,
+  `CPF_Resp` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `cadidoso`;
@@ -65,7 +66,8 @@ DROP TABLE IF EXISTS `remedio`;
 CREATE TABLE `remedio` (
   `Cod_Remedio` int(11) NOT NULL,
   `Nome_Remed` varchar(180) DEFAULT NULL,
-  `Descricao_Remed` text(180) DEFAULT NULL
+  `Descricao_Remed` text(180) DEFAULT NULL,
+  `CPF_Resp` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `tarefa`;
@@ -79,6 +81,7 @@ CREATE TABLE `tarefa` (
 ALTER TABLE `agenda`
   ADD PRIMARY KEY (`Cod_Agen`),
   ADD KEY `CPF_Idoso` (`CPF_Idoso`);
+  ADD KEY `CPF_Resp` (`CPF_Resp`);
 
 ALTER TABLE `cadidoso`
   ADD PRIMARY KEY (`CPF_Idoso`),
@@ -106,6 +109,7 @@ ALTER TABLE `nivel`
 
 ALTER TABLE `remedio`
   ADD PRIMARY KEY (`Cod_Remedio`);
+  ADD KEY `CPF_Resp` (`CPF_Resp`);
 
 ALTER TABLE `tarefa`
   ADD PRIMARY KEY (`Cod_Tarefa`),

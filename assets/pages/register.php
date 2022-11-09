@@ -31,7 +31,7 @@
 
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'>
 
-        <link rel='shortcut icon' href='assets/gfx/primary/logo.png' type='image/x-icon'>
+        <link rel='shortcut icon' href='../gfx/primary/logo.png' type='image/x-icon'>
 
         <?php session_start(); ?>
     </head>
@@ -103,7 +103,7 @@
 
                     <div class='transition item-cards' style='display: none;'>
                         <form class='transition' action='../php/global.php?type=login' method='post'>
-                            <h2>Painel de logar.</h2>
+                            <h2>Entrar como Responsável.</h2>
                             <div class='transition form-container'>
                                 <?php if(isset($_GET['reg'])){ ?>
                                     <?php if($_GET['reg'] == 'nao'){ ?>
@@ -136,10 +136,68 @@
                             </div>
                         </form>
                     </div>
-
+                    
+                    <?php if(isset($_SESSION['logged'])){ ?>
+                    <div id='register' class='transition item-cards top focus' style='display: block;'>
+                        <form id='registro' action='../php/global.php?type=idoso' method='post'>
+                            <h2>Cadastrar Paciente(Idoso(a)).</h2>
+                            <div class='form-container top'>
+                                <?php if(isset($_GET['reg'])){ ?>
+                                    <?php if($_GET['reg'] == 'sim'){ ?>
+                                        <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
+                                            <?php if($_GET['type'] == 'success'){ ?>
+                                                <div class='success'>
+                                                    <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
+                                                </div>
+                                            <?php }else{; ?>
+                                                <div class='error'>
+                                                    <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
+                                                </div>
+                                            <?php }; ?>
+                                        <?php }; ?>
+                                    <?php }; ?>
+                                <?php }; ?>
+                                <div class='form-group'>
+                                    <label for='name'>Nome do Idoso(a):<span style='color: red;'>*</span></label>
+                                    <input type='text' required placeholder='Nome' id='name' name='name'>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='email'>Email do Idoso(a):<span style='color: red;'>*</span></label>
+                                    <input type='email' required placeholder='sr&srabemestar@gmail.com' id='email' name='email'>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='date'>Data de nascimento do Idoso(a):<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='date' placeholder='00-00-0000' name='date' autocomplete='off' maxlength='10'>
+                                    <span id='span-error-date' style='color: red;'></span>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='phone'>Telefone do Idoso(a):<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='phone' placeholder='(00) 0 0000-0000' name='phone' autocomplete='off' maxlength='15'>
+                                    <span id='span-error-phone' style='color: red;'></span>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='cpf'>CPF do Idoso(a):<span style='color: red;'>*</span></label>
+                                    <input type='text' required id='cpf' placeholder='000.000.000-00' name='cpf' autocomplete='off' maxlength='14'>
+                                    <span id='span-error-cpf' style='color: red;'></span>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='password'>Criar Senha:<span style='color: red;'>*</span></label>
+                                    <input type='password' required id='password' name='password'>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='passwordC'>Confirmar senha:<span style='color: red;'>*</span></label>
+                                    <input type='password' required id='passwordC' name='passwordC'>
+                                </div>
+                                <div class='form-group'>
+                                    <input type='submit' value='Cadastrar Paciente'>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <?php }else{ ?>
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
                         <form id='registro' action='../php/global.php?type=register' method='post'>
-                            <h2>Painel de Registro.</h2>
+                            <h2>Cadastrar Responsável ou Paciente.</h2>
                             <div class='form-container top'>
                                 <?php if(isset($_GET['reg'])){ ?>
                                     <?php if($_GET['reg'] == 'sim'){ ?>
@@ -207,12 +265,12 @@
                                     <span style='color: #c74040; font-size: 17px;'><i>OBS² - A opção acima, define se você é um 'Paciente (Idoso)'. Caso tenha marcado, você é um 'Paciente', caso não tenha, sera um Responsavel.</i></span>
                                 </div>
                                 <div class='form-group'>
-                                    <input type='submit' value='Cadastrar Responsável'>
+                                    <input type='submit' value='Cadastrar'>
                                 </div>
                             </div>
                         </form>
                     </div>
-
+                    <?php }; ?>
                 </div>
 
             </div>

@@ -11,7 +11,7 @@
 
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'>
 
-        <link rel='shortcut icon' href='assets/gfx/primary/logo.png' type='image/x-icon'>
+        <link rel='shortcut icon' href='../gfx/primary/logo.png' type='image/x-icon'>
 
         <?php
             session_start();
@@ -98,14 +98,13 @@
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
-                                    <label for='name-remedio'>Remédios:<span style='color: red;'>*</span></label>
+                                    <label for='name-remedio'>Nome do remédio:<span style='color: red;'>*</span></label>
                                     <input type='text' required id='name-remedio' name='name-remedio'>
                                     <span id='span-error-name-remedio' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='desc-remedio'>Descrição:<span style='color: red;'>*</span></label>
+                                    <label for='desc-remedio'>Descrição do rémedio:<span style='color: red;'>*</span></label>
                                     <textarea name="desc-remedio" id="desc-remedio" cols="5" rows="5"></textarea>
-                                    <!-- <input type='text' required id='desc-remedio' placeholder='Suas imformações' name='desc-remedio' autocomplete='off'> -->
                                     <span id='span-error-desc' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
