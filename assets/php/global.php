@@ -1,6 +1,10 @@
 <?php
     include '../mysql/pdo.php';
 
+    session_start();
+
+    $_SESSION['logged'] = $_SESSION['logged'] ?? NULL;
+
     function checkString($str){
         $str = trim($str);
         $str = stripslashes($str);
@@ -165,7 +169,6 @@
         };
 
     }else if($_GET['type'] == 'login'){
-        session_start();
 
         $cpfLogin = checkString($_POST['cpfLogin']);
         $passwordLogin = checkString($_POST['passwordLogin']);

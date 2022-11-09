@@ -22,14 +22,6 @@
                 unset($_SESSION['logged']);
                 unset($_SESSION['cpf']);
             };
-
-            if(isset($_GET['logout'])){
-                header('location: ../../index.php');
-                unset($_SESSION['name']);
-                unset($_SESSION['logged']);
-                unset($_SESSION['cpf']);
-                session_destroy();
-            };
         ?>
         
     </head>
