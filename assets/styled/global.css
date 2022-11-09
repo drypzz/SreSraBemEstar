@@ -983,6 +983,39 @@ body span.info-span{
     border-radius: 50%;
 }
 
+/* main-admin */
+
+.main-listadmin{
+    width: 100%;
+    height: 100%;
+}
+
+.main-listadmin .container-listadmin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-listadmin .container-listadmin .content-listadmin{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 20px;
+    padding: 10px;
+}
+
+.main-listadmin .container-listadmin .content-listadmin .container-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-listadmin .container-listadmin .content-listadmin .container-list .content-list{
+    margin: 20px;
+}
+
 /* footer */
 
 footer{
@@ -1022,6 +1055,16 @@ footer .footer-container .footer-content{
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
+    }
+
+    /* list */
+
+    .main-listadmin .container-listadmin{
+        flex-direction: column;
+    }
+
+    .main-listadmin .container-listadmin .content-listadmin{
+        max-width: 100%;
     }
 
     /* settings */

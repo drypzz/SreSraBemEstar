@@ -85,53 +85,10 @@
 
                 <div class='register-container-items'>
 
-                <!-- <div id='register' class='transition item-cards top focus' style='display: block;'>
-                        <form id='registro' action='../php/global.php?type=agenda' method='post'>
-                            <h2>Painel do Idoso.</h2>
-                            <div class='form-container top'>
-                                <?php if(isset($_GET['reg'])){ ?>
-                                    <?php if($_GET['reg'] == 'sim'){ ?>
-                                        <?php if (isset($_GET['info']) && isset($_GET['type'])){ ?>
-                                            <?php if($_GET['type'] == 'success'){ ?>
-                                                <div class='success'>
-                                                    <span><i class='fa-solid fa-circle-check'></i> *<?php echo $_GET['info'] ?></span>
-                                                </div>
-                                            <?php }else{; ?>
-                                                <div class='error'>
-                                                    <span><i class='fa-solid fa-circle-exclamation'></i> *<?php echo $_GET['info'] ?></span>
-                                                </div>
-                                            <?php }; ?>
-                                        <?php }; ?>
-                                    <?php }; ?>
-                                <?php }; ?>
-
-                                <div class='form-group'>
-                                <label for='cpfidoso'>CPF do Idoso:<span style='color: red;'>*</span></label>
-                                    <input type='text' required id='cpfidoso' placeholder='000.000.000-00' name='cpfidoso' autocomplete='off' maxlength='14'>
-                                    <span id='span-error-cpfidoso' style='color: red;'></span>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='Data-Tarefa'>Data da Tarefa:<span style='color: red;'> *Clique no Calendário</span></label>
-                                    <input type='date' name='Data-Tarefa' id='Data-Tarefa'>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='Hora-Tarefa'>Hora da Tarefa:<span style='color: red;'> *Clique no Relógio</span></label>
-                                    <input type='time' required id='Hora-Tarefa' name='Hora-Tarefa'>
-                                </div>
-                                                                                               
-                                <div class='form-group'>
-                                    <input type='submit' value='Salvar'>
-                                </div>
-                            </div>
-                        </form>
-                    </div> -->
-                    
-
-
-
+                
                     <div class='transition item-cards focus' style='display: block;'>
                         <form class='transition' action='../php/global.php?type=remedio' method='post'>
-                            <h2>Painel da tarefa.</h2>
+                            <h2>Cadastrar remédios.</h2>
                             <div class='transition form-container'>
                                 <?php if(isset($_GET['reg'])){ ?>
                                     <?php if($_GET['reg'] == 'remedio'){ ?>

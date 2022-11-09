@@ -233,8 +233,8 @@
 
                     if(!$query->rowCount() > 0){
 
-                        $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`) VALUES(?, ?, ?)");
-                        $sql->execute(array(($idRemedio + 1), $_POST['name-remedio'], $_POST['desc-remedio']));
+                        $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`, `CPF_Resp`) VALUES(?, ?, ?, ?)");
+                        $sql->execute(array( (isset($idRemedio) ? $idRemedio + 1 ? 1), $_POST['name-remedio'], $_POST['desc-remedio'], $_SESSION['cpf']));
                         infoBox('../pages/agenda.php', 'Remedio cadastrado com sucesso.', 'remedio', 'success');
                         exit();
 

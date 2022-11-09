@@ -115,7 +115,7 @@
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Nível</h1>
-                                    <p>No nível você escreve como é sua comorbidade para que possa lembrar no futuro e junto com essa descrição da comorbidade o nível dela.</p>
+                                    <p>No nível você escreve como é sua comorbidade para que possa lembrar no futuro e junto com a descrição da comorbidade e o nível dela.</p>
                                 </div>
                             </div>
                         </a>
@@ -136,6 +136,82 @@
                 </div>
             </div>
         </div>
+
+        <div class='main-listadmin'>
+
+            <div class='container-listadmin'>
+
+                <div class='content-listadmin'>
+                    <h1>Agenda(s) Cadastrada(s)</h1>
+
+                    <?php 
+                        include "../mysql/pdo.php";
+
+                        $sql = $pdo->prepare('SELECT * FROM remedio');
+
+                        if($sql->execute()){
+                            $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+                            echo '<div class="container-list">';
+                            foreach($row as $key => $i){
+                                echo '<div class="content-list">';
+                                echo '<div class="list-main"> <h1>'.$i['Nome_Remed'].'</h1> </div> <p>'.$i['Descricao_Remed'].'</p> </div>';
+                            };
+                            echo '</div>';
+                        };
+
+                    ?>
+
+                </div> <!-- content -->
+
+                <div class='content-listadmin'>
+                    <h1>Comorbidade(s) Cadastrada(s)</h1>
+
+                    <div class='container-list'>
+
+                    <div class='content-list'>
+                            <div class='list-main'>
+                                <h1>Titulo</h1>
+                            </div>
+                            <p>Text.</p>
+                        </div> <!-- list -->
+
+                        <div class='content-list'>
+                            <div class='list-main'>
+                                <h1>Titulo</h1>
+                            </div>
+                            <p>Text.</p>
+                        </div> <!-- list -->
+
+                    </div> <!-- list-container -->
+
+                </div> <!-- content -->
+
+                <div class='content-listadmin'>
+                    <h1>Remédio(s) Cadastrado(s)</h1>
+
+                    <div class='container-list'>
+
+                        <div class='content-list'>
+                            <div class='list-main'>
+                                <h1>Titulo</h1>
+                            </div>
+                            <p>Text.</p>
+                        </div> <!-- list -->
+
+                        <div class='content-list'>
+                            <div class='list-main'>
+                                <h1>Titulo</h1>
+                            </div>
+                            <p>Text.</p>
+                        </div> <!-- list -->
+
+                    </div> <!-- list-container -->
+
+                </div> <!-- content -->
+
+            </div> <!-- container -->
+
+        </div> <!-- main -->
 
         <div class='dark-container'>
             <button id='darkmode' onclick='darkmode()'></button>
