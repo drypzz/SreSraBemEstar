@@ -270,8 +270,8 @@
                         $codAgend = ($i['Cod_Agen'] ?? 0);
                     };
 
-                    $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`) VALUES(?, ?, ?, ?)");
-                    $sql->execute(array(($codAgend + 1), $_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa']));
+                    $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`, `CPF_Resp`) VALUES(?, ?, ?, ?, ?)");
+                    $sql->execute(array(($codAgend + 1), $_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa'], $_SESSION['cpf']));
                     infoBox('../pages/agenda.php', 'Agenda cadastrada com sucesso', 'agenda', 'success');
                     exit();
 
