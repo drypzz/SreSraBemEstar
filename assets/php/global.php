@@ -130,7 +130,7 @@
                                 $currentDate = date('d-m-Y');
                                 $age = date_diff(date_create($date), date_create($currentDate));
 
-                                if($age->format('%y') > 18){
+                                if($age->format('%y') >= 18){
                                     $sql = $pdo->prepare("INSERT INTO cadresponsavel(`CPF_Resp`, `Nome_Resp`, `Email_Resp`, `Dat_Nasc_Resp`, `Telefone_Resp`, `Senha_Resp`) VALUES(?, ?, ?, ?, ?, ?)");
                                     $sql->execute(array($cpf, $name, $email, $date, $phone, $password));
                                     infoBox('../pages/register.php', 'Cadastro de Responsavel efetuado com sucesso.', 'sim', 'success');
