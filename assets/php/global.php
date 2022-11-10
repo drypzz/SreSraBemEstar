@@ -12,6 +12,7 @@
         return $str;
     };
 
+    // OBGD PELO CARINHO S2
     function infoBox($page, $msg, $resp, $type){
         if($type == 'success'){
             $return = header('Location: '.$page.'?info='.$msg.'&type=success&reg='.$resp);
@@ -40,7 +41,7 @@
         if( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['date']) && isset($_POST['phone']) && isset($_POST['cpf']) && isset($_POST['password']) && isset($_POST['passwordC']) ){
             
             if( $checked == true ){
-            
+                
                 if(isset($cpfr)){
                     
                     if(empty($date) && empty($phone) && empty($cpf)){
@@ -115,7 +116,7 @@
                 
                 }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                     infoBox('../pages/register.php', 'Insira um email valido.', 'sim', 'error');
-                
+               
                 }else if($passwordC === $password){
                     
                     $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ? AND Email_Resp');
@@ -217,7 +218,7 @@
         if( isset($_POST['desc-remedio']) && isset($_POST['name-remedio'])){
 
             if(empty($_POST['desc-remedio']) && empty($_POST['name-remedio'])){
-                infoBox('../pages/remedio.php', 'Insira corretamente as informações: NOME DO REMÉDIO E DESCRIÇÃO.', 'remedio', 'error');
+                infoBox('../pages/agenda.php', 'Insira corretamente as informações: NOME DO REMÉDIO E DESCRIÇÃO.', 'remedio', 'error');
             
             }else{
                 $query = $pdo->prepare('SELECT * FROM remedio WHERE Nome_Remed = ?');
@@ -236,17 +237,17 @@
                     if(!$query->rowCount() > 0){
 
                         $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`, `CPF_Resp`) VALUES(?, ?, ?, ?)");
-                        $sql->execute(array( (isset($idRemedio) ? $idRemedio + 1 : 1), $_POST['name-remedio'], $_POST['desc-remedio'], $_SESSION['cpf']));
-                        infoBox('../pages/remedio.php', 'Remedio cadastrado com sucesso.', 'remedio', 'success');
+                        $sql->execute(array( (isset($idRemedio) ? $idRemedio + 1 ? 1), $_POST['name-remedio'], $_POST['desc-remedio'], $_SESSION['cpf']));
+                        infoBox('../pages/agenda.php', 'Remedio cadastrado com sucesso.', 'remedio', 'success');
                         exit();
 
                     }else{
-                        infoBox('../pages/remedio.php', 'Remedio ja cadastrado.', 'remedio', 'error');
+                        infoBox('../pages/agenda.php', 'Remedio ja cadastrado.', 'remedio', 'error');
                         exit();
                     };
 
                 }else{
-                    infoBox('../pages/remedio.php', 'Erro ao cadastrar.', 'remedio', 'error');
+                    infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'remedio', 'error');
                     exit();
                 };
             };
@@ -269,8 +270,8 @@
                         $codAgend = ($i['Cod_Agen'] ?? 0);
                     };
 
-                    $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`, `CPF_Resp`) VALUES(?, ?, ?, ?, ?)");
-                    $sql->execute(array(($codAgend + 1), $_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa'], $_SESSION['cpf']));
+                    $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`) VALUES(?, ?, ?, ?)");
+                    $sql->execute(array(($codAgend + 1), $_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa']));
                     infoBox('../pages/agenda.php', 'Agenda cadastrada com sucesso', 'agenda', 'success');
                     exit();
 
@@ -361,62 +362,6 @@
                 };
             };
 
-        };
-    }else if($_GET['type'] == 'idoso'){
-
-        $name = checkString($_POST['name']);
-        $email = checkString($_POST['email']);
-        $date = checkString($_POST['date']);
-        $phone = checkString($_POST['phone']);
-        $cpf = checkString($_POST['cpf']);
-        $password = checkString($_POST['password']);
-        $passwordC = checkString($_POST['passwordC']);
-
-        if( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['date']) && isset($_POST['phone']) && isset($_POST['cpf']) && isset($_POST['password']) && isset($_POST['passwordC']) ){
-
-            if(empty($date) && empty($phone) && empty($cpf)){
-                infoBox('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.', 'sim', 'error');
-            
-            }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                infoBox('../pages/register.php', 'Insira um email valido.', 'sim', 'error');
-            
-            }else if($passwordC === $password){
-                $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso');
-                
-                if($query->execute(array($cpf))){
-
-                    if($query->execute(array($email))){
-
-                        if(!$query->rowCount() > 0){
-
-                            $currentDate = date('d-m-Y');
-                            $age = date_diff(date_create($date), date_create($currentDate));
-
-                            if($age->format('%y') > 18){
-                                $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
-                                $sql->execute(array($name, $email, $date, $phone, $cpf, $_SESSION['cpf'], $password));
-                                header('Location: ../pages/admin.php');
-                                exit();
-                            
-                            }else{
-                                infoBox('../pages/register.php', 'Idoso(a) menor de idade', 'sim', 'error');
-                                exit();
-                            };
-
-                        };
-                    }else{
-                        infoBox('../pages/register.php', 'Email do Idoso(a) ja cadastrado..', 'sim', 'error');
-                        exit();
-                    };
-
-                }else{
-                    infoBox('../pages/register.php', 'CPF do Idoso(a) ja cadastrado.', 'sim', 'error');
-                    exit();
-                };
-            }else{
-                infoBox('../pages/register.php', 'Senhas não coincidem', 'sim', 'error');
-                exit();
-            };
         };
     };    
 ?>
