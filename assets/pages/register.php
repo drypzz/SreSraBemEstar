@@ -186,11 +186,7 @@
                                     <span id='span-error-cpf' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='password'>Criar Senha:<span style='color: red;'>*</span></label>
-                                    <input type='password' required id='password' name='password'>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='passwordC'>Confirmar senha:<span style='color: red;'>*</span></label>
+                                    <label for='passwordC'>Confirmar senha do Responsavel:<span style='color: red;'>*</span></label>
                                     <input type='password' required id='passwordC' name='passwordC'>
                                 </div>
                                 <div class='form-group'>
