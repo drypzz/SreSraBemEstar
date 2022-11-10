@@ -1,3 +1,8 @@
+<!-- [
+    author: elseif;
+    type: config;
+] -->
+
 <?php
     $config = array(
         $database = array(

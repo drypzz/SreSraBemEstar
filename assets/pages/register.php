@@ -1,3 +1,8 @@
+<!-- [
+    author: elseif and function;
+    type: .html and .php;
+] -->
+
 <!DOCTYPE html>
 <html lang='pt-br'>
     <head>

@@ -1,9 +1,14 @@
+<!-- [
+    author: elseif;
+    type: readme;
+] -->
+
 <div align='center'>
     <h1>Projeto INT - 2022</h1>
 </div>
 
 <div align='center'>
-    <p><strong>Ultima atualização:</strong> 09 Nov. 2022<br><strong>Última versão:</strong> 2.0.3</p>
+    <p><strong>Ultima atualização:</strong> 10 Nov. 2022<br><strong>Última versão:</strong> 2.0.3</p>
 </div>
 
 <div align='center'>

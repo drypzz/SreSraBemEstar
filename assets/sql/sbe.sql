@@ -1,3 +1,8 @@
+--[
+  -- author: Team;
+  -- type: .sql;
+-- ]
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -69,7 +74,7 @@ DROP TABLE IF EXISTS `tarefa`; CREATE TABLE `tarefa` (
   `Cod_Agen` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `agenda` ADD PRIMARY KEY (`Cod_Agen`), ADD KEY `CPF_Idoso` (`CPF_Idoso`); ADD KEY `CPF_Resp` (`CPF_Resp`);
+ALTER TABLE `agenda` ADD PRIMARY KEY (`Cod_Agen`), ADD KEY `CPF_Idoso` (`CPF_Idoso`), ADD KEY `CPF_Resp` (`CPF_Resp`);
 
 ALTER TABLE `cadidoso` ADD PRIMARY KEY (`CPF_Idoso`), ADD KEY `CPF_Resp` (`CPF_Resp`);
 
@@ -83,7 +88,7 @@ ALTER TABLE `idoso_como` ADD PRIMARY KEY (`Cod_Idoso_Como`), ADD KEY `Cod_Como` 
 
 ALTER TABLE `nivel` ADD PRIMARY KEY (`Cod_Nivel`);
 
-ALTER TABLE `remedio` ADD PRIMARY KEY (`Cod_Remedio`); ADD KEY `CPF_Resp` (`CPF_Resp`);
+ALTER TABLE `remedio` ADD PRIMARY KEY (`Cod_Remedio`), ADD KEY `CPF_Resp` (`CPF_Resp`);
 
 ALTER TABLE `tarefa` ADD PRIMARY KEY (`Cod_Tarefa`), ADD KEY `Cod_Agen` (`Cod_Agen`), ADD KEY `Cod_Remedio` (`Cod_Remedio`);
 
