@@ -11,6 +11,8 @@ const error_cpf_idoso = document.querySelector('#span-error-cpfidoso')
 
 const input_01 = document.querySelector('#cpfLogin');
 
+if(input_01){
+
 input_01.addEventListener('keypress', (e) => {
     let inputLength = input_01.value.length;
 
@@ -28,7 +30,11 @@ input_01.addEventListener('keypress', (e) => {
     };
 });
 
+};
+
 const input_02 = document.querySelector('#cpf');
+
+if(input_02){
 
 input_02.addEventListener('keypress', (e) => {
     let inputLength = input_02.value.length;
@@ -47,28 +53,36 @@ input_02.addEventListener('keypress', (e) => {
     };
 });
 
+};
+
 // cpf idoso - agenda
 
 const input_06 = document.querySelector('#cpfidoso');
 
-input_02.addEventListener('keypress', (e) => {
-    let inputLength = input_02.value.length;
+if(input_06){
+
+input_06.addEventListener('keypress', (e) => {
+    let inputLength = input_06.value.length;
 
     var key = e.keyCode || e.charCode;
 
     if (key >= 48 && key <= 57) {
         error_cpf_idoso.innerHTML = '';
         if (inputLength === 3 || inputLength === 7){
-            input_02.value += '.';
+            input_06.value += '.';
         }else if(inputLength === 11){
-            input_02.value += '-';
+            input_06.value += '-';
         };
     }else{
         error_cpf_idoso.innerHTML = '* Insira penas numeros';
     };
 });
 
+};
+
 const input_05 = document.querySelector('#cpfR');
+
+if(input_05){
 
 input_05.addEventListener('keypress', (e) => {
     let inputLength = input_05.value.length;
@@ -87,9 +101,13 @@ input_05.addEventListener('keypress', (e) => {
     };
 });
 
+};
+
 // data de nascimento
 
 const input_03 = document.querySelector('#date');
+
+if(input_03){
 
 input_03.addEventListener('keypress', (e) => {
     let inputLength = input_03.value.length;
@@ -107,9 +125,13 @@ input_03.addEventListener('keypress', (e) => {
     };
 });
 
+};
+
 // telefone
 
 const input_04 = document.querySelector('#phone');
+
+if(input_04){
 
 input_04.addEventListener('keypress', (e) => {
     let inputLength = input_04.value.length;
@@ -130,11 +152,15 @@ input_04.addEventListener('keypress', (e) => {
     };
 });
 
+};
+
 // checked
 
 const buttonCheckBox = document.getElementById('resp');
 const inputCpfR = document.querySelector('#cpfR');
 const divCpfR = document.querySelector('#divCpf');
+
+if(buttonCheckBox){
 
 buttonCheckBox.onclick = function(){
     if(buttonCheckBox.checked){
@@ -146,4 +172,6 @@ buttonCheckBox.onclick = function(){
         divCpfR.style = 'display: none;';
         inputCpfR.removeAttribute('required');
     };
+};
+
 };
