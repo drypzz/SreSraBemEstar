@@ -80,7 +80,7 @@ CREATE TABLE `tarefa` (
 
 ALTER TABLE `agenda`
   ADD PRIMARY KEY (`Cod_Agen`),
-  ADD KEY `CPF_Idoso` (`CPF_Idoso`);
+  ADD KEY `CPF_Idoso` (`CPF_Idoso`),
   ADD KEY `CPF_Resp` (`CPF_Resp`);
 
 ALTER TABLE `cadidoso`
@@ -108,7 +108,7 @@ ALTER TABLE `nivel`
   ADD PRIMARY KEY (`Cod_Nivel`);
 
 ALTER TABLE `remedio`
-  ADD PRIMARY KEY (`Cod_Remedio`);
+  ADD PRIMARY KEY (`Cod_Remedio`),
   ADD KEY `CPF_Resp` (`CPF_Resp`);
 
 ALTER TABLE `tarefa`
