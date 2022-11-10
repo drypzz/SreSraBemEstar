@@ -68,7 +68,7 @@
                                             $currentDate = date('d-m-Y');
                                             $age = date_diff(date_create($date), date_create($currentDate));
 
-                                            if($age->format('%y') > 18){
+                                            if($age->format('%y') >= 18){
                                                 $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
                                                 $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, $password));
                                                 infoBox('../pages/register.php', 'Cadastro de Paciente efetuado com sucesso.', 'sim', 'success');
@@ -237,7 +237,7 @@
                     if(!$query->rowCount() > 0){
 
                         $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`, `CPF_Resp`) VALUES(?, ?, ?, ?)");
-                        $sql->execute(array( (isset($idRemedio) ? $idRemedio + 1 ? 1), $_POST['name-remedio'], $_POST['desc-remedio'], $_SESSION['cpf']));
+                        $sql->execute(array( (isset($idRemedio) ? $idRemedio + 1 : 1), $_POST['name-remedio'], $_POST['desc-remedio'], $_SESSION['cpf']));
                         infoBox('../pages/agenda.php', 'Remedio cadastrado com sucesso.', 'remedio', 'success');
                         exit();
 
