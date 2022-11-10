@@ -363,5 +363,61 @@
             };
 
         };
+    }else if($_GET['type'] == 'idoso'){
+
+        $name = checkString($_POST['name']);
+        $email = checkString($_POST['email']);
+        $date = checkString($_POST['date']);
+        $phone = checkString($_POST['phone']);
+        $cpf = checkString($_POST['cpf']);
+        $password = checkString($_POST['password']);
+        $passwordC = checkString($_POST['passwordC']);
+
+        if( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['date']) && isset($_POST['phone']) && isset($_POST['cpf']) && isset($_POST['password']) && isset($_POST['passwordC']) ){
+
+            if(empty($date) && empty($phone) && empty($cpf)){
+                infoBox('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.', 'sim', 'error');
+
+            }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                infoBox('../pages/register.php', 'Insira um email valido.', 'sim', 'error');
+
+            }else if($passwordC === $password){
+                $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso');
+
+                if($query->execute(array($cpf))){
+
+                    if($query->execute(array($email))){
+
+                        if(!$query->rowCount() > 0){
+
+                            $currentDate = date('d-m-Y');
+                            $age = date_diff(date_create($date), date_create($currentDate));
+
+                            if($age->format('%y') >= 18){
+                                $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
+                                $sql->execute(array($name, $email, $date, $phone, $cpf, $_SESSION['cpf'], $password));
+                                header('Location: ../pages/admin.php');
+                                exit();
+
+                            }else{
+                                infoBox('../pages/register.php', 'Idoso(a) menor de idade', 'sim', 'error');
+                                exit();
+                            };
+
+                        };
+                    }else{
+                        infoBox('../pages/register.php', 'Email do Idoso(a) ja cadastrado..', 'sim', 'error');
+                        exit();
+                    };
+
+                }else{
+                    infoBox('../pages/register.php', 'CPF do Idoso(a) ja cadastrado.', 'sim', 'error');
+                    exit();
+                };
+            }else{
+                infoBox('../pages/register.php', 'Senhas não coincidem', 'sim', 'error');
+                exit();
+            };
+        };
     };    
 ?>
