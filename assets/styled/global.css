@@ -1258,7 +1258,15 @@ footer .footer-container .footer-content{
         text-align: center;
         padding: 1rem;
         width: 100%;
+        color: #fff;
+        background: none;
         display: table;
+    }
+
+    .navbar-links:hover{
+        color: white;
+        border: none;
+        background-color: #0d0e0f;
     }
 
     .navbar-links.active{
