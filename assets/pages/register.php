@@ -94,6 +94,7 @@
 
         <div class='transition register-main'>
             <div class='register-container'>
+                <?php if(!isset($_SESSION['logged'])){ ?>
                 <span class='info-span-content'>NÃO TEM UMA CONTA? REGISTRE-A AQUI.</span>
                 <div class='register-content-buttons'>
                     <div class='btn'>
@@ -103,9 +104,18 @@
                         <button class='button-control active-btn'>Registrar-se</button>
                     </div>
                 </div>
+                <?php }else{ ?>
+                <span class='info-span-content'>CADASTRAR IDOSO(a).</span>
+                <div class='register-content-buttons'>
+                    <div class='btn'>
+                        <button class='button-control active-btn'>Registrar-se</button>
+                    </div>
+                </div>
+                <?php }; ?>
 
                 <div class='register-container-items'>
 
+                    <?php if(!isset($_SESSION['logged'])){ ?>
                     <div class='transition item-cards' style='display: none;'>
                         <form class='transition' action='../php/global.php?type=login' method='post'>
                             <h2>Entrar como Responsável.</h2>
@@ -141,6 +151,7 @@
                             </div>
                         </form>
                     </div>
+                    <?php }; ?>
                     
                     <?php if(isset($_SESSION['logged'])){ ?>
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
