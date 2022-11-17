@@ -1,3 +1,8 @@
+<!-- [
+    author: elseif and function;
+    type: .html and .php;
+] -->
+
 <!DOCTYPE html>
 <html lang='pt-br'>
     <head>
@@ -167,7 +172,15 @@
                             if($sql->rowCount() > 0){
                                 foreach($row as $key => $i){
                                     echo '<div class="content-list">';
-                                    echo '<div class="list-main"> <h3>ID: '.$i['Cod_Agen'].'</h3> </div> <p><b>Data:</b> '.$i['Data_Tarefa'].'</p> <div><p><b>Hora:</b> '.$i['Hora_Tarefa'].'</p></div> </div>';
+                                        echo '<div class="list-main">';
+                                            echo '<div class="list-container">';
+                                                echo '<h3>#'.$i['Cod_Agen'].'</h3>';
+                                                echo '<span><b>Data:</b> '.$i['Data_Tarefa'].'</span><br>';
+                                                echo '<span><b>Hora:</b> '.$i['Hora_Tarefa'].'</span><br><br>';
+                                                echo '<span><b>CPF do Idoso(a):</b> '.$i['CPF_Idoso'].'</span>';
+                                            echo '</div>';
+                                        echo '</div>';
+                                    echo '</div>';
                                 };
                             }else{
                                 echo '<div class="content-list">';
@@ -194,7 +207,13 @@
                             if($sql->rowCount() > 0){
                                 foreach($row as $key => $i){
                                     echo '<div class="content-list">';
-                                    echo '<div class="list-main"> <h3>Nome: '.$i['Nome_Idoso'].'</h3> </div> <p><b>CPF:</b> '.$i['CPF_Idoso'].'</p> </div>';
+                                        echo '<div class="list-main">';
+                                            echo '<div class="list-container">';
+                                                echo '<h3>Nome: '.$i['Nome_Idoso'].'</h3>';
+                                                echo '<span><b>CPF:</b> '.$i['CPF_Idoso'].'</span>';
+                                            echo '</div>';
+                                        echo '</div>';
+                                    echo '</div>';
                                 };
                             }else{
                                 echo '<div class="content-list">';
@@ -221,7 +240,13 @@
                             if($sql->rowCount() > 0){
                                 foreach($row as $key => $i){
                                     echo '<div class="content-list">';
-                                    echo '<div class="list-main"> <h3>Nome: '.$i['Nome_Remed'].'</h3> </div> <p><b>Descrição:</b> '.$i['Descricao_Remed'].'</p> </div>';
+                                        echo '<div class="list-main">';
+                                            echo '<div class="list-container">';
+                                                echo '<h3>Nome: '.$i['Nome_Remed'].'</h3>';
+                                                echo '<span><b>Descrição:</b> '.$i['Descricao_Remed'].'</span>';
+                                            echo '</div>';
+                                        echo '</div>';
+                                    echo '</div>';
                                 };
                             }else{
                                 echo '<div class="content-list">';

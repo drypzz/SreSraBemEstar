@@ -1,3 +1,8 @@
+<!-- [
+    author: elseif and function;
+    type: .html and .php;
+] -->
+
 <!DOCTYPE html>
 <html lang='pt-br'>
     <head>
@@ -89,6 +94,7 @@
 
         <div class='transition register-main'>
             <div class='register-container'>
+                <?php if(!isset($_SESSION['logged'])){ ?>
                 <span class='info-span-content'>NÃO TEM UMA CONTA? REGISTRE-A AQUI.</span>
                 <div class='register-content-buttons'>
                     <div class='btn'>
@@ -98,9 +104,18 @@
                         <button class='button-control active-btn'>Registrar-se</button>
                     </div>
                 </div>
+                <?php }else{ ?>
+                <span class='info-span-content'>CADASTRAR IDOSO(a).</span>
+                <div class='register-content-buttons'>
+                    <div class='btn'>
+                        <button class='button-control active-btn'>Registrar-se</button>
+                    </div>
+                </div>
+                <?php }; ?>
 
                 <div class='register-container-items'>
 
+                    <?php if(!isset($_SESSION['logged'])){ ?>
                     <div class='transition item-cards' style='display: none;'>
                         <form class='transition' action='../php/global.php?type=login' method='post'>
                             <h2>Entrar como Responsável.</h2>
@@ -136,6 +151,7 @@
                             </div>
                         </form>
                     </div>
+                    <?php }; ?>
                     
                     <?php if(isset($_SESSION['logged'])){ ?>
                     <div id='register' class='transition item-cards top focus' style='display: block;'>
@@ -181,11 +197,7 @@
                                     <span id='span-error-cpf' style='color: red;'></span>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='password'>Criar Senha:<span style='color: red;'>*</span></label>
-                                    <input type='password' required id='password' name='password'>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='passwordC'>Confirmar senha:<span style='color: red;'>*</span></label>
+                                    <label for='passwordC'>Confirmar senha do Responsavel:<span style='color: red;'>*</span></label>
                                     <input type='password' required id='passwordC' name='passwordC'>
                                 </div>
                                 <div class='form-group'>

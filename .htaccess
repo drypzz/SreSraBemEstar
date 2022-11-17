@@ -5,3 +5,7 @@ php_flag output_buffering on
 <FilesMatch "config.php$">
     Deny from all
 </FilesMatch>
+
+<FilesMatch "sql.sql$">
+    Deny from all
+</FilesMatch>

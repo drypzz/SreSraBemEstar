@@ -1,3 +1,8 @@
+<!-- [
+    author: elseif;
+    type: .php;
+] -->
+
 <?php
     include '../mysql/pdo.php';
 
@@ -10,6 +15,12 @@
         $str = stripslashes($str);
         $str = htmlspecialchars($str);
         return $str;
+    };
+
+    function validateDateTime($dateStr, $format){
+        date_default_timezone_set('UTC');
+        $date = DateTime::createFromFormat($format, $dateStr);
+        return $date && ($date->format($format) === $dateStr);
     };
 
     // OBGD PELO CARINHO S2
@@ -65,17 +76,24 @@
 
                                         if(!$query->rowCount() > 0){
 
-                                            $currentDate = date('d-m-Y');
-                                            $age = date_diff(date_create($date), date_create($currentDate));
+                                            if(validateDateTime($date, 'd-m-Y')){
 
-                                            if($age->format('%y') >= 18){
-                                                $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
-                                                $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, $password));
-                                                infoBox('../pages/register.php', 'Cadastro de Paciente efetuado com sucesso.', 'sim', 'success');
-                                                exit();
+                                                $currentDate = date('d-m-Y');
+                                                $age = date_diff(date_create($date), date_create($currentDate));
+
+                                                if($age->format('%y') >= 18){
+                                                    $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
+                                                    $sql->execute(array($name, $email, $date, $phone, $cpf, $cpfr, $password));
+                                                    infoBox('../pages/register.php', 'Cadastro de Paciente efetuado com sucesso.', 'sim', 'success');
+                                                    exit();
+                                                
+                                                }else{
+                                                    infoBox('../pages/register.php', 'Você é menor de idade', 'sim', 'error');
+                                                    exit();
+                                                };
                                             
                                             }else{
-                                                infoBox('../pages/register.php', 'Você é menor de idade', 'sim', 'error');
+                                                infoBox('../pages/register.php', 'Insira uma DATA DE NASCIMENTO valida.', 'sim', 'error');
                                                 exit();
                                             };
 
@@ -127,17 +145,24 @@
                             
                             if(!$query->rowCount() > 0){
 
-                                $currentDate = date('d-m-Y');
-                                $age = date_diff(date_create($date), date_create($currentDate));
+                                if(validateDateTime($date, 'd-m-Y')){
 
-                                if($age->format('%y') >= 18){
-                                    $sql = $pdo->prepare("INSERT INTO cadresponsavel(`CPF_Resp`, `Nome_Resp`, `Email_Resp`, `Dat_Nasc_Resp`, `Telefone_Resp`, `Senha_Resp`) VALUES(?, ?, ?, ?, ?, ?)");
-                                    $sql->execute(array($cpf, $name, $email, $date, $phone, $password));
-                                    infoBox('../pages/register.php', 'Cadastro de Responsavel efetuado com sucesso.', 'sim', 'success');
-                                    exit();
-                                
+                                    $currentDate = date('d-m-Y');
+                                    $age = date_diff(date_create($date), date_create($currentDate));
+
+                                    if($age->format('%y') >= 18){
+                                        $sql = $pdo->prepare("INSERT INTO cadresponsavel(`CPF_Resp`, `Nome_Resp`, `Email_Resp`, `Dat_Nasc_Resp`, `Telefone_Resp`, `Senha_Resp`) VALUES(?, ?, ?, ?, ?, ?)");
+                                        $sql->execute(array($cpf, $name, $email, $date, $phone, $password));
+                                        infoBox('../pages/register.php', 'Cadastro de Responsavel efetuado com sucesso.', 'sim', 'success');
+                                        exit();
+                                    
+                                    }else{
+                                        infoBox('../pages/register.php', 'Você é menor de idade.', 'sim', 'error');
+                                        exit();
+                                    };
+
                                 }else{
-                                    infoBox('../pages/register.php', 'Você é menor de idade.', 'sim', 'error');
+                                    infoBox('../pages/register.php', 'Insira uma DATA DE NASCIMENTO valida.', 'sim', 'error');
                                     exit();
                                 };
                             
@@ -188,11 +213,13 @@
                     foreach($row as $k){
                         $nameRes = $k['Nome_Resp'];
                         $cpfResp = $k['CPF_Resp'];
+                        $passResp = $k['Senha_Resp'];
                     };
 
                     if(count($row) > 0){
                         $_SESSION['name'] = $nameRes;
                         $_SESSION['cpf'] = $cpfResp;
+                        $_SESSION['password'] = $passResp;
                         $_SESSION['logged'] = true;
                         header('Location: ../pages/admin.php');
                     
@@ -200,6 +227,7 @@
                         unset($_SESSION['name']);
                         unset($_SESSION['logged']);
                         unset($_SESSION['cpf']);
+                        unset($_SESSION['password']);
                         infoBox('../pages/register.php', 'CPF ou Senha incorretos.', 'nao', 'error');
                     };
 
@@ -370,10 +398,9 @@
         $date = checkString($_POST['date']);
         $phone = checkString($_POST['phone']);
         $cpf = checkString($_POST['cpf']);
-        $password = checkString($_POST['password']);
         $passwordC = checkString($_POST['passwordC']);
 
-        if( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['date']) && isset($_POST['phone']) && isset($_POST['cpf']) && isset($_POST['password']) && isset($_POST['passwordC']) ){
+        if( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['date']) && isset($_POST['phone']) && isset($_POST['cpf']) && isset($_POST['passwordC']) ){
 
             if(empty($date) && empty($phone) && empty($cpf)){
                 infoBox('../pages/register.php', 'Insira corretamente as informações: CPF, DATA DE NASCIMENTO, TELEFONE.', 'sim', 'error');
@@ -381,7 +408,7 @@
             }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                 infoBox('../pages/register.php', 'Insira um email valido.', 'sim', 'error');
 
-            }else if($passwordC === $password){
+            }else if($passwordC === $_SESSION['password']){
                 $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso');
 
                 if($query->execute(array($cpf))){
@@ -389,19 +416,25 @@
                     if($query->execute(array($email))){
 
                         if(!$query->rowCount() > 0){
+                            
+                            if(validateDateTime($date, 'd-m-Y')){
 
-                            $currentDate = date('d-m-Y');
-                            $age = date_diff(date_create($date), date_create($currentDate));
+                                $currentDate = date('d-m-Y');
+                                $age = date_diff(date_create($date), date_create($currentDate));
 
-                            if($age->format('%y') >= 18){
-                                $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
-                                $sql->execute(array($name, $email, $date, $phone, $cpf, $_SESSION['cpf'], $password));
-                                header('Location: ../pages/admin.php');
-                                exit();
+                                if($age->format('%y') >= 18){
+                                    $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
+                                    $sql->execute(array($name, $email, $date, $phone, $cpf, $_SESSION['cpf'], $password));
+                                    header('Location: ../pages/admin.php');
+                                    exit();
+
+                                }else{
+                                    infoBox('../pages/register.php', 'Idoso(a) menor de idade', 'sim', 'error');
+                                    exit();
+                                };
 
                             }else{
-                                infoBox('../pages/register.php', 'Idoso(a) menor de idade', 'sim', 'error');
-                                exit();
+                                infoBox('../pages/register.php', 'Insira uma DATA DE NASCIMENTO valida.', 'sim', 'error');
                             };
 
                         };
@@ -415,7 +448,7 @@
                     exit();
                 };
             }else{
-                infoBox('../pages/register.php', 'Senhas não coincidem', 'sim', 'error');
+                infoBox('../pages/register.php', 'Senhas não corresponde com a do Responsável.', 'sim', 'error');
                 exit();
             };
         };
