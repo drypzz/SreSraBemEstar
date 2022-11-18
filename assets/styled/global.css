@@ -1047,6 +1047,19 @@ body span.info-span{
     background-color: #d8d8d8;
 }
 
+.main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main .list-container a i{
+    color: red;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+    transition: all 600ms ease-in-out;
+}
+
+.main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main .list-container a i:hover{
+    background-color: red;
+    color: #fff;
+}
+
 /* footer */
 
 footer{

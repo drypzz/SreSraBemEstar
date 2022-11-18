@@ -8,7 +8,7 @@
 </div>
 
 <div align='center'>
-    <p><strong>Ultima atualização:</strong> 17 Nov. 2022<br><strong>Última versão:</strong> 2.0.5</p>
+    <p><strong>Ultima atualização:</strong> 18 Nov. 2022<br><strong>Última versão:</strong> 2.0.5</p>
 </div>
 
 <div align='center'>

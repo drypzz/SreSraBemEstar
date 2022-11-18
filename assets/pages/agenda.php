@@ -149,10 +149,14 @@
 
                                             if($query->execute([$_SESSION['cpf']])){
                                                 $row = $query->fetchAll(PDO::FETCH_ASSOC);
-                                                foreach($row as $key => $i){ ?>
-                                            <option value="<?php echo $i['CPF_Idoso']; ?>"><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
-                                                <?php };
-                                            }; ?>
+                                                if($query->rowCount() > 0){
+                                                    foreach($row as $key => $i){ ?>
+                                                        <option value="<?php echo $i['CPF_Idoso']; ?>"><b><?php echo ''.$i['CPF_Idoso'].' - '.$i['Nome_Idoso'].''; ?></b></option>
+                                                    <?php }; ?>
+                                                <?php }else{ ?>
+                                                    <option value=''><b style='color: red'>* Nenhum Idoso(a) encontrado(a) *</b></option>
+                                                <?php }; ?>
+                                            <?php }; ?>
 
                                         </select>
                                     </div>

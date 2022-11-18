@@ -154,7 +154,7 @@
             </div>
         </div>
 
-        <div class='main-listadmin'>
+        <div class='main-listadmin' id='list'>
 
             <div class='container-listadmin'>
 
@@ -177,7 +177,8 @@
                                                 echo '<h3>#'.$i['Cod_Agen'].'</h3>';
                                                 echo '<span><b>Data:</b> '.$i['Data_Tarefa'].'</span><br>';
                                                 echo '<span><b>Hora:</b> '.$i['Hora_Tarefa'].'</span><br><br>';
-                                                echo '<span><b>CPF do Idoso(a):</b> '.$i['CPF_Idoso'].'</span>';
+                                                echo '<span><b>CPF do Idoso(a):</b> '.$i['CPF_Idoso'].'</span><br><br>';
+                                                echo '<a href="../php/global.php?type=delete&on=agenda&value='.$i['Cod_Agen'].'"><i class="fa-solid fa-trash-can"></i></a>';
                                             echo '</div>';
                                         echo '</div>';
                                     echo '</div>';
@@ -210,7 +211,8 @@
                                         echo '<div class="list-main">';
                                             echo '<div class="list-container">';
                                                 echo '<h3>Nome: '.$i['Nome_Idoso'].'</h3>';
-                                                echo '<span><b>CPF:</b> '.$i['CPF_Idoso'].'</span>';
+                                                echo '<span><b>CPF:</b> '.$i['CPF_Idoso'].'</span><br><br>';
+                                                echo '<a href="../php/global.php?type=delete&on=idoso&value='.$i['CPF_Idoso'].'"><i class="fa-solid fa-trash-can"></i></a>';
                                             echo '</div>';
                                         echo '</div>';
                                     echo '</div>';
@@ -243,7 +245,8 @@
                                         echo '<div class="list-main">';
                                             echo '<div class="list-container">';
                                                 echo '<h3>Nome: '.$i['Nome_Remed'].'</h3>';
-                                                echo '<span><b>Descrição:</b> '.$i['Descricao_Remed'].'</span>';
+                                                echo '<span><b>Descrição:</b> '.$i['Descricao_Remed'].'</span><br><br>';
+                                                echo '<a href="../php/global.php?type=delete&on=remedio&value='.$i['Cod_Remedio'].'"><i class="fa-solid fa-trash-can"></i></a>';
                                             echo '</div>';
                                         echo '</div>';
                                     echo '</div>';

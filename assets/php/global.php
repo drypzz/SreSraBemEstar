@@ -4,12 +4,13 @@
 ] -->
 
 <?php
+    // db
     include '../mysql/pdo.php';
 
+    // start
     session_start();
 
-    $_SESSION['logged'] = $_SESSION['logged'] ?? NULL;
-
+    // function's
     function checkString($str){
         $str = trim($str);
         $str = stripslashes($str);
@@ -23,7 +24,6 @@
         return $date && ($date->format($format) === $dateStr);
     };
 
-    // OBGD PELO CARINHO S2
     function infoBox($page, $msg, $resp, $type){
         if($type == 'success'){
             $return = header('Location: '.$page.'?info='.$msg.'&type=success&reg='.$resp);
@@ -35,6 +35,9 @@
 
         return $return;
     };
+
+    // session
+    $_SESSION['logged'] = $_SESSION['logged'] ?? NULL;
 
     if($_GET['type'] == 'register'){
         
@@ -64,7 +67,7 @@
                     }else if($passwordC === $password){
                         $validCPF = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ?');
 
-                        $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso');
+                        $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso = ?');
                         
                         if($query->execute(array($cpf))){
 
@@ -137,7 +140,7 @@
                
                 }else if($passwordC === $password){
                     
-                    $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ? AND Email_Resp');
+                    $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ? AND Email_Resp = ?');
                     
                     if($query->execute(array($cpf))){
                         
@@ -278,9 +281,11 @@
                     infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'remedio', 'error');
                     exit();
                 };
+
             };
+
         };
-        // AGENDA
+
     }else if($_GET['type'] == 'agenda'){
 
         if( isset($_POST['Data-Tarefa']) && isset($_POST['Hora-Tarefa']) && isset($_POST['select-agend']) ){
@@ -291,25 +296,32 @@
             }else{
                 $query = $pdo->prepare('SELECT * FROM agenda');
 
-                if($query->execute()){
+                if($_POST['select-agend'] != NULL){
+                    
+                    if($query->execute()){
 
-                    $row = $query->fetchAll(PDO::FETCH_ASSOC);
-                    foreach($row as $key => $i){
-                        $codAgend = ($i['Cod_Agen'] ?? 0);
+                        $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                        foreach($row as $key => $i){
+                            $codAgend = ($i['Cod_Agen'] ?? 0);
+                        };
+
+                        $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`, `CPF_Resp`) VALUES(?, ?, ?, ?, ?)");
+                        $sql->execute(array(($codAgend + 1), $_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa'], $_SESSION['cpf']));
+                        infoBox('../pages/agenda.php', 'Agenda cadastrada com sucesso', 'agenda', 'success');
+                        exit();
+
                     };
 
-                    $sql = $pdo->prepare("INSERT INTO agenda(`Cod_Agen`, `CPF_Idoso`, `Data_Tarefa`, `Hora_Tarefa`, `CPF_Resp`) VALUES(?, ?, ?, ?, ?)");
-                    $sql->execute(array(($codAgend + 1), $_POST['select-agend'], $_POST['Data-Tarefa'], $_POST['Hora-Tarefa'], $_SESSION['cpf']));
-                    infoBox('../pages/agenda.php', 'Agenda cadastrada com sucesso', 'agenda', 'success');
+                }else{
+                    infoBox('../pages/agenda.php', 'Selecione um Idoso(a)', 'agenda', 'error');
                     exit();
-
                 };
 
             };
 
         };
 
-        //NIVEL E COMORBIDADE
+
     } else if($_GET['type'] == 'nivel'){
 
         if( isset($_POST['Descricao_Nivel']) ){
@@ -334,6 +346,7 @@
                     exit();
 
                 };
+
             };
 
         };
@@ -362,10 +375,11 @@
                     exit();
 
                 };
+
             };
 
         };
-        // tarefa
+
     }else if($_GET['type'] == 'tarefa'){
 
         if( isset($_POST['Desc_Tarefa']) ){
@@ -388,9 +402,11 @@
                     infoBox('../pages/agenda.php', 'Descrição da Tarefa cadastrada com sucesso', 'tarefa', 'success');
                     exit();
                 };
+
             };
 
         };
+
     }else if($_GET['type'] == 'idoso'){
 
         $name = checkString($_POST['name']);
@@ -409,48 +425,86 @@
                 infoBox('../pages/register.php', 'Insira um email valido.', 'sim', 'error');
 
             }else if($passwordC === $_SESSION['password']){
-                $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso');
+                $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ?');
 
                 if($query->execute(array($cpf))){
 
-                    if($query->execute(array($email))){
+                    if(!$query->rowCount() > 0){
+                        
+                        if(validateDateTime($date, 'd-m-Y')){
 
-                        if(!$query->rowCount() > 0){
-                            
-                            if(validateDateTime($date, 'd-m-Y')){
+                            $currentDate = date('d-m-Y');
+                            $age = date_diff(date_create($date), date_create($currentDate));
 
-                                $currentDate = date('d-m-Y');
-                                $age = date_diff(date_create($date), date_create($currentDate));
-
-                                if($age->format('%y') >= 18){
-                                    $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
-                                    $sql->execute(array($name, $email, $date, $phone, $cpf, $_SESSION['cpf'], $password));
-                                    header('Location: ../pages/admin.php');
-                                    exit();
-
-                                }else{
-                                    infoBox('../pages/register.php', 'Idoso(a) menor de idade', 'sim', 'error');
-                                    exit();
-                                };
+                            if($age->format('%y') >= 18){
+                                $sql = $pdo->prepare("INSERT INTO cadidoso(`Nome_Idoso`, `Email_Idoso`, `Dat_Nasc_Idoso`, `Telefone_Idoso`, `CPF_Idoso`, `CPF_Resp`, `Senha_Idoso`) VALUES(?, ?, ?, ?, ?, ?, ?)");
+                                $sql->execute(array($name, $email, $date, $phone, $cpf, $_SESSION['cpf'], $password));
+                                header('Location: ../pages/admin.php');
+                                exit();
 
                             }else{
-                                infoBox('../pages/register.php', 'Insira uma DATA DE NASCIMENTO valida.', 'sim', 'error');
+                                infoBox('../pages/register.php', 'Idoso(a) menor de idade', 'sim', 'error');
+                                exit();
                             };
 
+                        }else{
+                            infoBox('../pages/register.php', 'Insira uma DATA DE NASCIMENTO valida.', 'sim', 'error');
                         };
-                    }else{
-                        infoBox('../pages/register.php', 'Email do Idoso(a) ja cadastrado..', 'sim', 'error');
-                        exit();
+
                     };
 
                 }else{
                     infoBox('../pages/register.php', 'CPF do Idoso(a) ja cadastrado.', 'sim', 'error');
                     exit();
                 };
+
             }else{
                 infoBox('../pages/register.php', 'Senhas não corresponde com a do Responsável.', 'sim', 'error');
                 exit();
             };
+
         };
-    };    
+        
+    }else if($_GET['type'] == 'delete'){
+
+        if($_GET['on'] == 'idoso'){
+
+            if(isset($_GET['value'])){
+
+                $value = $_GET['value'];
+
+                $sql = $pdo->prepare("DELETE FROM cadidoso WHERE `CPF_Idoso` = ?");
+                if ($sql->execute(array($value))){
+                    header('Location: ../pages/admin.php#list');
+                };
+
+            };
+
+        }else if($_GET['on'] == 'agenda'){
+            if(isset($_GET['value'])){
+
+                $value = $_GET['value'];
+
+                $sql = $pdo->prepare("DELETE FROM agenda WHERE `Cod_Agen` = ?");
+                if ($sql->execute(array($value))){
+                    header('Location: ../pages/admin.php#list');
+                };
+
+            };
+
+        }else if($_GET['on'] == 'remedio'){
+            if(isset($_GET['value'])){
+
+                $value = $_GET['value'];
+
+                $sql = $pdo->prepare("DELETE FROM remedio WHERE `Cod_Remedio` = ?");
+                if ($sql->execute(array($value))){
+                    header('Location: ../pages/admin.php#list');
+                };
+
+            };
+
+        };
+
+    };
 ?>
