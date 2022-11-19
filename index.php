@@ -131,28 +131,28 @@
                         <div class='about-imgs-content'>
                             <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media-exp1.licdn.com/dms/image/C4E03AQGFjpRwBjc3rg/profile-displayphoto-shrink_200_200/0/1655425295713?e=1674086400&v=beta&t=aR7BaHOzjfzg-OOSaEcSsB-Lr6UFp1kfeU5doQ-aktw' alt=''>
                             <span>@elseif</span>
-                            <a href='https://www.linkedin.com/in/gustavo-adriano-alves-palmeira-960a9a23b/'>
+                            <a target='_blank' href='https://www.linkedin.com/in/gustavo-adriano-alves-palmeira-960a9a23b/'>
                                 <i class='fa-brands fa-linkedin'></i>
                             </a>
                         </div>
                         <div class='about-imgs-content'>
                             <img class='unselectable' draggable='false' (dragstart)='false;' src='https://avatars.githubusercontent.com/u/79523461?v=4' alt=''>
                             <span>@function404</span>
-                            <a href='https://www.linkedin.com/in/lincoln-novais-mezzalira-361962236/'>
+                            <a target='_blank' href='https://www.linkedin.com/in/lincoln-novais-mezzalira-361962236/'>
                                 <i class='fa-brands fa-linkedin'></i>
                             </a>
                         </div>
                         <div class='about-imgs-content'>
                             <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media-exp1.licdn.com/dms/image/C4D03AQF9Bw4YeOfaog/profile-displayphoto-shrink_200_200/0/1656509072498?e=1674086400&v=beta&t=am26zBJNkJsmtBaOIrq_3w9UwNF2YCEHvJkVfj6beH8' alt=''>
                             <span>@isadoralb</span>
-                            <a href='https://www.linkedin.com/in/maria-isadora-labandera-bocca-7b824a1b6/'>
+                            <a target='_blank' href='https://www.linkedin.com/in/maria-isadora-labandera-bocca-7b824a1b6/'>
                                 <i class='fa-brands fa-linkedin'></i>
                             </a>
                         </div>
                         <div class='about-imgs-content'>
                             <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media-exp1.licdn.com/dms/image/C4D03AQEbse-Drv3AUw/profile-displayphoto-shrink_200_200/0/1656509083236?e=1674086400&v=beta&t=q5q5BfqxLwD4JiWdXj9k-oNp-GzM1RyDDUeCwIQ5DuE' alt=''>
                             <span>@ash</span>
-                            <a href='https://www.linkedin.com/in/eduardo-franco-netto-rissatto-8911b0243/'>
+                            <a target='_blank' href='https://www.linkedin.com/in/eduardo-franco-netto-rissatto-8911b0243/'>
                                 <i class='fa-brands fa-linkedin'></i>
                             </a>
                         </div>
