@@ -260,7 +260,7 @@
                                 <div class='form-group'>
                                     <div class='admin'>
                                         <input type='checkbox' id='resp' name='resp'>
-                                        <label for='resp'>Você é um paciente ? Não responsavel por outra pessoa.</label>
+                                        <label for='resp'>Você é um paciente? Não responsavel por outra pessoa.</label>
                                     </div>
                                 </div>
                                 <div id='divCpf' style='display:none;'>
@@ -274,7 +274,7 @@
                                     </div>
                                 </div>
                                 <div class='form-group'>
-                                    <span style='color: #c74040; font-size: 17px;'><i>OBS² - A opção acima, define se você é um 'Paciente (Idoso)'. Caso tenha marcado, você é um 'Paciente', caso não tenha, sera um Responsavel.</i></span>
+                                    <span style='color: #c74040; font-size: 17px;'><i>OBS² - A opção acima, define se você é um 'Paciente (Idoso(a))'. Caso tenha marcado, você é um 'Paciente', caso não tenha, será um Responsável.</i></span>
                                 </div>
                                 <div class='form-group'>
                                     <input type='submit' value='Cadastrar'>

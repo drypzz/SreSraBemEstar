@@ -113,7 +113,7 @@
                             </div>
                         </a>
                         
-                        <a href='#'>
+                        <!-- <a href='#'>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/icons/level.png' alt=''>
@@ -123,7 +123,7 @@
                                     <p>No nível você escreve como é sua comorbidade para que possa lembrar no futuro e junto com a descrição da comorbidade e o nível dela.</p>
                                 </div>
                             </div>
-                        </a>
+                        </a> -->
 
                         <a href='remedio.php'>
                             <div class='container'>
@@ -156,7 +156,7 @@
 
         <div class='main-listadmin' id='list'>
 
-            <div class='container-listadmin'>
+            <div class='container-listadmin list'>
 
                 <div class='content-listadmin'>
                     <h1>Agenda(s) Cadastrada(s)</h1>
@@ -177,17 +177,17 @@
 
                                         $row2 = $queryIdoso->fetchAll(PDO::FETCH_ASSOC);
                                         foreach($row2 as $key => $kas){
-                                            $name = ($kas['Nome_Idoso'] ?? NULL);
+                                            $name = ($kas['Nome_Idoso'] ?? 'NULL');
                                         };
 
                                         echo '<div class="content-list">';
                                             echo '<div class="list-main">';
-                                                echo '<div class="list-container">';
-                                                    echo '<h3>#'.$i['Cod_Agen'].'</h3><br>';
-                                                    echo '<span><b>Data:</b> '.$i['Data_Tarefa'].'</span><br>';
-                                                    echo '<span><b>Hora:</b> '.$i['Hora_Tarefa'].'</span><br><br>';
-                                                    echo '<span><b>Nome:</b> '.$name.'</span><br><br>';
-                                                    echo '<a href="../php/global.php?type=delete&on=agenda&value='.$i['Cod_Agen'].'"><i class="fa-solid fa-trash-can"></i></a>';
+                                                echo '<div class="list-container agend">';
+                                                    echo '<h3>#'.($i['Cod_Agen'] ?? 'NULL').'</h3><br>';
+                                                    echo '<span><b>Data:</b> '.($i['Data_Tarefa'] ?? 'NULL').'</span><br>';
+                                                    echo '<span><b>Hora:</b> '.($i['Hora_Tarefa'] ?? 'NULL').'</span><br><br>';
+                                                    echo '<span><b>Em nome de:</b> '.$name.'</span><br><br>';
+                                                    echo '<a href="../php/global.php?type=delete&on=agenda&value='.($i['Cod_Agen'] ?? 'NULL').'"><i class="fa-solid fa-trash-can"></i></a>';
                                                 echo '</div>';
                                             echo '</div>';
                                         echo '</div>';
@@ -221,9 +221,9 @@
                                     echo '<div class="content-list">';
                                         echo '<div class="list-main">';
                                             echo '<div class="list-container">';
-                                                echo '<span><b>Nome:</b> '.$i['Nome_Idoso'].'</span><br>';
-                                                echo '<span><b>CPF:</b> '.$i['CPF_Idoso'].'</span><br><br>';
-                                                echo '<a href="../php/global.php?type=delete&on=idoso&value='.$i['CPF_Idoso'].'"><i class="fa-solid fa-trash-can"></i></a>';
+                                                echo '<span><b>Nome:</b> '.($i['Nome_Idoso'] ?? 'NULL').'</span><br>';
+                                                echo '<span><b>CPF:</b> '.($i['CPF_Idoso'] ?? 'NULL').'</span><br><br>';
+                                                echo '<a href="../php/global.php?type=delete&on=idoso&value='.($i['CPF_Idoso'] ?? 'NULL').'"><i class="fa-solid fa-trash-can"></i></a>';
                                             echo '</div>';
                                         echo '</div>';
                                     echo '</div>';
@@ -254,11 +254,11 @@
                                 foreach($row as $key => $i){
                                     echo '<div class="content-list">';
                                         echo '<div class="list-main">';
-                                            echo '<div class="list-container">';
-                                                echo '<h3>#'.$i['Cod_Remedio'].'</h3><br>';
-                                                echo '<span><b>Nome:</b> '.$i['Nome_Remed'].'</span><br>';
-                                                echo '<span><b>Descrição:</b> '.$i['Descricao_Remed'].'</span><br><br>';
-                                                echo '<a href="../php/global.php?type=delete&on=remedio&value='.$i['Cod_Remedio'].'"><i class="fa-solid fa-trash-can"></i></a>';
+                                            echo '<div class="list-container remed">';
+                                                echo '<h3>#'.($i['Cod_Remedio'] ?? 'NULL').'</h3><br>';
+                                                echo '<span><b>Nome:</b> '.($i['Nome_Remed'] ?? 'NULL').'</span><br>';
+                                                echo '<span><b>Descrição:</b> '.($i['Descricao_Remed'] ?? 'NULL').'</span><br><br>';
+                                                echo '<a href="../php/global.php?type=delete&on=remedio&value='.($i['Cod_Remedio'] ?? 'NULL').'"><i class="fa-solid fa-trash-can"></i></a>';
                                             echo '</div>';
                                         echo '</div>';
                                     echo '</div>';
@@ -298,14 +298,14 @@
 
                                         $row1 = $queryAgen->fetchAll(PDO::FETCH_ASSOC);
                                         foreach($row1 as $key => $index){
-                                            $dataAgen = ($index['Data_Tarefa'] ?? NULL);
-                                            $horaAgen = ($index['Hora_Tarefa'] ?? NULL);
-                                            $cpfAgend = ($index['CPF_Idoso'] ?? NULL);
+                                            $dataAgen = ($index['Data_Tarefa'] ?? 'NULL');
+                                            $horaAgen = ($index['Hora_Tarefa'] ?? 'NULL');
+                                            $cpfAgend = ($index['CPF_Idoso'] ?? 'NULL');
                                         };
 
                                         $row2 = $queryRemed->fetchAll(PDO::FETCH_ASSOC);
                                         foreach($row2 as $key => $kas){
-                                            $nameRemd = ($kas['Nome_Remed'] ?? NULL);
+                                            $nameRemd = ($kas['Nome_Remed'] ?? 'NULL');
                                         };
 
                                         $queryIdoso = $pdo->prepare("SELECT * FROM cadidoso WHERE `CPF_Idoso` = ?");
@@ -313,19 +313,19 @@
 
                                             $row3 = $queryIdoso->fetchAll(PDO::FETCH_ASSOC);
                                             foreach($row3 as $key => $kas){
-                                                $name = ($kas['Nome_Idoso'] ?? NULL);
+                                                $name = ($kas['Nome_Idoso'] ?? 'NULL');
                                             };
 
                                             echo '<div class="content-list">';
                                                 echo '<div class="list-main">';
                                                     echo '<div class="list-container">';
-                                                        echo '<h3>#'.$i['Cod_Tarefa'].'</h3><br>';
+                                                        echo '<h3>#'.($i['Cod_Tarefa'] ?? 'NULL').'</h3><br>';
                                                         echo '<span><b>Nome:</b> '.$name.'</span><br>';
                                                         echo '<span><b>Descrição:</b> '.$i['Desc_Tarefa'].'</span><br><br>';
                                                         echo '<span><b>Data:</b> '.$dataAgen.'</span><br>';
                                                         echo '<span><b>Hora:</b> '.$horaAgen.'</span><br>';
                                                         echo '<span><b>Remédio:</b> '.$nameRemd.'</span><br><br>';
-                                                        echo '<a href="../php/global.php?type=delete&on=tarefa&value='.$i['Cod_Tarefa'].'"><i class="fa-solid fa-trash-can"></i></a>';
+                                                        echo '<a href="../php/global.php?type=delete&on=tarefa&value='.($i['Cod_Tarefa'] ?? 'NULL').'"><i class="fa-solid fa-trash-can"></i></a>';
                                                     echo '</div>';
                                                 echo '</div>';
                                             echo '</div>';
@@ -343,7 +343,7 @@
 
                 </div> <!-- content -->
 
-            </div>
+            </div> <!-- container -->
 
         </div> <!-- main -->
 

@@ -137,29 +137,23 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class='form-group'>
-                                    <label>Selecione um remédio</label>
-                                    <div class='custom-select'>
-                                        <select required class='form-control' name='select-remed' id='select-remed'>
-                                            <option value=''>Selecione um remédio</option>
-                                            <?php
-                                            include '../mysql/pdo.php';
+                                <div class='form-group remed'>
+                                    <label>Selecione um remédio(s)</label>
+                                    <?php
+                                        include '../mysql/pdo.php';
 
-                                            $query = $pdo->prepare('SELECT * FROM remedio WHERE CPF_Resp = ?');
-
-                                            if($query->execute([$_SESSION['cpf']])){
-                                                $row = $query->fetchAll(PDO::FETCH_ASSOC);
-                                                if($query->rowCount() > 0){
-                                                    foreach($row as $key => $i){ ?>
-                                                        <option value="<?php echo $i['Cod_Remedio']; ?>"><b><?php echo '#'.$i['Cod_Remedio'].' - '.$i['Nome_Remed'].''; ?></b></option>
+                                        $query = $pdo->prepare('SELECT * FROM remedio WHERE CPF_Resp = ?');
+                                        if($query->execute([$_SESSION['cpf']])){
+                                            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                                            if($query->rowCount() > 0){
+                                                foreach($row as $key => $i){ ?>
+                                                    <input type='radio' id='<?php echo $i['Nome_Remed'] ?>' name='select-remed' value='<?php echo $i['Cod_Remedio'] ?>'>
+                                                    <label for='<?php echo $i['Nome_Remed'] ?>'><?php echo $i['Nome_Remed'] ?></label>
                                                     <?php }; ?>
-                                                <?php }else{ ?>
-                                                    <option value=''><b style='color: red'>* Nenhum remédio encontrada *</b></option>
-                                                <?php }; ?>
+                                            <?php }else{ ?>
+                                                <span><b style='color: red'>* Nenhum remédio encontrada *</b></span>
                                             <?php }; ?>
-
-                                        </select>
-                                    </div>
+                                        <?php }; ?>
                                 </div>
                                 <div class='form-group'>
                                     <label for='Desc_Tarefa'>Descrição da Tarefa:<span style='color: red;'>*</span></label>

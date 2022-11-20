@@ -283,9 +283,17 @@ body span.info-span{
     color: #c8c8c8;
 }
 
-.dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group input, .dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group textarea{
+.dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group input, .dark-mode .register-main .register-container .register-container-items .item-cards form .form-container .form-group textarea, .dark-mode .select-selected{
     color: #c8c8c8;
     background-color: rgba(255, 255, 255, .1);
+}
+
+.dark-mode .select-items{
+    background-color: var(--body);
+}
+
+.dark-mode .select-items div{
+    color: #d8d8d8;
 }
 
 .dark-mode .main .container .main-content h1{
@@ -791,6 +799,32 @@ body span.info-span{
     border-bottom: 1px solid #ccccccde;
 }
 
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group.remed input{
+    display: none;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group.remed input + label:before{
+    content: '';
+    transition: all 600ms ease-in-out;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #ffffff9d;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 3px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.register-main .register-container .register-container-items .item-cards form .form-container .form-group.remed input:checked + label:before{
+    background-color: var(--primary);
+    background-position: center;
+    border-color: var(--primary);
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 .register-main .register-container .register-container-items .item-cards form .form-container .form-group .custom-select{
     position: relative;
 }
@@ -1049,11 +1083,13 @@ body span.info-span{
     padding: 10px;
     border-radius: 5px;
     background-color: #d8d8d8;
+    text-align: justify;
 }
 
 .main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main .list-container h3{
     border-bottom: 1px solid var(--primary);
     width: 90%;
+    text-align: center;
     margin: 0 auto;
 }
 
