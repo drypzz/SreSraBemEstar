@@ -71,7 +71,8 @@ DROP TABLE IF EXISTS `tarefa`; CREATE TABLE `tarefa` (
   `Cod_Tarefa` int(11) NOT NULL,
   `Desc_Tarefa` varchar(255) DEFAULT NULL,
   `Cod_Remedio` int(11) DEFAULT NULL,
-  `Cod_Agen` int(11) DEFAULT NULL
+  `Cod_Agen` int(11) DEFAULT NULL,
+  `CPF_Resp` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `agenda` ADD PRIMARY KEY (`Cod_Agen`), ADD KEY `CPF_Idoso` (`CPF_Idoso`), ADD KEY `CPF_Resp` (`CPF_Resp`);
@@ -90,7 +91,7 @@ ALTER TABLE `nivel` ADD PRIMARY KEY (`Cod_Nivel`);
 
 ALTER TABLE `remedio` ADD PRIMARY KEY (`Cod_Remedio`), ADD KEY `CPF_Resp` (`CPF_Resp`);
 
-ALTER TABLE `tarefa` ADD PRIMARY KEY (`Cod_Tarefa`), ADD KEY `Cod_Agen` (`Cod_Agen`), ADD KEY `Cod_Remedio` (`Cod_Remedio`);
+ALTER TABLE `tarefa` ADD PRIMARY KEY (`Cod_Tarefa`), ADD KEY `Cod_Agen` (`Cod_Agen`), ADD KEY `Cod_Remedio` (`Cod_Remedio`), ADD KEY `CPF_Resp` (`CPF_Resp`);
 
 ALTER TABLE `agenda` ADD CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`CPF_Idoso`) REFERENCES `cadidoso` (`CPF_Idoso`) ON DELETE SET NULL ON UPDATE SET NULL;
 

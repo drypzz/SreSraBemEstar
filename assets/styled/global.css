@@ -1015,9 +1015,13 @@ body span.info-span{
 
 .main-listadmin .container-listadmin .content-listadmin{
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 20px;
     padding: 10px;
+}
+
+.main-listadmin .container-listadmin .content-listadmin.tarefa{
+    max-width: 100%;
 }
 
 .main-listadmin .container-listadmin .content-listadmin h1{
@@ -1045,6 +1049,12 @@ body span.info-span{
     padding: 10px;
     border-radius: 5px;
     background-color: #d8d8d8;
+}
+
+.main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main .list-container h3{
+    border-bottom: 1px solid var(--primary);
+    width: 90%;
+    margin: 0 auto;
 }
 
 .main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main .list-container a i{

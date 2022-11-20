@@ -105,6 +105,63 @@
                                     <?php }; ?>
                                 <?php }; ?>
                                 <div class='form-group'>
+                                    <label>Selecione uma agenda</label>
+                                    <div class='custom-select'>
+                                        <select required class='form-control' name='select-agend' id='select-agend'>
+                                            <option value=''>Selecione uma agenda</option>
+                                            <?php
+                                            include '../mysql/pdo.php';
+
+                                            $query = $pdo->prepare('SELECT * FROM agenda WHERE CPF_Resp = ?');
+
+                                            if($query->execute([$_SESSION['cpf']])){
+                                                $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                                                if($query->rowCount() > 0){
+                                                    foreach($row as $key => $i){ ?>
+                                                        <?php $queryIdoso = $pdo->prepare("SELECT * FROM cadidoso WHERE `CPF_Idoso` = ?");
+                                                            if($queryIdoso->execute(array($i['CPF_Idoso']))){
+                
+                                                            $row3 = $queryIdoso->fetchAll(PDO::FETCH_ASSOC);
+                                                            foreach($row3 as $key => $kas){
+                                                                $name = ($kas['Nome_Idoso'] ?? NULL);
+                                                            };
+                                                        ?>
+                                                        <option value="<?php echo $i['Cod_Agen']; ?>"><b><?php echo '#'.$i['Cod_Agen'].' - Agenda de: '.$name.''; ?></b></option>
+                                                        <?php }; ?>
+                                                    <?php }; ?>
+                                                <?php }else{ ?>
+                                                    <option value=''><b style='color: red'>* Nenhuma Agenda encontrada *</b></option>
+                                                <?php }; ?>
+                                            <?php }; ?>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class='form-group'>
+                                    <label>Selecione um remédio</label>
+                                    <div class='custom-select'>
+                                        <select required class='form-control' name='select-remed' id='select-remed'>
+                                            <option value=''>Selecione um remédio</option>
+                                            <?php
+                                            include '../mysql/pdo.php';
+
+                                            $query = $pdo->prepare('SELECT * FROM remedio WHERE CPF_Resp = ?');
+
+                                            if($query->execute([$_SESSION['cpf']])){
+                                                $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                                                if($query->rowCount() > 0){
+                                                    foreach($row as $key => $i){ ?>
+                                                        <option value="<?php echo $i['Cod_Remedio']; ?>"><b><?php echo '#'.$i['Cod_Remedio'].' - '.$i['Nome_Remed'].''; ?></b></option>
+                                                    <?php }; ?>
+                                                <?php }else{ ?>
+                                                    <option value=''><b style='color: red'>* Nenhum remédio encontrada *</b></option>
+                                                <?php }; ?>
+                                            <?php }; ?>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class='form-group'>
                                     <label for='Desc_Tarefa'>Descrição da Tarefa:<span style='color: red;'>*</span></label>
                                     <textarea name='Desc_Tarefa' id='Desc_Tarefa' cols='5' rows='5'></textarea>
                                     <span id='span-error-desc' style='color: red;'></span>

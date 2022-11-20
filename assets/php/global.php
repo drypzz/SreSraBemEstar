@@ -67,7 +67,7 @@
                     }else if($passwordC === $password){
                         $validCPF = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ?');
 
-                        $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso = ?');
+                        $query = $pdo->prepare('SELECT * FROM cadidoso WHERE CPF_Idoso = ? AND Email_Idoso');
                         
                         if($query->execute(array($cpf))){
 
@@ -140,7 +140,7 @@
                
                 }else if($passwordC === $password){
                     
-                    $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ? AND Email_Resp = ?');
+                    $query = $pdo->prepare('SELECT * FROM cadresponsavel WHERE CPF_Resp = ? AND Email_Resp');
                     
                     if($query->execute(array($cpf))){
                         
@@ -243,13 +243,12 @@
             exit();
         };
 
-        // REMEDIO
     }else if($_GET['type'] == 'remedio'){
 
         if( isset($_POST['desc-remedio']) && isset($_POST['name-remedio'])){
 
             if(empty($_POST['desc-remedio']) && empty($_POST['name-remedio'])){
-                infoBox('../pages/agenda.php', 'Insira corretamente as informações: NOME DO REMÉDIO E DESCRIÇÃO.', 'remedio', 'error');
+                infoBox('../pages/remedio.php', 'Insira corretamente as informações: NOME DO REMÉDIO E DESCRIÇÃO.', 'remedio', 'error');
             
             }else{
                 $query = $pdo->prepare('SELECT * FROM remedio WHERE Nome_Remed = ?');
@@ -269,16 +268,16 @@
 
                         $sql = $pdo->prepare("INSERT INTO remedio(`Cod_Remedio`, `Nome_Remed`, `Descricao_Remed`, `CPF_Resp`) VALUES(?, ?, ?, ?)");
                         $sql->execute(array( (isset($idRemedio) ? $idRemedio + 1 : 1), $_POST['name-remedio'], $_POST['desc-remedio'], $_SESSION['cpf']));
-                        infoBox('../pages/agenda.php', 'Remedio cadastrado com sucesso.', 'remedio', 'success');
+                        infoBox('../pages/remedio.php', 'Remedio cadastrado com sucesso.', 'remedio', 'success');
                         exit();
 
                     }else{
-                        infoBox('../pages/agenda.php', 'Remedio ja cadastrado.', 'remedio', 'error');
+                        infoBox('../pages/remedio.php', 'Remedio ja cadastrado.', 'remedio', 'error');
                         exit();
                     };
 
                 }else{
-                    infoBox('../pages/agenda.php', 'Erro ao cadastrar.', 'remedio', 'error');
+                    infoBox('../pages/remedio.php', 'Erro ao cadastrar.', 'remedio', 'error');
                     exit();
                 };
 
@@ -322,84 +321,98 @@
         };
 
 
-    } else if($_GET['type'] == 'nivel'){
+    // } else if($_GET['type'] == 'nivel'){
 
-        if( isset($_POST['Descricao_Nivel']) ){
+    //     if( isset($_POST['Descricao_Nivel']) ){
 
-            if(empty($_POST['Descricao_Nivel']) ){
-                infoBox('../pages/nivel.php', 'Insira corretamente as informções: DESCRIÇÃO E O NÍVEL', 'nivel', 'error');
+    //         if(empty($_POST['Descricao_Nivel']) ){
+    //             infoBox('../pages/nivel.php', 'Insira corretamente as informções: DESCRIÇÃO E O NÍVEL', 'nivel', 'error');
 
-            }else{
-                $query = $pdo->prepare('SELECT * FROM nivel');
+    //         }else{
+    //             $query = $pdo->prepare('SELECT * FROM nivel');
 
-                if($query->execute()){
+    //             if($query->execute()){
 
-                    $row = $query->fetchAll(PDO::FETCH_ASSOC);
-                    foreach($row as $key => $i){
-                        $codNivel = ($i['Cod_Nivel'] ?? 0);
-                    };
-
-
-                    $sql = $pdo->prepare("INSERT INTO nivel(`Cod_Nivel`, `Descricao_Nivel`) VALUES(?, ?)");
-                    $sql->execute(array(($codNivel + 1), $_POST['Descricao_Nivel']));
-                    infoBox('../pages/nivel.php', 'Nível cadastrado com sucesso', 'nivel', 'success');
-                    exit();
-
-                };
-
-            };
-
-        };
-
-    }else if($_GET['type'] == 'comorbidade'){
-
-        if( isset($_POST['comorbidade']) ){
-
-            if(empty($_POST['comorbidade']) ){
-                infoBox('../pages/nivel.php', 'Insira corretamente as informções: COMORBIDADE', 'comorbidade', 'error');
-
-            }else{
-                $query = $pdo->prepare('SELECT * FROM comorbidade');
-
-                if($query->execute()){
-
-                    $row = $query->fetchAll(PDO::FETCH_ASSOC);
-                    foreach($row as $key => $i){
-                        $codComo = ($i['Cod_Como'] ?? 0);
-                    };
+    //                 $row = $query->fetchAll(PDO::FETCH_ASSOC);
+    //                 foreach($row as $key => $i){
+    //                     $codNivel = ($i['Cod_Nivel'] ?? 0);
+    //                 };
 
 
-                    $sql = $pdo->prepare("INSERT INTO comorbidade(`Cod_Como`, `Comorbidade`) VALUES(?, ?)");
-                    $sql->execute(array(($codComo + 1), $_POST['comorbidade']));
-                    infoBox('../pages/nivel.php', 'Comorbidade cadastrada com sucesso', 'comorbidade', 'success');
-                    exit();
+    //                 $sql = $pdo->prepare("INSERT INTO nivel(`Cod_Nivel`, `Descricao_Nivel`) VALUES(?, ?)");
+    //                 $sql->execute(array(($codNivel + 1), $_POST['Descricao_Nivel']));
+    //                 infoBox('../pages/nivel.php', 'Nível cadastrado com sucesso', 'nivel', 'success');
+    //                 exit();
 
-                };
+    //             };
 
-            };
+    //         };
 
-        };
+    //     };
+
+    // }else if($_GET['type'] == 'comorbidade'){
+
+    //     if( isset($_POST['comorbidade']) ){
+
+    //         if(empty($_POST['comorbidade']) ){
+    //             infoBox('../pages/nivel.php', 'Insira corretamente as informções: COMORBIDADE', 'comorbidade', 'error');
+
+    //         }else{
+    //             $query = $pdo->prepare('SELECT * FROM comorbidade');
+
+    //             if($query->execute()){
+
+    //                 $row = $query->fetchAll(PDO::FETCH_ASSOC);
+    //                 foreach($row as $key => $i){
+    //                     $codComo = ($i['Cod_Como'] ?? 0);
+    //                 };
+
+
+    //                 $sql = $pdo->prepare("INSERT INTO comorbidade(`Cod_Como`, `Comorbidade`) VALUES(?, ?)");
+    //                 $sql->execute(array(($codComo + 1), $_POST['comorbidade']));
+    //                 infoBox('../pages/nivel.php', 'Comorbidade cadastrada com sucesso', 'comorbidade', 'success');
+    //                 exit();
+
+    //             };
+
+    //         };
+
+    //     };
 
     }else if($_GET['type'] == 'tarefa'){
 
-        if( isset($_POST['Desc_Tarefa']) ){
+        if( isset($_POST['Desc_Tarefa']) && isset($_POST['select-agend']) && isset($_POST['select-remed']) ){
 
-            if(empty($_POST['Desc_Tarefa']) ){
-                infoBox('../pages/agenda.php', 'Insira corretamente as informções: DESCRIÇÃO DA TAREFA', 'tarefa', 'error');
+            if(empty($_POST['Desc_Tarefa']) && empty($_POST['select-agend']) && empty($_POST['select-remed'])){
+                infoBox('../pages/agenda.php', 'Insira corretamente as informções', 'tarefa', 'error');
 
             }else{
                 $query = $pdo->prepare('SELECT * FROM tarefa');
 
-                if($query->execute()){
+                if($_POST['select-agend'] != NULL){
 
-                    $row = $query->fetchAll(PDO::FETCH_ASSOC);
-                    foreach($row as $key => $i){
-                        $codTare = ($i['Cod_Tarefa'] ?? 0);
+                    if($_POST['select-remed'] != NULL){
+
+                        if($query->execute()){
+
+                            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                            foreach($row as $key => $i){
+                                $codTare = ($i['Cod_Tarefa'] ?? 0);
+                            };
+
+                            $sql = $pdo->prepare("INSERT INTO tarefa(`Cod_Tarefa`, `Desc_Tarefa`, `Cod_Remedio`, `Cod_Agen`, `CPF_Resp`) VALUES(?, ?, ?, ?, ?)");
+                            $sql->execute(array(($codTare + 1), $_POST['Desc_Tarefa'], $_POST['select-remed'], $_POST['select-agend'], $_SESSION['cpf']));
+                            infoBox('../pages/agenda.php', 'Tarefa cadastrada com sucesso', 'tarefa', 'success');
+                            exit();
+                        };
+
+                    }else{
+                        infoBox('../pages/agenda.php', 'Selecione um remédio', 'tarefa', 'error');
+                        exit();
                     };
 
-                    $sql = $pdo->prepare("INSERT INTO tarefa(`Cod_Tarefa`, `Desc_Tarefa`) VALUES(?, ?)");
-                    $sql->execute(array(($codTare + 1), $_POST['Desc_Tarefa'] ));
-                    infoBox('../pages/agenda.php', 'Descrição da Tarefa cadastrada com sucesso', 'tarefa', 'success');
+                }else{
+                    infoBox('../pages/agenda.php', 'Selecione uma agenda', 'tarefa', 'error');
                     exit();
                 };
 
@@ -498,6 +511,18 @@
                 $value = $_GET['value'];
 
                 $sql = $pdo->prepare("DELETE FROM remedio WHERE `Cod_Remedio` = ?");
+                if ($sql->execute(array($value))){
+                    header('Location: ../pages/admin.php#list');
+                };
+
+            };
+
+        }else if($_GET['on'] == 'tarefa'){
+            if(isset($_GET['value'])){
+
+                $value = $_GET['value'];
+
+                $sql = $pdo->prepare("DELETE FROM tarefa WHERE `Cod_Tarefa` = ?");
                 if ($sql->execute(array($value))){
                     header('Location: ../pages/admin.php#list');
                 };

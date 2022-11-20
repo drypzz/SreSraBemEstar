@@ -113,7 +113,7 @@
                             </div>
                         </a>
                         
-                        <a href='nivel.php'>
+                        <a href='#'>
                             <div class='container'>
                                 <div class='admin-content-item'>
                                     <img src='../gfx/icons/level.png' alt=''>
@@ -171,17 +171,28 @@
                             echo '<div class="container-list">';
                             if($sql->rowCount() > 0){
                                 foreach($row as $key => $i){
-                                    echo '<div class="content-list">';
-                                        echo '<div class="list-main">';
-                                            echo '<div class="list-container">';
-                                                echo '<h3>#'.$i['Cod_Agen'].'</h3>';
-                                                echo '<span><b>Data:</b> '.$i['Data_Tarefa'].'</span><br>';
-                                                echo '<span><b>Hora:</b> '.$i['Hora_Tarefa'].'</span><br><br>';
-                                                echo '<span><b>CPF do Idoso(a):</b> '.$i['CPF_Idoso'].'</span><br><br>';
-                                                echo '<a href="../php/global.php?type=delete&on=agenda&value='.$i['Cod_Agen'].'"><i class="fa-solid fa-trash-can"></i></a>';
+
+                                    $queryIdoso = $pdo->prepare("SELECT * FROM cadidoso WHERE `CPF_Idoso` = ?");
+                                    if($queryIdoso->execute(array($i['CPF_Idoso']))){
+
+                                        $row2 = $queryIdoso->fetchAll(PDO::FETCH_ASSOC);
+                                        foreach($row2 as $key => $kas){
+                                            $name = ($kas['Nome_Idoso'] ?? NULL);
+                                        };
+
+                                        echo '<div class="content-list">';
+                                            echo '<div class="list-main">';
+                                                echo '<div class="list-container">';
+                                                    echo '<h3>#'.$i['Cod_Agen'].'</h3><br>';
+                                                    echo '<span><b>Data:</b> '.$i['Data_Tarefa'].'</span><br>';
+                                                    echo '<span><b>Hora:</b> '.$i['Hora_Tarefa'].'</span><br><br>';
+                                                    echo '<span><b>Nome:</b> '.$name.'</span><br><br>';
+                                                    echo '<a href="../php/global.php?type=delete&on=agenda&value='.$i['Cod_Agen'].'"><i class="fa-solid fa-trash-can"></i></a>';
+                                                echo '</div>';
                                             echo '</div>';
                                         echo '</div>';
-                                    echo '</div>';
+                                    };
+
                                 };
                             }else{
                                 echo '<div class="content-list">';
@@ -210,7 +221,7 @@
                                     echo '<div class="content-list">';
                                         echo '<div class="list-main">';
                                             echo '<div class="list-container">';
-                                                echo '<h3>Nome: '.$i['Nome_Idoso'].'</h3>';
+                                                echo '<span><b>Nome:</b> '.$i['Nome_Idoso'].'</span><br>';
                                                 echo '<span><b>CPF:</b> '.$i['CPF_Idoso'].'</span><br><br>';
                                                 echo '<a href="../php/global.php?type=delete&on=idoso&value='.$i['CPF_Idoso'].'"><i class="fa-solid fa-trash-can"></i></a>';
                                             echo '</div>';
@@ -244,7 +255,8 @@
                                     echo '<div class="content-list">';
                                         echo '<div class="list-main">';
                                             echo '<div class="list-container">';
-                                                echo '<h3>Nome: '.$i['Nome_Remed'].'</h3>';
+                                                echo '<h3>#'.$i['Cod_Remedio'].'</h3><br>';
+                                                echo '<span><b>Nome:</b> '.$i['Nome_Remed'].'</span><br>';
                                                 echo '<span><b>Descrição:</b> '.$i['Descricao_Remed'].'</span><br><br>';
                                                 echo '<a href="../php/global.php?type=delete&on=remedio&value='.$i['Cod_Remedio'].'"><i class="fa-solid fa-trash-can"></i></a>';
                                             echo '</div>';
@@ -253,7 +265,7 @@
                                 };
                             }else{
                                 echo '<div class="content-list">';
-                                echo '<div class="list-main"> <h3 style="color: red">* Nenhum remedio encontrado *</h3> </div></div>';
+                                echo '<div class="list-main"> <h3 style="color: red">* Nenhum remédio encontrado *</h3> </div></div>';
                             };
                             echo '</div>';
                         };
@@ -263,6 +275,75 @@
                 </div> <!-- content -->
 
             </div> <!-- container -->
+
+            <div class='container-listadmin'>
+
+                <div class='content-listadmin tarefa'>
+                    <h1>Tarefa(s) Cadastrada(s)</h1>
+
+                    <?php 
+                        include "../mysql/pdo.php";
+
+                        $sql = $pdo->prepare('SELECT * FROM tarefa WHERE CPF_Resp = ?');
+
+                        if($sql->execute([$_SESSION['cpf']])){
+                            $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+                            echo '<div class="container-list">';
+                            if($sql->rowCount() > 0){
+                                foreach($row as $key => $i){
+                                    $queryAgen = $pdo->prepare("SELECT * FROM agenda WHERE `Cod_Agen` = ?");
+                                    $queryRemed = $pdo->prepare("SELECT * FROM remedio WHERE `Cod_Remedio` = ?");
+
+                                    if($queryAgen->execute(array($i['Cod_Agen'])) && $queryRemed->execute(array($i['Cod_Remedio']))){
+
+                                        $row1 = $queryAgen->fetchAll(PDO::FETCH_ASSOC);
+                                        foreach($row1 as $key => $index){
+                                            $dataAgen = ($index['Data_Tarefa'] ?? NULL);
+                                            $horaAgen = ($index['Hora_Tarefa'] ?? NULL);
+                                            $cpfAgend = ($index['CPF_Idoso'] ?? NULL);
+                                        };
+
+                                        $row2 = $queryRemed->fetchAll(PDO::FETCH_ASSOC);
+                                        foreach($row2 as $key => $kas){
+                                            $nameRemd = ($kas['Nome_Remed'] ?? NULL);
+                                        };
+
+                                        $queryIdoso = $pdo->prepare("SELECT * FROM cadidoso WHERE `CPF_Idoso` = ?");
+                                        if($queryIdoso->execute(array($cpfAgend))){
+
+                                            $row3 = $queryIdoso->fetchAll(PDO::FETCH_ASSOC);
+                                            foreach($row3 as $key => $kas){
+                                                $name = ($kas['Nome_Idoso'] ?? NULL);
+                                            };
+
+                                            echo '<div class="content-list">';
+                                                echo '<div class="list-main">';
+                                                    echo '<div class="list-container">';
+                                                        echo '<h3>#'.$i['Cod_Tarefa'].'</h3><br>';
+                                                        echo '<span><b>Nome:</b> '.$name.'</span><br>';
+                                                        echo '<span><b>Descrição:</b> '.$i['Desc_Tarefa'].'</span><br><br>';
+                                                        echo '<span><b>Data:</b> '.$dataAgen.'</span><br>';
+                                                        echo '<span><b>Hora:</b> '.$horaAgen.'</span><br>';
+                                                        echo '<span><b>Remédio:</b> '.$nameRemd.'</span><br><br>';
+                                                        echo '<a href="../php/global.php?type=delete&on=tarefa&value='.$i['Cod_Tarefa'].'"><i class="fa-solid fa-trash-can"></i></a>';
+                                                    echo '</div>';
+                                                echo '</div>';
+                                            echo '</div>';
+                                        };
+                                    };
+                                };
+                            }else{
+                                echo '<div class="content-list">';
+                                echo '<div class="list-main"> <h3 style="color: red">* Nenhuma tarefa encontrada *</h3> </div></div>';
+                            };
+                            echo '</div>';
+                        };
+
+                    ?>
+
+                </div> <!-- content -->
+
+            </div>
 
         </div> <!-- main -->
 
