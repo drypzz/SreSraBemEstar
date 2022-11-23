@@ -363,6 +363,11 @@ body span.info-span{
 
 .dark-mode .about .about-container .about-content .about-imgs .about-imgs-content{
     background-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 30px rgb(255 255 255 / 20%);
+}
+
+.dark-mode .about .about-container .about-content .about-imgs .about-imgs-content img{
+    box-shadow: 0 0 30px rgb(255 255 255 / 30%);
 }
 
 /* nav */
@@ -624,8 +629,9 @@ body span.info-span{
 }
 
 .about .about-container .about-content .about-imgs .about-imgs-content{
-    margin: 20px;
+    margin: 50px;
     background-color: rgba(0, 0, 0, .1);
+    box-shadow: 0 0 30px rgb(0 0 0 / 20%);
     border-radius: 5px;
     padding: 20px;
     transition: all 600ms ease-in-out;
