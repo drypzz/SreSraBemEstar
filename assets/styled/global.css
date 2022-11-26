@@ -505,6 +505,11 @@ body span.info-span{
     color: #d8d8d8;
 }
 
+.dark-mode .about .about-container .about-content .about-imgs .about-imgs-content{
+    background-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 30px rgb(255 255 255 / 20%);
+}
+
 
 /* nav */
 
