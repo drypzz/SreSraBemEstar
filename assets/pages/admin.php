@@ -148,7 +148,7 @@
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Remédios</h1>
-                                    <p>Informe seus remédios para lembrar no futuro e uma descrição de como tomar.</p>
+                                    <p>Informe seus remédios para lembrar no futuro e uma descrição de como usar os remédios.</p>
                                 </div>
                             </div>
                         </a>

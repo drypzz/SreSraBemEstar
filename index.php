@@ -152,7 +152,7 @@
                             </a>
                         </div>
                         <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://avatars.githubusercontent.com/u/79523461?v=4' alt=''>
+                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media-exp1.licdn.com/dms/image/D4D03AQGZusWkYo2oJw/profile-displayphoto-shrink_200_200/0/1669206386122?e=1674691200&v=beta&t=f0sVSu5o3CJhSKpLusZH4NtJBRBG2-jXFEtVn6UYMF4' alt=''>
                             <span>@function404</span>
                             <a target='_blank' href='https://www.linkedin.com/in/lincoln-novais-mezzalira-361962236/'>
                                 <i class='fa-brands fa-linkedin'></i>

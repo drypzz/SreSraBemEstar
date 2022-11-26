@@ -1,5 +1,5 @@
 <!-- [
-    author: elseif;
+    author: elseif (function little thing);
     type: .php;
 ] -->
 
