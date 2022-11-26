@@ -46,6 +46,22 @@
             <div class='loader'></div>
         </div>
 
+        <!-- snow -->
+        <div class='snowflakes' aria-hidden='true'>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+        </div>
+        
         <!-- navbar -->
         <nav class='transition navbar'>
             <div class='navbar-container'>

@@ -46,6 +46,22 @@
             <div class='loader'></div>
         </div>
 
+        <!-- snow -->
+        <div class='snowflakes' aria-hidden='true'>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+            <div class='snowflake'>❅</div>
+            <div class='snowflake'>❆</div>
+        </div>
+
         <!-- navbar -->
         <nav class='transition navbar'>
             <div class='navbar-container'>
@@ -196,6 +212,6 @@
         <script src='assets/javascript/navbar.js'></script>
         <script src='assets/javascript/functions.js'></script>
         <script src='assets/javascript/darkmode.js'></script>
-        <script src="assets/javascript/size.js"></script>
+        <script src='assets/javascript/size.js'></script>
     </body>
 </html>

@@ -14,6 +14,8 @@
     /* colors */
     --primary: #32cd74;
     --blues: rgb(53, 153, 204);
+
+    --body-color: #f4f4f4;
     
     --secondary: #0000007a;
     --tertiary: #ffffff7a;
@@ -45,7 +47,7 @@ html{
 body{
     height: 100%;
     overflow-x: hidden!important;
-    background-color: #f4f4f4;
+    background-color: var(--body-color);
 }
 
 img, svg{
@@ -161,6 +163,148 @@ body span.info-span{
 ::-webkit-scrollbar-track {
     background-color: var(--quintos);
 }
+
+
+/* snow */
+
+.snowflake{
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px rgba(0, 0, 0, .35);
+}
+
+@-webkit-keyframes snowflakes-fall{
+    0%{
+        top:-10%;
+    }
+    100%{
+        top:100%;
+    }
+}
+
+@-webkit-keyframes snowflakes-shake{
+    0%,100%{
+        -webkit-transform:translateX(0);
+        transform:translateX(0);
+    }
+    50%{
+        -webkit-transform:translateX(80px);
+        transform:translateX(80px);
+    }
+}
+
+@keyframes snowflakes-fall{
+    0%{
+        top:-10%;
+    }
+    100%{
+        top:100%;
+    }
+}
+
+@keyframes snowflakes-shake{
+    0%,100%{
+        transform:translateX(0);
+    }
+    50%{
+        transform:translateX(80px);
+    }
+}
+
+.snowflake{
+    position:fixed;
+    top:-10%;
+    z-index:9999;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor:default;
+    -webkit-animation-name:snowflakes-fall,snowflakes-shake;
+    -webkit-animation-duration:10s,3s;
+    -webkit-animation-timing-function:linear,ease-in-out;
+    -webkit-animation-iteration-count:infinite,infinite;
+    -webkit-animation-play-state:running,running;
+    animation-name:snowflakes-fall,snowflakes-shake;
+    animation-duration:10s,3s;
+    animation-timing-function:linear,ease-in-out;
+    animation-iteration-count:infinite,infinite;
+    animation-play-state:running,running;
+}
+
+.snowflake:nth-of-type(0){
+    left:1%;
+    -webkit-animation-delay:0s,0s;
+    animation-delay:0s,0s;
+}
+
+.snowflake:nth-of-type(1){
+    left:10%;
+    -webkit-animation-delay:1s,1s;
+    animation-delay:1s,1s;
+}
+
+.snowflake:nth-of-type(2){
+    left:20%;
+    -webkit-animation-delay:6s,.5s;
+    animation-delay:6s,.5s;
+}
+
+.snowflake:nth-of-type(3){
+    left:30%;
+    -webkit-animation-delay:4s,2s;
+    animation-delay:4s,2s;
+}
+
+.snowflake:nth-of-type(4){
+    left:40%;
+    -webkit-animation-delay:2s,2s;
+    animation-delay:2s,2s;
+}
+
+.snowflake:nth-of-type(5){
+    left:50%;
+    -webkit-animation-delay:8s,3s;
+    animation-delay:8s,3s;
+}
+
+.snowflake:nth-of-type(6){
+    left:60%;
+    -webkit-animation-delay:6s,2s;
+    animation-delay:6s,2s;
+}
+
+.snowflake:nth-of-type(7){
+    left:70%;
+    -webkit-animation-delay:2.5s,1s;
+    animation-delay:2.5s,1s;
+}
+
+.snowflake:nth-of-type(8){
+    left:80%;
+    -webkit-animation-delay:1s,0s;
+    animation-delay:1s,0s;
+}
+
+.snowflake:nth-of-type(9){
+    left:90%;
+    -webkit-animation-delay:3s,1.5s;
+    animation-delay:3s,1.5s;
+}
+
+.snowflake:nth-of-type(10){
+    left:25%;
+    -webkit-animation-delay:2s,0s;
+    animation-delay:2s,0s;
+}
+
+.snowflake:nth-of-type(11){
+    left:65%;
+    -webkit-animation-delay:4s,2.5s;
+    animation-delay:4s,2.5s;
+}
+
 
 /* btn-settings */
 
@@ -361,6 +505,7 @@ body span.info-span{
     color: #d8d8d8;
 }
 
+
 /* nav */
 
 .navbar-toggle a{
@@ -430,7 +575,7 @@ body span.info-span{
 .navbar-links{
     color: var(--body);
     display: flex;
-    background-color: #fff;
+    background-color: var(--body-color);
     font-size: 18px;
     font-weight: 500 !important;
     align-items: center;
@@ -443,19 +588,19 @@ body span.info-span{
 }
 
 .navbar-links.active{
-    color: #fff;
+    color: var(--body-color);
     transition: all .5s ease;
     background-color: var(--body);
     border-radius: 5px;
 }
 
 .navbar-links:hover{
-    background-color: #fff;
     border-radius: 5px;
-    color: #fff;
+    color: var(--body-color);
     transition: all .5s ease-out;
     background-color: var(--body);
 }
+
 
 /* main */
 
@@ -531,7 +676,7 @@ body span.info-span{
 }
 
 .main .container .main-content h1{
-    color: #fff;
+    color: var(--body-color);
     user-select: none;
     font-weight: 900;
     font-size: 50px;
@@ -563,9 +708,9 @@ body span.info-span{
 }
 
 .main .container .main-content .main-btn .btn a{
-    border: 1px solid white;
+    border: 1px solid var(--body-color);
     color: var(--body);
-    background-color: white;
+    background-color: var(--body-color);
     border-radius: 5px;
     padding: 10px 15px;
     transition: all .5s ease-in-out;
@@ -574,12 +719,13 @@ body span.info-span{
 .main .container .main-content .main-btn .btn a:hover{
     border-color: var(--body);
     background-color: var(--body);
-    color: #fff;
+    color: var(--body-color);
 }
 
 .main .container .main-content .main-btn .btn a i{
     margin-left: 5px;
 }
+
 
 /* about */
 
@@ -651,7 +797,8 @@ body span.info-span{
     box-shadow: 0 0 30px rgb(0 0 0 / 50%);
 }
 
-/* register.html */
+
+/* register */
 
 .register-main{
     width: 100%;
@@ -946,7 +1093,8 @@ body span.info-span{
     cursor: pointer;
 }
 
-/* admin.php */
+
+/* admin */
 
 .admin-main{
     height: 100%;
@@ -1031,6 +1179,7 @@ body span.info-span{
     border-radius: 50%;
 }
 
+
 /* main-admin */
 
 .main-listadmin{
@@ -1106,6 +1255,7 @@ body span.info-span{
     color: #fff;
 }
 
+
 /* footer */
 
 footer{
@@ -1127,6 +1277,7 @@ footer .footer-container .footer-content{
     color: #fff;
     text-align: center;
 }
+
 
 /* responsive */
 
