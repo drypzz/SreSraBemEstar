@@ -10,6 +10,8 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `sbe`;
 USE `sbe`;
 
+--[ Tables ]
+
 DROP TABLE IF EXISTS `agenda`; CREATE TABLE `agenda` (
   `Cod_Agen` int(11) NOT NULL,
   `CPF_Idoso` varchar(180) DEFAULT NULL,
@@ -75,34 +77,75 @@ DROP TABLE IF EXISTS `tarefa`; CREATE TABLE `tarefa` (
   `CPF_Resp` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `agenda` ADD PRIMARY KEY (`Cod_Agen`), ADD KEY `CPF_Idoso` (`CPF_Idoso`), ADD KEY `CPF_Resp` (`CPF_Resp`);
+--[ PK / FK ]
 
-ALTER TABLE `cadidoso` ADD PRIMARY KEY (`CPF_Idoso`), ADD KEY `CPF_Resp` (`CPF_Resp`);
+ALTER TABLE `agenda`
+  ADD PRIMARY KEY (`Cod_Agen`), 
+  ADD KEY `CPF_Idoso` (`CPF_Idoso`),
+  ADD KEY `CPF_Resp` (`CPF_Resp`);
 
-ALTER TABLE `cadresponsavel` ADD PRIMARY KEY (`CPF_Resp`);
+ALTER TABLE `cadidoso`
+  ADD PRIMARY KEY (`CPF_Idoso`),
+  ADD KEY `CPF_Resp` (`CPF_Resp`);
 
-ALTER TABLE `cod_idoso_remed` ADD PRIMARY KEY (`Cod_Idoso_Remed`), ADD KEY `Cod_Remed` (`Cod_Remed`), ADD KEY `CPF_Idoso` (`CPF_Idoso`);
+ALTER TABLE `cadresponsavel`
+  ADD PRIMARY KEY (`CPF_Resp`);
 
-ALTER TABLE `comorbidade` ADD PRIMARY KEY (`Cod_Como`), ADD KEY `Cod_Nivel` (`Cod_Nivel`);
+ALTER TABLE `cod_idoso_remed`
+  ADD PRIMARY KEY (`Cod_Idoso_Remed`),
+  ADD KEY `Cod_Remed` (`Cod_Remed`),
+  ADD KEY `CPF_Idoso` (`CPF_Idoso`);
 
-ALTER TABLE `idoso_como` ADD PRIMARY KEY (`Cod_Idoso_Como`), ADD KEY `Cod_Como` (`Cod_Como`), ADD KEY `CPF_Idoso` (`CPF_Idoso`);
+ALTER TABLE `comorbidade`
+  ADD PRIMARY KEY (`Cod_Como`),
+  ADD KEY `Cod_Nivel` (`Cod_Nivel`);
 
-ALTER TABLE `nivel` ADD PRIMARY KEY (`Cod_Nivel`);
+ALTER TABLE `idoso_como`
+  ADD PRIMARY KEY (`Cod_Idoso_Como`),
+  ADD KEY `Cod_Como` (`Cod_Como`),
+  ADD KEY `CPF_Idoso` (`CPF_Idoso`);
 
-ALTER TABLE `remedio` ADD PRIMARY KEY (`Cod_Remedio`), ADD KEY `CPF_Resp` (`CPF_Resp`);
+ALTER TABLE `nivel` 
+  ADD PRIMARY KEY (`Cod_Nivel`);
 
-ALTER TABLE `tarefa` ADD PRIMARY KEY (`Cod_Tarefa`), ADD KEY `Cod_Agen` (`Cod_Agen`), ADD KEY `Cod_Remedio` (`Cod_Remedio`), ADD KEY `CPF_Resp` (`CPF_Resp`);
+ALTER TABLE `remedio`
+  ADD PRIMARY KEY (`Cod_Remedio`),
+  ADD KEY `CPF_Resp` (`CPF_Resp`);
 
-ALTER TABLE `agenda` ADD CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`CPF_Idoso`) REFERENCES `cadidoso` (`CPF_Idoso`) ON DELETE SET NULL ON UPDATE SET NULL;
+ALTER TABLE `tarefa`
+  ADD PRIMARY KEY (`Cod_Tarefa`),
+  ADD KEY `Cod_Agen` (`Cod_Agen`),
+  ADD KEY `Cod_Remedio` (`Cod_Remedio`),
+  ADD KEY `CPF_Resp` (`CPF_Resp`);
 
-ALTER TABLE `cadidoso` ADD CONSTRAINT `CPF_Resp` FOREIGN KEY (`CPF_Resp`) REFERENCES `cadresponsavel` (`CPF_Resp`);
+--[ CONSTRAINT ]
 
-ALTER TABLE `cod_idoso_remed` ADD CONSTRAINT `cod_idoso_remed_ibfk_1` FOREIGN KEY (`Cod_Remed`) REFERENCES `remedio` (`Cod_Remedio`) ON DELETE SET NULL ON UPDATE SET NULL, ADD CONSTRAINT `cod_idoso_remed_ibfk_2` FOREIGN KEY (`CPF_Idoso`) REFERENCES `cadidoso` (`CPF_Idoso`);
+ALTER TABLE `agenda`
+  ADD CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`CPF_Idoso`) REFERENCES `cadidoso` (`CPF_Idoso`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `agenda_ibfk_2` FOREIGN KEY (`CPF_Resp`) REFERENCES `cadresponsavel` (`CPF_Resp`);
 
-ALTER TABLE `comorbidade` ADD CONSTRAINT `Cod_Nivel` FOREIGN KEY (`Cod_Nivel`) REFERENCES `nivel` (`Cod_Nivel`);
+ALTER TABLE `cadidoso`
+  ADD CONSTRAINT `cadidoso_ibfk_1` FOREIGN KEY (`CPF_Resp`) REFERENCES `cadresponsavel` (`CPF_Resp`);
 
-ALTER TABLE `idoso_como` ADD CONSTRAINT `Cod_Como` FOREIGN KEY (`Cod_Como`) REFERENCES `comorbidade` (`Cod_Como`), ADD CONSTRAINT `idoso_como_ibfk_1` FOREIGN KEY (`CPF_Idoso`) REFERENCES `cadidoso` (`CPF_Idoso`) ON DELETE SET NULL ON UPDATE SET NULL;
+ALTER TABLE `cod_idoso_remed`
+  ADD CONSTRAINT `cod_idoso_remed_ibfk_1` FOREIGN KEY (`Cod_Remed`) REFERENCES `remedio` (`Cod_Remedio`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `cod_idoso_remed_ibfk_2` FOREIGN KEY (`CPF_Idoso`) REFERENCES `cadidoso` (`CPF_Idoso`);
 
-ALTER TABLE `tarefa` ADD CONSTRAINT `Cod_Agen` FOREIGN KEY (`Cod_Agen`) REFERENCES `agenda` (`Cod_Agen`), ADD CONSTRAINT `tarefa_ibfk_1` FOREIGN KEY (`Cod_Remedio`) REFERENCES `remedio` (`Cod_Remedio`) ON DELETE SET NULL ON UPDATE SET NULL;
+ALTER TABLE `comorbidade`
+  ADD CONSTRAINT `comorbidade_ibfk_1` FOREIGN KEY (`Cod_Nivel`) REFERENCES `nivel` (`Cod_Nivel`);
+
+ALTER TABLE `idoso_como`
+  ADD CONSTRAINT `idoso_como_ibfk_1` FOREIGN KEY (`Cod_Como`) REFERENCES `comorbidade` (`Cod_Como`),
+  ADD CONSTRAINT `idoso_como_ibfk_2` FOREIGN KEY (`CPF_Idoso`) REFERENCES `cadidoso` (`CPF_Idoso`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+ALTER TABLE `remedio`
+  ADD CONSTRAINT `remedio_ibfk_1` FOREIGN KEY (`CPF_Resp`) REFERENCES `cadresponsavel` (`CPF_Resp`);
+
+ALTER TABLE `tarefa`
+  ADD CONSTRAINT `tarefa_ibfk_1` FOREIGN KEY (`Cod_Agen`) REFERENCES `agenda` (`Cod_Agen`),
+  ADD CONSTRAINT `tarefa_ibfk_2` FOREIGN KEY (`Cod_Remedio`) REFERENCES `remedio` (`Cod_Remedio`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `tarefa_ibfk_3` FOREIGN KEY (`CPF_Resp`) REFERENCES `cadresponsavel` (`CPF_Resp`);
+
+--[ COMMIT ]
 
 COMMIT;
