@@ -184,8 +184,8 @@
 
                         if($sql->execute([$_SESSION['cpf']])){
                             $row = $sql->fetchAll(PDO::FETCH_ASSOC);
-                            echo '<div class="container-list">';
                             if($sql->rowCount() > 0){
+                                echo '<div class="container-list">';
                                 foreach($row as $key => $i){
 
                                     $queryIdoso = $pdo->prepare("SELECT * FROM cadidoso WHERE `CPF_Idoso` = ?");
@@ -200,6 +200,7 @@
                                             echo '<div class="list-main">';
                                                 echo '<div class="list-container agend">';
                                                     echo '<h3>#'.($i['Cod_Agen'] ?? 'NULL').'</h3><br>';
+                                                    echo '<span><b>Agenda Criada</b></span><br><br>';
                                                     echo '<span><b>Data:</b> '.($i['Data_Tarefa'] ?? 'NULL').'</span><br>';
                                                     echo '<span><b>Hora:</b> '.($i['Hora_Tarefa'] ?? 'NULL').'</span><br><br>';
                                                     echo '<span><b>Em nome de:</b> '.$name.'</span><br><br>';
@@ -208,13 +209,14 @@
                                             echo '</div>';
                                         echo '</div>';
                                     };
-
                                 };
+                                echo '</div>';
                             }else{
+                                echo '<div class="container-list none">';
                                 echo '<div class="content-list">';
-                                echo '<div class="list-main"> <h3 style="color: red">* Nenhuma Agenda encontrada *</h3> </div></div>';
+                                echo '<div class="list-main"> <h3>* Nenhuma Agenda(s) encontrada(s) *</h3> </div></div>';
+                                echo '</div>';
                             };
-                            echo '</div>';
                         };
 
                     ?>
@@ -231,24 +233,29 @@
 
                         if($sql->execute([$_SESSION['cpf']])){
                             $row = $sql->fetchAll(PDO::FETCH_ASSOC);
-                            echo '<div class="container-list">';
                             if($sql->rowCount() > 0){
+                                echo '<div class="container-list">';
                                 foreach($row as $key => $i){
                                     echo '<div class="content-list">';
                                         echo '<div class="list-main">';
                                             echo '<div class="list-container">';
+                                                echo '<h3>#'.($key + 1).'</h3><br>';
                                                 echo '<span><b>Nome:</b> '.($i['Nome_Idoso'] ?? 'NULL').'</span><br>';
+                                                echo '<span><b>Email:</b> '.($i['Email_Idoso'] ?? 'NULL').'</span><br>';
+                                                echo '<span><b>Data de Nascimento:</b> '.($i['Dat_Nasc_Idoso'] ?? 'NULL').'</span><br>';
                                                 echo '<span><b>CPF:</b> '.($i['CPF_Idoso'] ?? 'NULL').'</span><br><br>';
                                                 echo '<a href="../php/global.php?type=delete&on=idoso&value='.($i['CPF_Idoso'] ?? 'NULL').'"><i class="fa-solid fa-trash-can"></i></a>';
                                             echo '</div>';
                                         echo '</div>';
                                     echo '</div>';
                                 };
+                                echo '</div>';
                             }else{
+                                echo '<div class="container-list none">';
                                 echo '<div class="content-list">';
-                                echo '<div class="list-main"> <h3 style="color: red">* Nenhum Idoso(a) encontrado *</h3> </div></div>';
+                                echo '<div class="list-main"> <h3>* Nenhum Idoso(a) encontrado(a) *</h3> </div></div>';
+                                echo '</div>';
                             };
-                            echo '</div>';
                         };
 
                     ?>
@@ -265,8 +272,8 @@
 
                         if($sql->execute([$_SESSION['cpf']])){
                             $row = $sql->fetchAll(PDO::FETCH_ASSOC);
-                            echo '<div class="container-list">';
                             if($sql->rowCount() > 0){
+                                echo '<div class="container-list">';
                                 foreach($row as $key => $i){
                                     echo '<div class="content-list">';
                                         echo '<div class="list-main">';
@@ -279,11 +286,13 @@
                                         echo '</div>';
                                     echo '</div>';
                                 };
+                                echo '</div>';
                             }else{
+                                echo '<div class="container-list none">';
                                 echo '<div class="content-list">';
-                                echo '<div class="list-main"> <h3 style="color: red">* Nenhum remédio encontrado *</h3> </div></div>';
+                                echo '<div class="list-main"> <h3>* Nenhum Remédio(s) encontrado(s) *</h3> </div></div>';
+                                echo '</div>';
                             };
-                            echo '</div>';
                         };
 
                     ?>
@@ -350,7 +359,7 @@
                                 };
                             }else{
                                 echo '<div class="content-list">';
-                                echo '<div class="list-main"> <h3 style="color: red">* Nenhuma tarefa encontrada *</h3> </div></div>';
+                                echo '<div class="list-main"> <h3>* Nenhuma tarefa encontrada *</h3> </div></div>';
                             };
                             echo '</div>';
                         };
