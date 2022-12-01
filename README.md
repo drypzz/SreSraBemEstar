@@ -8,7 +8,7 @@
 </div>
 
 <div align='center'>
-    <p><strong>Ultima atualização:</strong> 26 Nov. 2022<br><strong>Última versão:</strong> 2.1.0</p>
+    <p><strong>Ultima atualização:</strong> 01 Dez. 2022<br><strong>Última versão:</strong> 2.5.0</p>
     <p>>> <a target='_blank' href='https://sresrabemestar.000webhostapp.com'><i>sresrabemestar.000webhostapp.com/</i></a> <<</p>
 </div>
 

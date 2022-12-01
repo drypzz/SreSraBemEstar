@@ -686,6 +686,19 @@ body span.info-span{
     font-weight: 900;
     font-size: 50px;
     line-height: 50px;
+    position: relative;
+}
+
+.main .container .main-content h1:after{
+    position: absolute;
+    user-select: none;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: url(../gfx/christma/gorro.png) 220px center / 50px no-repeat;
 }
 
 .main .container .main-content p{

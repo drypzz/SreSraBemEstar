@@ -125,21 +125,7 @@
             <div class='about-container'>
                 <span class='info-span-content'>SOBRE NÓS</span>
                 <div class='about-content'>
-                    <p>O Projeto Integrador (PI) é uma Unidade Curricular,
-                        baseada na metodologia de ação-reflexão-ação,
-                        que se constitui na proposição de situações desafiadoras
-                        a serem cumpridas pelo aluno. Esta unidade curricular é
-                        obrigatória nos cursos de Aprendizagem Comercial,
-                        Qualificação Profissional e cursos Técnicos.
-                        O planejamento e execução do Projeto Integrador
-                        propiciam a articulação das competências previstas no perfil
-                        profissional de conclusão do curso, pois apresenta
-                        ao aluno situações que estimulam o seu desenvolvimento profissional
-                        ao ter que decidir, opinar e debater com o grupo a resolução de
-                        problemas a partir do tema gerador, portanto, o aluno poderá
-                        demonstrar sua atuação profissional pautada pelas marcas
-                        formativas do Senac, uma vez que permite o trabalho em equipe e o exercício da ética,
-                        da responsabilidade social e da atitude empreendedora.</p>
+                    <p>Sr. & Sra. Bem Estar. É uma Empresa especializada em Pacientes considerados Idoso(a). Está a mais de 2 Anos no mercado com Pacientes Idosos, com o objetivo de que o Responsável, consiga monitorar a rotina e gerenciar suas Agendas do dia a dia do Paciente.</p>
                 </div>
                 <div class='transition about-content'>
                     <span class='info-span-content'>NOSSA EQUIPE</span>
