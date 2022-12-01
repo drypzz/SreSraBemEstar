@@ -510,6 +510,9 @@ body span.info-span{
     box-shadow: 0 0 30px rgb(255 255 255 / 20%);
 }
 
+.dark-mode .main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main .list-container h3{
+    color: #fff;
+}
 
 /* nav */
 
@@ -1243,19 +1246,49 @@ body span.info-span{
 }
 
 .main-listadmin .container-listadmin .content-listadmin .container-list{
+    padding: 10px;
+    margin: 10px auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    height: 220px;
+    width: 500px;
+    border-radius: 5px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: rgba(82, 82, 82, 0.1);
+    box-shadow: 0 0 30px rgb(0 0 0 / 20%);
+}
+
+.main-listadmin .container-listadmin .content-listadmin .container-list.none{
+    overflow: hidden;
+    background: none;
+    box-shadow: none;
+}
+
+.main-listadmin .container-listadmin .content-listadmin.tarefa .container-list{
+    height: 100%;
+    overflow: hidden;
+    background: none;
+    box-shadow: none;
 }
 
 .main-listadmin .container-listadmin .content-listadmin .container-list .content-list{
-    margin: 20px;
+    margin: 10px;
+    width: 100%;
 }
 
 .main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main{
     width: 100%;
     height: 100%;
+}
+
+.main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main h3{
+    background-color: rgba(255, 0, 0, .1);
+    padding: 10px;
+    color: #c62828;
+    border-radius: 5px;
 }
 
 .main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main .list-container{
@@ -1268,8 +1301,10 @@ body span.info-span{
 .main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main .list-container h3{
     border-bottom: 1px solid var(--primary);
     width: 90%;
+    color: black;
     text-align: center;
     margin: 0 auto;
+    background: none;
 }
 
 .main-listadmin .container-listadmin .content-listadmin .container-list .content-list .list-main .list-container a i{
@@ -1326,6 +1361,11 @@ footer .footer-container .footer-content{
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
+    }
+
+    .main-listadmin .container-listadmin .content-listadmin .container-list{
+        width: 100%;
+        height: 350px;
     }
 
     /* list */
