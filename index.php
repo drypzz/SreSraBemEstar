@@ -98,7 +98,7 @@
         <div class='transition main'>
             <div class='container'>
                 <div class='main-content'>
-                    <h1 class='transition'>BEM<br>VINDO(A)</h1>
+                    <h1 id='index' class='transition'>BEM<br>VINDO(A)</h1>
                     <span class='info'>SR. & SRA. BEM ESTAR !</span>
                     <p>Olá, seja bem vindo(a), ao nosso site.<br>Aqui você verá um pouco sobre nós.</p>
                     <div class='main-btn'>

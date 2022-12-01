@@ -692,7 +692,7 @@ body span.info-span{
     position: relative;
 }
 
-.main .container .main-content h1:after{
+.main .container .main-content h1#index:after{
     position: absolute;
     user-select: none;
     content: '';
