@@ -9,9 +9,17 @@
 
 <div align='center'>
     <p><strong>Ultima atualização:</strong> 01 Dez. 2022<br><strong>Última versão:</strong> 2.5.0</p>
+    <p><strong>Desenvolvedores:</strong></p>
+    >><a target='_blank' href='https://github.com/drypzz'>Gustavo</a> << |
+    >><a target='_blank' href='https://github.com/function404'>Lincoln</a><< <br>
+    >><a target='_blank' href='https://github.com/isadoralb'>Maria Isadora</a><< |
+    >><a target='_blank' href='https://github.com/ashzinho'>Ash</a><<
+</div>
+<hr>
+<div align='center'>
     <p>>> <a target='_blank' href='https://sresrabemestar.000webhostapp.com'><i>sresrabemestar.000webhostapp.com/</i></a> <<</p>
 </div>
-
+<hr>
 <div align='center'>
     <a target='_blank' href='https://github.com/drypzz/'>
         <div dir='auto'>
