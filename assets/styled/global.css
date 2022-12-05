@@ -514,6 +514,10 @@ body span.info-span{
     color: #fff;
 }
 
+.dark-mode .main-listadmin .container-listadmin .content-listadmin .container-list::-webkit-scrollbar-track{
+    background-color: #4f4f4f;
+}
+
 /* nav */
 
 .navbar-toggle a{
@@ -805,7 +809,8 @@ body span.info-span{
     border: 1px solid var(--blues);
     color: var(--blues);
     border-radius: 50%;
-    padding: 25px;
+    margin: 5px;
+    padding: 15px;
     transition: all 600ms ease-in-out;
 }
 
@@ -1238,6 +1243,7 @@ body span.info-span{
 
 .main-listadmin .container-listadmin .content-listadmin.tarefa{
     max-width: 100%;
+    width: 100%;
 }
 
 .main-listadmin .container-listadmin .content-listadmin h1{
@@ -1261,6 +1267,7 @@ body span.info-span{
     box-shadow: 0 0 30px rgb(0 0 0 / 20%);
 }
 
+
 .main-listadmin .container-listadmin .content-listadmin .container-list.none{
     overflow: hidden;
     background: none;
@@ -1268,10 +1275,20 @@ body span.info-span{
 }
 
 .main-listadmin .container-listadmin .content-listadmin.tarefa .container-list{
+    width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     overflow: hidden;
     background: none;
     box-shadow: none;
+    margin: 0 auto;
+}
+
+.main-listadmin .container-listadmin .content-listadmin.tarefa .container-list .content-list{
+    width: 30%;
 }
 
 .main-listadmin .container-listadmin .content-listadmin .container-list .content-list{
@@ -1377,6 +1394,10 @@ footer .footer-container .footer-content{
     .main-listadmin .container-listadmin .content-listadmin{
         max-width: 100%;
         margin: 20px 0;
+    }
+
+    .main-listadmin .container-listadmin .content-listadmin.tarefa .container-list .content-list{
+        width: 100%;
     }
 
     /* settings */

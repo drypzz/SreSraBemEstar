@@ -123,7 +123,7 @@
                                     <img src='../gfx/icons/agenda.png' alt=''>
                                 </div>
                                 <div class='admin-content-item'>
-                                    <h1>Agenda</h1>
+                                    <h1>Agenda e Tarefa</h1>
                                     <p>Na agenda você consegue definir horas e datas para suas atividades, e ainda junto com a descrição das suas tarefas.</p>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@
                         <a href='register.php'>
                             <div class='container'>
                                 <div class='admin-content-item'>
-                                    <img src='../gfx/icons/agenda.png' alt=''>
+                                    <img src='../gfx/icons/tarefa.png' alt=''>
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Cadastrar Idoso(a)</h1>
@@ -199,7 +199,7 @@
                                         echo '<div class="content-list">';
                                             echo '<div class="list-main">';
                                                 echo '<div class="list-container agend">';
-                                                    echo '<h3>#'.($i['Cod_Agen'] ?? 'NULL').'</h3><br>';
+                                                    echo '<h3>(ID: #'.($key + 1).')</h3><br>';
                                                     echo '<span><b>Agenda Criada</b></span><br><br>';
                                                     echo '<span><b>Data:</b> '.($i['Data_Tarefa'] ?? 'NULL').'</span><br>';
                                                     echo '<span><b>Hora:</b> '.($i['Hora_Tarefa'] ?? 'NULL').'</span><br><br>';
@@ -239,7 +239,7 @@
                                     echo '<div class="content-list">';
                                         echo '<div class="list-main">';
                                             echo '<div class="list-container">';
-                                                echo '<h3>#'.($key + 1).'</h3><br>';
+                                                echo '<h3>(ID: #'.($key + 1).')</h3><br>';
                                                 echo '<span><b>Nome:</b> '.($i['Nome_Idoso'] ?? 'NULL').'</span><br>';
                                                 echo '<span><b>Email:</b> '.($i['Email_Idoso'] ?? 'NULL').'</span><br>';
                                                 echo '<span><b>Data de Nascimento:</b> '.($i['Dat_Nasc_Idoso'] ?? 'NULL').'</span><br>';
@@ -278,7 +278,7 @@
                                     echo '<div class="content-list">';
                                         echo '<div class="list-main">';
                                             echo '<div class="list-container remed">';
-                                                echo '<h3>#'.($i['Cod_Remedio'] ?? 'NULL').'</h3><br>';
+                                                echo '<h3>(ID: #'.($key + 1).')</h3><br>';
                                                 echo '<span><b>Nome:</b> '.($i['Nome_Remed'] ?? 'NULL').'</span><br>';
                                                 echo '<span><b>Descrição:</b> '.($i['Descricao_Remed'] ?? 'NULL').'</span><br><br>';
                                                 echo '<a href="../php/global.php?type=delete&on=remedio&value='.($i['Cod_Remedio'] ?? 'NULL').'"><i class="fa-solid fa-trash-can"></i></a>';
@@ -315,7 +315,7 @@
                             $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                             echo '<div class="container-list">';
                             if($sql->rowCount() > 0){
-                                foreach($row as $key => $i){
+                                foreach($row as $keyTarefa => $i){
                                     $queryAgen = $pdo->prepare("SELECT * FROM agenda WHERE `Cod_Agen` = ?");
                                     $queryRemed = $pdo->prepare("SELECT * FROM remedio WHERE `Cod_Remedio` = ?");
 
@@ -344,7 +344,7 @@
                                             echo '<div class="content-list">';
                                                 echo '<div class="list-main">';
                                                     echo '<div class="list-container">';
-                                                        echo '<h3>#'.($i['Cod_Tarefa'] ?? 'NULL').'</h3><br>';
+                                                        echo '<h3>(ID: #'.($keyTarefa + 1).')</h3><br>';
                                                         echo '<span><b>Nome:</b> '.$name.'</span><br>';
                                                         echo '<span><b>Descrição:</b> '.$i['Desc_Tarefa'].'</span><br><br>';
                                                         echo '<span><b>Data:</b> '.$dataAgen.'</span><br>';

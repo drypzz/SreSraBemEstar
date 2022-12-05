@@ -8,7 +8,7 @@
 </div>
 
 <div align='center'>
-    <p><strong>Ultima atualização:</strong> 01 Dez. 2022<br><strong>Última versão:</strong> 2.5.0</p>
+    <p><strong>Ultima atualização:</strong> 05 Dez. 2022<br><strong>Última versão:</strong> 2.5.0</p>
     <p><strong>Desenvolvedores:</strong></p>
     >><a target='_blank' href='https://github.com/drypzz'>Gustavo</a> << |
     >><a target='_blank' href='https://github.com/function404'>Lincoln</a><< <br>
