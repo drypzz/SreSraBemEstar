@@ -35,22 +35,6 @@
         <div class='loader-container'>
             <div class='loader'></div>
         </div>
-
-        <!-- snow -->
-        <div class='snowflakes' aria-hidden='true'>
-            <div class='snowflake'>❅</div>
-            <div class='snowflake'>❆</div>
-            <div class='snowflake'>❅</div>
-            <div class='snowflake'>❆</div>
-            <div class='snowflake'>❅</div>
-            <div class='snowflake'>❆</div>
-            <div class='snowflake'>❅</div>
-            <div class='snowflake'>❆</div>
-            <div class='snowflake'>❅</div>
-            <div class='snowflake'>❆</div>
-            <div class='snowflake'>❅</div>
-            <div class='snowflake'>❆</div>
-        </div>
         
         <!-- navbar -->
         <nav class='navbar'>
@@ -152,7 +136,7 @@
         <footer>
             <div class='footer-container'>
                 <div class='footer-content'>
-                    <p>Copyright © 2022 - <span id='date'></span>. Todos os direitos reservados.</p>
+                    <p>Copyright © 2021 - <span id='date'></span>. Todos os direitos reservados.</p>
                 </div>
             </div>
         </footer>
