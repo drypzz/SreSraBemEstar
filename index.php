@@ -115,9 +115,9 @@
                     <span class='info-span-content'>NOSSA EQUIPE</span>
                     <div class='about-imgs'>
                         <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media-exp1.licdn.com/dms/image/C4E03AQGFjpRwBjc3rg/profile-displayphoto-shrink_200_200/0/1655425295713?e=1674086400&v=beta&t=aR7BaHOzjfzg-OOSaEcSsB-Lr6UFp1kfeU5doQ-aktw' alt=''>
+                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media.licdn.com/dms/image/D4D03AQHmBLGb0fss6g/profile-displayphoto-shrink_200_200/0/1683651948664?e=1689811200&v=beta&t=K3faYLLYAbzgsatXaH3l7NwuH1KvOeioEPkGKHi_7eM' alt=''>
                             <span>@elseif (Gustavo)</span>
-                            <a target='_blank' href='https://www.linkedin.com/in/gustavo-adriano-alves-palmeira-960a9a23b/'>
+                            <a target='_blank' href='https://www.linkedin.com/in/gustavoaap/'>
                                 <i class='fa-brands fa-linkedin'></i>
                             </a>
                             <a target='_blank' href='https://github.com/drypzz/'>
@@ -125,7 +125,7 @@
                             </a>
                         </div>
                         <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media-exp1.licdn.com/dms/image/D4D03AQGZusWkYo2oJw/profile-displayphoto-shrink_200_200/0/1669206386122?e=1674691200&v=beta&t=f0sVSu5o3CJhSKpLusZH4NtJBRBG2-jXFEtVn6UYMF4' alt=''>
+                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media.licdn.com/dms/image/D4D03AQFxrtClgIbwpg/profile-displayphoto-shrink_400_400/0/1676913459198?e=1689206400&v=beta&t=NUlzRaMFOvX1bWv6v3NaIQTE8YZy0wgnb8hsn32UW7g' alt=''>
                             <span>@function404 (Lincoln)</span>
                             <a target='_blank' href='https://www.linkedin.com/in/lincoln-novais-mezzalira-361962236/'>
                                 <i class='fa-brands fa-linkedin'></i>
@@ -135,7 +135,7 @@
                             </a>
                         </div>
                         <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media-exp1.licdn.com/dms/image/C4D03AQF9Bw4YeOfaog/profile-displayphoto-shrink_200_200/0/1656509072498?e=1674086400&v=beta&t=am26zBJNkJsmtBaOIrq_3w9UwNF2YCEHvJkVfj6beH8' alt=''>
+                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media.licdn.com/dms/image/D4D03AQH6k0naQPMvvQ/profile-displayphoto-shrink_400_400/0/1677194311632?e=1689206400&v=beta&t=QRpKkXyQc5AK93a-ZLxo6MgeV0DiE-W3V9_IZ3o4Sc4' alt=''>
                             <span>@isadoralb (Maria)</span>
                             <a target='_blank' href='https://www.linkedin.com/in/maria-isadora-labandera-bocca-7b824a1b6/'>
                                 <i class='fa-brands fa-linkedin'></i>
@@ -145,12 +145,22 @@
                             </a>
                         </div>
                         <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media-exp1.licdn.com/dms/image/C4D03AQEbse-Drv3AUw/profile-displayphoto-shrink_200_200/0/1656509083236?e=1674086400&v=beta&t=q5q5BfqxLwD4JiWdXj9k-oNp-GzM1RyDDUeCwIQ5DuE' alt=''>
+                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media.licdn.com/dms/image/C4D03AQEbse-Drv3AUw/profile-displayphoto-shrink_400_400/0/1656509083236?e=1689206400&v=beta&t=wdJ2TfN6kUU5jufp1D9KLctfNtOi_dOIvFnQn-xVmYo' alt=''>
                             <span>@ash (Eduardo)</span>
                             <a target='_blank' href='https://www.linkedin.com/in/eduardo-franco-netto-rissatto-8911b0243/'>
                                 <i class='fa-brands fa-linkedin'></i>
                             </a>
                             <a target='_blank' href='https://github.com/ashzinho/'>
+                                <i class='fa-brands fa-github'></i>
+                            </a>
+                        </div>
+                        <div class='about-imgs-content'>
+                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://react.semantic-ui.com/images/wireframe/image.png' alt=''>
+                            <span>@pedrin (Pedro)</span>
+                            <a target='_blank' href='https://www.linkedin.com/in/pedro-augusto-brusque-a90a58242/'>
+                                <i class='fa-brands fa-linkedin'></i>
+                            </a>
+                            <a target='_blank' href='https://github.com/'>
                                 <i class='fa-brands fa-github'></i>
                             </a>
                         </div>
