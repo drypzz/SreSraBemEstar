@@ -4,7 +4,7 @@
 ] -->
 
 <div align='center'>
-    <h1>Projeto INT - 2022</h1>
+    <h1>Projeto Integrador</h1>
 </div>
 
 <div align='center'>
@@ -13,7 +13,8 @@
     >><a target='_blank' href='https://github.com/drypzz'>Gustavo</a> << |
     >><a target='_blank' href='https://github.com/function404'>Lincoln</a><< <br>
     >><a target='_blank' href='https://github.com/isadoralb'>Maria Isadora</a><< |
-    >><a target='_blank' href='https://github.com/ashzinho'>Ash</a><<
+    >><a target='_blank' href='https://github.com/ashzinho'>Ash</a><< <br>
+    >><a target='_blank' href='https://github.com/zezinhacker'>Pedro</a><<
 </div>
 <hr>
 <div align='center'>
