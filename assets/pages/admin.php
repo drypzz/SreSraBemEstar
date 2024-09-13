@@ -1,5 +1,5 @@
 <!-- [
-    author: elseif and function;
+    author: drypzz and functions;
     type: .html and .php;
 ] -->
 
@@ -108,22 +108,11 @@
                                 </div>
                                 <div class='admin-content-item'>
                                     <h1>Agenda e Tarefa</h1>
-                                    <p>Na agenda você consegue definir horas e datas para suas atividades, e ainda junto com a descrição das suas tarefas.</p>
+                                    <p>Na agenda, você pode definir horários, datas e incluir descrições para suas atividades.</p>
                                 </div>
                             </div>
                         </a>
                         
-                        <!-- <a href='#'>
-                            <div class='container'>
-                                <div class='admin-content-item'>
-                                    <img src='../gfx/icons/level.png' alt=''>
-                                </div>
-                                <div class='admin-content-item'>
-                                    <h1>Nível</h1>
-                                    <p>No nível você escreve como é sua comorbidade para que possa lembrar no futuro e junto com a descrição da comorbidade e o nível dela.</p>
-                                </div>
-                            </div>
-                        </a> -->
 
                         <a href='remedio.php'>
                             <div class='container'>

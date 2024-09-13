@@ -1,5 +1,5 @@
 <!-- [
-    author: elseif (function little thing);
+    author: drypzz (functions little thing);
     type: .php;
 ] -->
 
@@ -309,63 +309,6 @@
         };
 
 
-    // } else if($_GET['type'] == 'nivel'){
-
-    //     if( isset($_POST['Descricao_Nivel']) ){
-
-    //         if(empty($_POST['Descricao_Nivel']) ){
-    //             infoBox('../pages/nivel.php', 'Insira corretamente as informções: DESCRIÇÃO E O NÍVEL', 'nivel', 'error');
-
-    //         }else{
-    //             $query = $pdo->prepare('SELECT * FROM nivel');
-
-    //             if($query->execute()){
-
-    //                 $row = $query->fetchAll(PDO::FETCH_ASSOC);
-    //                 foreach($row as $key => $i){
-    //                     $codNivel = ($i['Cod_Nivel'] ?? 0);
-    //                 };
-
-
-    //                 $sql = $pdo->prepare("INSERT INTO nivel(`Cod_Nivel`, `Descricao_Nivel`) VALUES(?, ?)");
-    //                 $sql->execute(array(($codNivel + 1), $_POST['Descricao_Nivel']));
-    //                 infoBox('../pages/nivel.php', 'Nível cadastrado com sucesso', 'nivel', 'success');
-    //                 exit();
-
-    //             };
-
-    //         };
-
-    //     };
-
-    // }else if($_GET['type'] == 'comorbidade'){
-
-    //     if( isset($_POST['comorbidade']) ){
-
-    //         if(empty($_POST['comorbidade']) ){
-    //             infoBox('../pages/nivel.php', 'Insira corretamente as informções: COMORBIDADE', 'comorbidade', 'error');
-
-    //         }else{
-    //             $query = $pdo->prepare('SELECT * FROM comorbidade');
-
-    //             if($query->execute()){
-
-    //                 $row = $query->fetchAll(PDO::FETCH_ASSOC);
-    //                 foreach($row as $key => $i){
-    //                     $codComo = ($i['Cod_Como'] ?? 0);
-    //                 };
-
-
-    //                 $sql = $pdo->prepare("INSERT INTO comorbidade(`Cod_Como`, `Comorbidade`) VALUES(?, ?)");
-    //                 $sql->execute(array(($codComo + 1), $_POST['comorbidade']));
-    //                 infoBox('../pages/nivel.php', 'Comorbidade cadastrada com sucesso', 'comorbidade', 'success');
-    //                 exit();
-
-    //             };
-
-    //         };
-
-    //     };
 
     }else if($_GET['type'] == 'tarefa'){
 

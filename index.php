@@ -1,5 +1,5 @@
 <!-- [
-    author: elseif and function;
+    author: drypzz and functions;
     type: .html and .php;
 ] -->
 
@@ -115,53 +115,29 @@
                     <span class='info-span-content'>NOSSA EQUIPE</span>
                     <div class='about-imgs'>
                         <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media.licdn.com/dms/image/D4D03AQHmBLGb0fss6g/profile-displayphoto-shrink_200_200/0/1683651948664?e=1689811200&v=beta&t=K3faYLLYAbzgsatXaH3l7NwuH1KvOeioEPkGKHi_7eM' alt=''>
-                            <span>@elseif (Gustavo)</span>
+                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://avatars.githubusercontent.com/u/79218936?v=4' alt=''>
+                            <span>@drypzz (Gustavo)</span>
                             <a target='_blank' href='https://www.linkedin.com/in/gustavoaap/'>
                                 <i class='fa-brands fa-linkedin'></i>
                             </a>
                             <a target='_blank' href='https://github.com/drypzz/'>
                                 <i class='fa-brands fa-github'></i>
                             </a>
+                            <a target='_blank' href='https://drypzz.netlify.app '>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
                         </div>
                         <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media.licdn.com/dms/image/D4D03AQFxrtClgIbwpg/profile-displayphoto-shrink_400_400/0/1676913459198?e=1689206400&v=beta&t=NUlzRaMFOvX1bWv6v3NaIQTE8YZy0wgnb8hsn32UW7g' alt=''>
-                            <span>@function404 (Lincoln)</span>
-                            <a target='_blank' href='https://www.linkedin.com/in/lincoln-novais-mezzalira-361962236/'>
+                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://avatars.githubusercontent.com/u/79523461?v=4' alt=''>
+                            <span>@functionss (Lincoln)</span>
+                            <a target='_blank' href='https://www.linkedin.com/in/lincolnnm/'>
                                 <i class='fa-brands fa-linkedin'></i>
                             </a>
                             <a target='_blank' href='https://github.com/function404/'>
                                 <i class='fa-brands fa-github'></i>
                             </a>
-                        </div>
-                        <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media.licdn.com/dms/image/D4D03AQH6k0naQPMvvQ/profile-displayphoto-shrink_400_400/0/1677194311632?e=1689206400&v=beta&t=QRpKkXyQc5AK93a-ZLxo6MgeV0DiE-W3V9_IZ3o4Sc4' alt=''>
-                            <span>@isadoralb (Maria)</span>
-                            <a target='_blank' href='https://www.linkedin.com/in/maria-isadora-labandera-bocca-7b824a1b6/'>
-                                <i class='fa-brands fa-linkedin'></i>
-                            </a>
-                            <a target='_blank' href='https://github.com/isadoralb/'>
-                                <i class='fa-brands fa-github'></i>
-                            </a>
-                        </div>
-                        <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://media.licdn.com/dms/image/C4D03AQEbse-Drv3AUw/profile-displayphoto-shrink_400_400/0/1656509083236?e=1689206400&v=beta&t=wdJ2TfN6kUU5jufp1D9KLctfNtOi_dOIvFnQn-xVmYo' alt=''>
-                            <span>@ash (Eduardo)</span>
-                            <a target='_blank' href='https://www.linkedin.com/in/eduardo-franco-netto-rissatto-8911b0243/'>
-                                <i class='fa-brands fa-linkedin'></i>
-                            </a>
-                            <a target='_blank' href='https://github.com/ashzinho/'>
-                                <i class='fa-brands fa-github'></i>
-                            </a>
-                        </div>
-                        <div class='about-imgs-content'>
-                            <img class='unselectable' draggable='false' (dragstart)='false;' src='https://react.semantic-ui.com/images/wireframe/image.png' alt=''>
-                            <span>@pedrin (Pedro)</span>
-                            <a target='_blank' href='https://www.linkedin.com/in/pedro-augusto-brusque-a90a58242/'>
-                                <i class='fa-brands fa-linkedin'></i>
-                            </a>
-                            <a target='_blank' href='https://github.com/'>
-                                <i class='fa-brands fa-github'></i>
+                            <a target='_blank' href='https://function404.netlify.app'>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                     </div>

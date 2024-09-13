@@ -1,5 +1,5 @@
 <!-- [
-    author: elseif and function;
+    author: drypzz and functions;
     type: .html and .php;
 ] -->
 

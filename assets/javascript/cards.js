@@ -6,7 +6,7 @@ const controls = document.querySelectorAll('.button-control');
 const items = document.querySelectorAll('.item-cards');
 const maxItems = items.length;
 
-let count = 0;
+let count = 1;
 
 controls.forEach(control => {
     control.addEventListener('click', () => {

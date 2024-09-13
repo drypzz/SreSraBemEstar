@@ -1,5 +1,5 @@
 <!-- [
-    author: elseif;
+    author: drypzz;
     type: config;
 ] -->
 
