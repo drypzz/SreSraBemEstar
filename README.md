@@ -29,5 +29,21 @@
 
 ## 💻 Equipe Desenvolvedores
 
-<a target='_blank' href='https://github.com/drypzz'>drypzz (Gustavo)</a> |
-<a target='_blank' href='https://github.com/function404'>functionss (Lincoln)</a>
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/drypzz" target="_blank">
+        <img width="100px" src="https://avatars.githubusercontent.com/u/79218936?v=4" alt="drypzz" />
+        <br />
+        @drypzz (Gustavo)
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/function404" target="_blank">
+        <img width="100px" src="https://avatars.githubusercontent.com/u/79523461?v=4" alt="functionss" />
+        <br />
+        @functionss (Lincoln)
+       </a>
+    </td>
+  </tr>
+</table>
